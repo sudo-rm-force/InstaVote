@@ -2,6 +2,20 @@ pragma solidity ^0.5.0;
 
 contract Election{
 
+  struct Voter {
+    uint256 _id;
+    bool _hasVoted;
+  }
+
+  struct Vote {
+    bytes32 _voteId;
+    uint256 _votedId;
+    uint64 _voteTime;
+  }
+
+  mapping(uint256 => Vote) public VoterToVote;
+  mapping(bytes32 => uint256) private VoteToCandidate;
+
   address[] public deployedBallots;
   // constructor (bytes32[] memory candidates, bytes32[] memory district, uint hour) public {
   constructor () public {
