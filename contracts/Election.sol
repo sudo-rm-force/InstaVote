@@ -1,6 +1,7 @@
 pragma solidity ^0.5.0;
+import "./Ownable.sol";
 
-contract Election{
+contract Election is Ownable{
 
   address[] public deployedBallots;
   // constructor (bytes32[] memory candidates, bytes32[] memory district, uint hour) public {
