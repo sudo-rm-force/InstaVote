@@ -2,10 +2,7 @@ pragma solidity ^0.5.0;
 
 contract Election{
 
-  struct Voter {
-    uint256 _id;
-    bool _hasVoted;
-  }
+  event VoterCreated(uint256 _id, uint256 _voterId);
 
   struct Vote {
     bytes32 _voteId;
@@ -13,8 +10,37 @@ contract Election{
     uint64 _voteTime;
   }
 
-  mapping(uint256 => Vote) public VoterToVote;
-  mapping(bytes32 => uint256) private VoteToCandidate;
+  struct Voter {
+    uint256 _id;
+    uint256 _constituencyId;
+    bool _hasVoted;
+  }
+
+  mapping(uint256 => uint256) private idToVoter;
+  mapping(bytes32 => uint256) private voteToCandidate;
+  mapping(uint256 => uint256) private candidateToConstituency;
+  // mapping(uint256 => uint256) private constituencyCandidateCount;
+
+  Voter[] public voters;
+
+  function createVoter(uint256 _id, uint256 _voterId) private {
+    uint id = voters.push(Voter(_id, _voterId)) - 1;
+    idToVoter[_id] = voters[id];
+    emit VoterCreated(_id, _voterId);
+  }
+
+  function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {
+    candidateToConsituency[_id] = _constituencyId;
+    constituencyCandidateCount[_constituencyId]++;
+  }
+
+  // function getCandidatesOfConstituency(uint256 _constituencyId) external view returns(uint256[]) {
+  //   count = constituencyCandidateCount[_constituencyId];
+  //   uint256[] memory candidates = new uint256(count);
+  //   for (uint i = 0; i < voters.length; i++) {
+
+  //   }
+  // }
 
   address[] public deployedBallots;
   // constructor (bytes32[] memory candidates, bytes32[] memory district, uint hour) public {
