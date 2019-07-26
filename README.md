@@ -1,2 +1,26 @@
-# sudo-rm--rf
-Blockchain app for conducting e-elections
+# ElectoBlock
+### A blockchain app for conducting E-elections.
+
+Elections are often a lengthy and cumbersome with a lot of difficulty for both the voter and the election commission. Our team has sought 2 major problems in the current process: 
+
+1. Users not being able to vote if they are not present in their constituency at the time of election.
+
+2. A lot of time taken in vote counting which leads to a lot of evm mishandling accusations.
+
+So our team seeks to eradicate these problems by creating a completely functional voting web-app which allows a voter to vote online from anywhere in the country with the safety of blockchain. Our web-app also provides on the spot results as early as requested due to a decentralized data storing mechanism which makes it easier to retrieve the votes earned by a candidate. Our app can also easily provide stats such as total voter turnout percentage and percentage votes earned by a candidate without requiring any mechanical calculations. Thus saving resources on time and money.
+
+Our DApp will hold a decentralized user login system through which each voter can login and vote for a candidate of his/her constituency all of whose names will be displayed on an electronic ballot on his device. This event will take place through the transaction of a vote form the voter to the candidate. Also once a candidate has voted this DApp will ensure that a voter will not be able to vote more than once.
+
+All the voting procedures will be time bound processes which will ensure that the voting can happen only on the election day after which no transaction can take place. Once the election day has taken place the election manager can view the results and may also display them if needed.
+
+The user will have to simply register as a voter and/or candidate with their credentials on a user-friendly registration page. After the details have been verified, the voters will be initialized as active voters. On the day of election the voter can login on the DApp with their credentials after which they can give their vote on the displayed ballot(within the stipulated election time).
+
+The election manager can regulate the election processes such as deciding the election day, verifying user credentials and and outing the results. The candidate can see their personal result on logging in the DApp after the election ends and the results are outed.
+
+The technology stack we are using using:
+
+1. Azure decentralized blockchain server
+2. Ethereum(written in solidity) to maintain our smart contracts
+3. ReactJs client as the frontend
+
+So our product will result in a user friendly DApp that allows the voter to vote freely and makes the election process less cumbersome.
