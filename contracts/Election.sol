@@ -1,6 +1,57 @@
 pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
 
 contract Election{
+
+  event VoterCreated(uint256 _id, uint256 _voterId);
+
+  struct Vote {
+    bytes32 _voteId;
+    uint256 _votedId;
+    uint64 _voteTime;
+  }
+
+  struct Voter {
+    uint256 _id;
+    uint256 _constituencyId;
+    bool _hasVoted;
+  }
+
+  struct Candidate {
+    uint256 _id;
+  }
+
+  mapping(uint256 => Voter) private idToVoter;
+  mapping(bytes32 => uint256) private voteToCandidate;
+  mapping(uint256 => uint256) private candidateToConstituency;
+  mapping(uint256 => uint256) private constituencyCandidateCount;
+
+  Voter[] public voters;
+  Candidate[] public candidates;
+
+  function createVoter(uint256 _id, uint256 _voterId) private {
+    uint id = voters.push(Voter(_id, _voterId, false)) - 1;
+    idToVoter[_id] = voters[id];
+    emit VoterCreated(_id, _voterId);
+  }
+
+  function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {
+    candidateToConstituency[_id] = _constituencyId;
+    constituencyCandidateCount[_constituencyId]++;
+  }
+
+  function getCandidatesByConstituency(uint256 _constituencyId) external view returns(Candidate[] memory) {
+    Candidate[] memory _candidates = new Candidate[](constituencyCandidateCount[_constituencyId]);
+    uint counter = 0;
+    for(uint i = 0; i < candidates.length; i++) {
+      if(candidateToConstituency[candidates[i]._id] == _constituencyId) {
+        _candidates[counter] = candidates[i];
+        counter++;
+      }
+    }
+
+    return _candidates;
+  }
 
   address[] public deployedBallots;
   // constructor (bytes32[] memory candidates, bytes32[] memory district, uint hour) public {
