@@ -1,4 +1,5 @@
 pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
 
 contract Election{
 
@@ -20,7 +21,7 @@ contract Election{
     uint256 _id;
   }
 
-  mapping(uint256 => uint256) private idToVoter;
+  mapping(uint256 => Voter) private idToVoter;
   mapping(bytes32 => uint256) private voteToCandidate;
   mapping(uint256 => uint256) private candidateToConstituency;
   mapping(uint256 => uint256) private constituencyCandidateCount;
@@ -29,21 +30,21 @@ contract Election{
   Candidate[] public candidates;
 
   function createVoter(uint256 _id, uint256 _voterId) private {
-    uint id = voters.push(Voter(_id, _voterId)) - 1;
+    uint id = voters.push(Voter(_id, _voterId, false)) - 1;
     idToVoter[_id] = voters[id];
     emit VoterCreated(_id, _voterId);
   }
 
   function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {
-    candidateToConsituency[_id] = _constituencyId;
+    candidateToConstituency[_id] = _constituencyId;
     constituencyCandidateCount[_constituencyId]++;
   }
 
-  function getCandidatesByConstituency(uint256 _constituencyId) external view returns(Candidate) {
-    Candidate[] memory _candidates = new Candidate(constituencyCandidateCount[_constituencyId]);
+  function getCandidatesByConstituency(uint256 _constituencyId) external view returns(Candidate[] memory) {
+    Candidate[] memory _candidates = new Candidate[](constituencyCandidateCount[_constituencyId]);
     uint counter = 0;
     for(uint i = 0; i < candidates.length; i++) {
-      if(candidateToConstituency[candidates[i]._id == _constituencyId]) {
+      if(candidateToConstituency[candidates[i]._id] == _constituencyId) {
         _candidates[counter] = candidates[i];
         counter++;
       }
