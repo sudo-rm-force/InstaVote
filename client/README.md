@@ -1,1 +1,1 @@
-## ReactJS client for the frontend of ElectoBlock DApp.
+## ReactJS client for the frontend of InstaVote DApp.

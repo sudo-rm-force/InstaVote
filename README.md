@@ -1,5 +1,5 @@
-# ElectoBlock
-### A blockchain app for conducting E-elections.
+# InstaVote
+### A blockchain app for conducting e-Elections.
 
 Elections are often a lengthy and cumbersome with a lot of difficulty for both the voter and the election commission. Our team has sought 2 major problems in the current process: 
 
@@ -13,14 +13,15 @@ Our DApp will hold a decentralized user login system through which each voter ca
 
 All the voting procedures will be time bound processes which will ensure that the voting can happen only on the election day after which no transaction can take place. Once the election day has taken place the election manager can view the results and may also display them if needed.
 
-The user will have to simply register as a voter and/or candidate with their credentials on a user-friendly registration page. After the details have been verified, the voters will be initialized as active voters. On the day of election the voter can login on the DApp with their credentials after which they can give their vote on the displayed ballot(within the stipulated election time).
+The user will have to simply register as a voter and/or candidate with their credentials(voterID details and a face-detection system) on a user-friendly registration page. After the details have been verified, the voters will be initialized as active voters. On the day of election the voter can login on the DApp with their credentials after which they can give their vote on the displayed ballot(within the stipulated election time).
 
-The election manager can regulate the election processes such as deciding the election day, verifying user credentials and and outing the results. The candidate can see their personal result on logging in the DApp after the election ends and the results are outed.
+The election manager can regulate the election processes such as deciding the election day and outing the results. The candidate can see their personal result on logging in the DApp after the election ends and the results are outed.
 
 The technology stack we are using using:
 
 1. Azure decentralized blockchain server
-2. Ethereum(written in solidity) to maintain our smart contracts
+2. Solidity to maintain our smart contracts
 3. ReactJs client as the frontend
+4. AzureSQL to maintain voter database
 
 So our product will result in a user friendly DApp that allows the voter to vote freely and makes the election process less cumbersome.
