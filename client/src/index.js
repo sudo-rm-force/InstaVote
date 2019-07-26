@@ -7,7 +7,7 @@ import { Drizzle } from "drizzle";
 import Election from "./contracts/Election.json";
 
 const options = {
-    contract: [Election],
+    contracts: [Election],
     web3: {
         fallback: {
             type: "ws",
