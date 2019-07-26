@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Drizzle } from "drizzle";
+import { Drizzle, generateStore } from "drizzle";
 import Election from "./contracts/Election.json";
 
 const options = {
-    contract: [Election],
+    contracts: [Election],
     web3: {
         fallback: {
             type: "ws",
@@ -16,7 +16,9 @@ const options = {
     },
 };
 
-const drizzle = new Drizzle(options);
+const drizzleStore = generateStore(options)
+const drizzle = new Drizzle(options, drizzleStore)
+
 
 ReactDOM.render(<App drizzle={drizzle} />, document.getElementById('root'));
 
