@@ -1,0 +1,104 @@
+{
+  "contractName": "ERC721",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/d3mon/Projects/sudo-rm--rf/contracts/ERC721.sol\":\"ERC721\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/d3mon/Projects/sudo-rm--rf/contracts/ERC721.sol\":{\"keccak256\":\"0x919c30bf99a5d15e1507d3bcc5e20ab23db95800230334845ff046e4b757d8fa\",\"urls\":[\"bzzr://3e3a72afc83bc154af4f16b3f1c28285d5c8de7361ec747ebe796c48d341b3a9\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a72305820778f49bb15531e2266c16393bc47e9615f869c58180dbf1daa17e0685fe60bbd0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a72305820778f49bb15531e2266c16393bc47e9615f869c58180dbf1daa17e0685fe60bbd0029",
+  "sourceMap": "26:4373:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:4373:0;;;;;;;",
+  "deployedSourceMap": "26:4373:0:-;;;;;",
+  "source": "pragma solidity ^0.5.0;\n\n\ncontract ERC721 {\n\n    // // event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);\n\n    // // Equals to `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`\n    // // which can be also obtained as `IERC721Receiver(0).onERC721Received.selector`\n    // bytes4 private constant _ERC721_RECEIVED = 0x150b7a02;\n\n    // // Mapping from token ID to owner\n    // mapping (uint256 => address) private _tokenOwner;\n\n    // // Mapping from owner to number of owned token\n    // mapping (address => Counters.Counter) private _ownedTokensCount;\n\n    // // Mapping from owner to operator approvals\n    // mapping (address => mapping (address => bool)) private _operatorApprovals;\n\n    // /*\n    //  *     bytes4(keccak256('balanceOf(address)')) == 0x70a08231\n    //  *     bytes4(keccak256('ownerOf(uint256)')) == 0x6352211e\n    //  *     bytes4(keccak256('approve(address,uint256)')) == 0x095ea7b3\n    //  *     bytes4(keccak256('getApproved(uint256)')) == 0x081812fc\n    //  *     bytes4(keccak256('setApprovalForAll(address,bool)')) == 0xa22cb465\n    //  *     bytes4(keccak256('isApprovedForAll(address,address)')) == 0xe985e9c5\n    //  *     bytes4(keccak256('transferFrom(address,address,uint256)')) == 0x23b872dd\n    //  *     bytes4(keccak256('safeTransferFrom(address,address,uint256)')) == 0x42842e0e\n    //  *     bytes4(keccak256('safeTransferFrom(address,address,uint256,bytes)')) == 0xb88d4fde\n    //  *\n    //  *     => 0x70a08231 ^ 0x6352211e ^ 0x095ea7b3 ^ 0x081812fc ^\n    //  *        0xa22cb465 ^ 0xe985e9c ^ 0x23b872dd ^ 0x42842e0e ^ 0xb88d4fde == 0x80ac58cd\n    //  */\n    // bytes4 private constant _INTERFACE_ID_ERC721 = 0x80ac58cd;\n\n    // constructor () public {\n    //     // register the supported interfaces to conform to ERC721 via ERC165\n    //     _registerInterface(_INTERFACE_ID_ERC721);\n    // }\n\n    // /**\n    //  * @dev Gets the owner of the specified token ID.\n    //  * @param tokenId uint256 ID of the token to query the owner of\n    //  * @return address currently marked as the owner of the given token ID\n    //  */\n    // function ownerOf(uint256 tokenId) public view returns (address);\n\n    // function transferFrom(uint256 from, uint256 to, bytes32 tokenId) public;\n\n    // function _exists(uint256 tokenId) internal view returns (bool) {\n    //     address owner = _tokenOwner[tokenId];\n    //     return owner != address(0);\n    // }\n\n    // /**\n    //  * @dev Internal function to transfer ownership of a given token ID to another address.\n    //  * As opposed to {transferFrom}, this imposes no restrictions on msg.sender.\n    //  * @param from current owner of the token\n    //  * @param to address to receive the ownership of the given token ID\n    //  * @param tokenId uint256 ID of the token to be transferred\n    //  */\n    // function _transferFrom(address from, address to, uint256 tokenId) internal {\n    //     require(ownerOf(tokenId) == from, \"ERC721: transfer of token that is not own\");\n    //     require(to != address(0), \"ERC721: transfer to the zero address\");\n\n    //     _clearApproval(tokenId);\n\n    //     _ownedTokensCount[from].decrement();\n    //     _ownedTokensCount[to].increment();\n\n    //     _tokenOwner[tokenId] = to;\n\n    //     emit Transfer(from, to, tokenId);\n    // }\n\n    // /**\n    //  * @dev Internal function to invoke {IERC721Receiver-onERC721Received} on a target address.\n    //  * The call is not executed if the target address is not a contract.\n    //  *\n    //  * This function is deprecated.\n    //  * @param from address representing the previous owner of the given token ID\n    //  * @param to target address that will receive the tokens\n    //  * @param tokenId uint256 ID of the token to be transferred\n    //  * @param _data bytes optional data to send along with the call\n    //  * @return bool whether the call correctly returned the expected magic value\n    //  */\n    // function _checkOnERC721Received(address from, address to, uint256 tokenId, bytes memory _data)\n    //     internal returns (bool)\n    // {\n    //     if (!to.isContract()) {\n    //         return true;\n    //     }\n\n    //     bytes4 retval = IERC721Receiver(to).onERC721Received(msg.sender, from, tokenId, _data);\n    //     return (retval == _ERC721_RECEIVED);\n    // }\n\n    // function _transferredTo (bytes32 _id) private view returns (uint256);\n}\n",
+  "sourcePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ERC721.sol",
+  "ast": {
+    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ERC721.sol",
+    "exportedSymbols": {
+      "ERC721": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "ERC721",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "26:4373:0"
+      }
+    ],
+    "src": "0:4400:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ERC721.sol",
+    "exportedSymbols": {
+      "ERC721": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "ERC721",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "26:4373:0"
+      }
+    ],
+    "src": "0:4400:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-27T13:04:56.236Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

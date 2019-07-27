@@ -4,6 +4,7 @@ pragma experimental ABIEncoderV2;
 contract Election{
 
   event VoterCreated(uint256 _id, uint256 _voterId);
+  event CandidateRegistered(uint256 _id);
 
   struct Vote {
     bytes32 _voteId;
@@ -15,57 +16,37 @@ contract Election{
     uint256 _id;
     uint256 _constituencyId;
     bool _hasVoted;
+    Vote _vote;
   }
 
   struct Candidate {
     uint256 _id;
   }
 
-  mapping(uint256 => Voter) private idToVoter;
-  mapping(bytes32 => uint256) private voteToCandidate;
-  mapping(uint256 => uint256) private candidateToConstituency;
-  mapping(uint256 => uint256) private constituencyCandidateCount;
+  Vote InitialVoteState = Vote(0, 0, 0);
+  uint256 StartTime = 0;
+  uint256 ElectionDuration = 0; 
+
+  mapping(uint256 => Voter) internal idToVoter;
+  mapping(uint256 => Candidate) internal idToCandidate;
+  mapping(bytes32 => uint256) internal voteToCandidate;
+  mapping(uint256 => uint256) internal candidateToConstituency;
+  mapping(uint256 => uint256) internal constituencyCandidateCount;
+  mapping(uint256 => uint256) internal candidateVoteCount;
 
   Voter[] public voters;
   Candidate[] public candidates;
 
-  function createVoter(uint256 _id, uint256 _voterId) private {
-    uint id = voters.push(Voter(_id, _voterId, false)) - 1;
+  function createVoter(uint256 _id, uint256 _voterId) external {
+    uint id = voters.push(Voter(_id, _voterId, false, InitialVoteState)) - 1;
     idToVoter[_id] = voters[id];
     emit VoterCreated(_id, _voterId);
   }
 
-  function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {
-    candidateToConstituency[_id] = _constituencyId;
-    constituencyCandidateCount[_constituencyId]++;
-  }
-
-  function getCandidatesByConstituency(uint256 _constituencyId) external view returns(Candidate[] memory) {
-    Candidate[] memory _candidates = new Candidate[](constituencyCandidateCount[_constituencyId]);
-    uint counter = 0;
-    for(uint i = 0; i < candidates.length; i++) {
-      if(candidateToConstituency[candidates[i]._id] == _constituencyId) {
-        _candidates[counter] = candidates[i];
-        counter++;
-      }
-    }
-
-    return _candidates;
-  }
-
-  address[] public deployedBallots;
-  // constructor (bytes32[] memory candidates, bytes32[] memory district, uint hour) public {
-  constructor () public {
-    bytes32[2] memory candidates = [bytes32("subh"), bytes32("ammm")];
-    bytes32[2] memory district = [bytes32("amithi"), bytes32("raibareli")];
-    uint hour = uint(1);
-    for(uint i = 0; i < district.length; i++){
-      address ballot = address(new Ballot(candidates,district[i], msg.sender, hour));
-      deployedBallots.push(ballot);
-    }
-  }
-  function getDeployedBallots() public view returns(address[] memory) {
-    return deployedBallots;
+  function registerCandidate(uint256 _id) external {
+    uint id = candidates.push(Candidate(_id)) - 1;
+    idToCandidate[_id] = candidates[id];
+    emit CandidateRegistered(_id);
   }
 }
 
