@@ -1,7 +1,8 @@
 # InstaVote
-### A blockchain app for conducting e-Elections.
 
-Elections are often a lengthy and cumbersome with a lot of difficulty for both the voter and the election commission. Our team has sought 2 major problems in the current process: 
+## A blockchain app for conducting e-Elections.
+
+Elections are often a lengthy and cumbersome with a lot of difficulty for both the voter and the election commission. Our team has sought 2 major problems in the current process:
 
 1. Users not being able to vote if they are not present in their constituency at the time of election.
 
