@@ -23,7 +23,7 @@ class SidePanel extends Component {
                 <span className='sidepanel--state'>
                 { this.props.name === this.props.active ? <span/> : <span>(<img src={dot} alt='' />)</span> }
                 </span>
-                <span className='sidepanel--name' style={{ color: this.props.active === this.props.name ? '#08BBF4' : '#FFFFFF' }} onClick={this.handleClick}>
+                <span className='sidepanel--name' style={{ color: this.props.active === this.props.name ? '#08BBF4' : '#FFFFFF', marginLeft: this.props.active === this.props.name ? '22px' : '12px' }} onClick={this.handleClick}>
                     {this.props.name}
                 </span>
             </div>
