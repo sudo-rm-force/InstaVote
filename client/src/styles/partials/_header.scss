@@ -1,14 +1,14 @@
 .header {
     position: absolute;
     width: 100%;
-    height: 100px;
+    height: 80px;
     background-color: #000000;
 }
 
 .header-- {
     &logo {
         position: absolute;
-        top: 26px;
+        top: 16px;
         left: 48px;
         width: 48px;
         height: 48px;
@@ -18,13 +18,14 @@
     &user {
         position: absolute;
         right: 128px;
-        top: 39px;
+        top: 13px;
+        height: 54px;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
-        line-height: 22px;
+        line-height: 54px;
         text-align: center;
 
         color: #FFFFFF;
@@ -33,7 +34,7 @@
     &user-image {
         position: absolute;
         right: 48px;
-        top: 26px;
+        top: 16px;
         width: 48px;
         height: 48px;
 

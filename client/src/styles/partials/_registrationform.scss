@@ -1,0 +1,294 @@
+.registrationform {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 600px);
+    left: 600px;
+    top: 0px;
+}
+
+.registrationform-- {
+    &back {
+        position: absolute;
+        height: 100px;
+        width: 200px;
+        top: 32px;
+        left: 24px;
+
+        &-image {
+            position: absolute;
+            height: 70px;
+            width: 40px;
+        }
+
+        &-text {
+            position: absolute;
+            width: 210px;
+            height: 54px;
+            left: 16px;
+            top: 24px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+
+            color: rgba($color: #000000, $alpha: 1.0);
+        }
+
+        &-text:hover {
+            text-shadow: 0px 0px 4px rgba($color: #000000, $alpha: 0.5)
+        }
+    }
+
+    &back:hover {
+        cursor: pointer;
+    }
+
+    &form {
+        position: absolute;
+        top: 128px;
+        left: 72px;
+    }
+
+    &heading {
+        &-name {
+            position: absolute;
+            left: 170px;
+            top: 108px;
+            height: 32px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+
+            border-radius: 2px;
+        }
+
+        &-voterid {
+            position: absolute;
+            left: 170px;
+            top: 224px;
+            height: 32px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+
+            border-radius: 2px;
+        }
+
+        &-gender {
+            position: absolute;
+            left: 170px;
+            top: 340px;
+            height: 32px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+
+            border-radius: 2px;
+
+            &_male {
+                position: absolute;
+                left: 206px;
+                top: 380px;
+                height: 32px;
+
+                font-family: Orienta;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                display: flex;
+                align-items: center;
+
+                color: #000000;
+
+                border-radius: 2px;
+            }
+
+            &_female {
+                position: absolute;
+                left: 296px;
+                top: 380px;
+                height: 32px;
+
+                font-family: Orienta;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                display: flex;
+                align-items: center;
+
+                color: #000000;
+
+                border-radius: 2px;
+            }
+
+            &_other {
+                position: absolute;
+                left: 406px;
+                top: 380px;
+                height: 32px;
+
+                font-family: Orienta;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                display: flex;
+                align-items: center;
+
+                color: #000000;
+
+                border-radius: 2px;
+            }
+        }
+
+        &-mobile {
+            position: absolute;
+            left: 170px;
+            top: 426px;
+            height: 32px;
+            width: 200px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+
+            border-radius: 2px;
+        }
+    }
+
+    &input {
+        &-name {
+            position: absolute;
+            left: 170px;
+            top: 158px;
+            width: 600px;
+            height: 48px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            border-radius: 2px;
+
+            padding: 18px;
+            font-size: 20px;
+        }
+
+        &-voterid {
+            position: absolute;
+            left: 170px;
+            top: 274px;
+            width: 350px;
+            height: 48px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            border-radius: 2px;
+
+            padding: 18px;
+            font-size: 20px;
+        }
+
+        &-gender {
+            &_male {
+                position: absolute;
+                left: 170px;
+                top: 380px;
+                height: 24px;
+                width: 24px;
+                background-color: #FFFFFF;
+            }
+
+            &_female {
+                position: absolute;
+                left: 260px;
+                top: 380px;
+                height: 24px;
+                width: 24px;
+                background-color: #FFFFFF;
+            }
+
+            &_other {
+                position: absolute;
+                left: 370px;
+                top: 380px;
+                height: 24px;
+                width: 24px;
+                background-color: #FFFFFF;
+            }
+
+            &_male:hover, &_female:hover, &_other:hover {
+                cursor: pointer;
+            }
+        }
+
+        &-mobile {
+            position: absolute;
+            left: 170px;
+            top: 476px;
+            height: 48px;
+            width: 350px;
+            
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            border-radius: 2px;
+
+            padding: 18px;
+            font-size: 20px;
+        }
+    }
+
+    &button {
+        position: absolute;
+        left: 170px;
+        top: 548px;
+        width: 200px;
+        height: 48px;
+
+        background: #08BBF4;
+        border-radius: 2px;
+        border: 2px solid #08BBF4;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+}

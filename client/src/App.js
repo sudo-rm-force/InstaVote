@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Test from './pages/test'
+import Registration from './pages/registration'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
 
@@ -31,6 +32,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Test} />
+          <Route exact path='/registration' component={Registration} />
         </Switch>
       </BrowserRouter>
     )
