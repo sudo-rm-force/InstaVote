@@ -4,9 +4,10 @@ import "./Election.sol";
 
 contract ElectionHelper is Election {
 
-    function generateElection(uint256 _duration) external {
-        StartTime = block.timestamp;
-        ElectionDuration = _duration;
+    function generateElectionforConstituency(uint256 _id, uint256 _duration) external {
+        Constituency memory _constituency = idToConstituency[_id];
+        _constituency._startTime = block.timestamp;
+        _constituency._duration = _duration;
     }
 
     function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {

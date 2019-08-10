@@ -17,6 +17,7 @@ contract VotingTransactions is ElectionHelper {
         Voter memory voter = idToVoter[from];
         voter._hasVoted = true;
         voteToCandidate[voter._vote._voteId] = to;
+        candidateVoteCount[to]++;
         emit Transfer(from, to, tokenId);
     }
 

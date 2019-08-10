@@ -5,6 +5,7 @@ contract Election{
 
   event VoterCreated(uint256 _id, uint256 _voterId);
   event CandidateRegistered(uint256 _id);
+  event ConstituencyRegistered(uint256 _id);
 
   struct Vote {
     bytes32 _voteId;
@@ -23,12 +24,17 @@ contract Election{
     uint256 _id;
   }
 
+  struct Constituency {
+    uint256 _id;
+    uint256 _startTime;
+    uint256 _duration;
+  }
+
   Vote InitialVoteState = Vote(0, 0, 0);
-  uint256 StartTime = 0;
-  uint256 ElectionDuration = 0; 
 
   mapping(uint256 => Voter) internal idToVoter;
   mapping(uint256 => Candidate) internal idToCandidate;
+  mapping(uint256 => Constituency) internal idToConstituency;
   mapping(bytes32 => uint256) internal voteToCandidate;
   mapping(uint256 => uint256) internal candidateToConstituency;
   mapping(uint256 => uint256) internal constituencyCandidateCount;
@@ -36,11 +42,12 @@ contract Election{
 
   Voter[] public voters;
   Candidate[] public candidates;
+  Constituency[] public constituencies;
 
-  function createVoter(uint256 _id, uint256 _voterId) external {
-    uint id = voters.push(Voter(_id, _voterId, false, InitialVoteState)) - 1;
+  function createVoter(uint256 _id, uint256 _constituencyId) internal {
+    uint id = voters.push(Voter(_id, _constituencyId, false, InitialVoteState)) - 1;
     idToVoter[_id] = voters[id];
-    emit VoterCreated(_id, _voterId);
+    emit VoterCreated(_id, _constituencyId);
   }
 
   function registerCandidate(uint256 _id) external {
@@ -48,6 +55,13 @@ contract Election{
     idToCandidate[_id] = candidates[id];
     emit CandidateRegistered(_id);
   }
+
+  function registerConstituency(uint256 _id) external {
+    uint id = constituencies.push(Constituency(_id, 0, 0)) - 1;
+    idToConstituency[_id] = constituencies[id];
+    emit ConstituencyRegistered(_id);
+  }
+
 }
 
 contract Ballot {
