@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from '../components/header/header'
 import Sidebar from '../components/sidebar/sidebar'
 
-class Test extends Component {
+class VoterPage extends Component {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class Test extends Component {
     }
 }
 
-export default Test
+export default VoterPage

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Test from './pages/test'
+import VoterPage from './pages/voterpage'
 import Registration from './pages/registration'
 import Landing from './pages/landing'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -33,8 +33,8 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route exact path='/registration' component={Registration} />
-          <Route exact path='/test' component={Test} />
+          <Route exact path='/register' component={Registration} />
+          <Route exact path='/:voterid' component={VoterPage} />
         </Switch>
       </BrowserRouter>
     )
