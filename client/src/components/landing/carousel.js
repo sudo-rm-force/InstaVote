@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import vote1 from '../../assets/vote1.jpg'
+import vote2 from '../../assets/vote2.jpg'
 import '../../styles/main.scss'
 
 class Carousel extends Component {
@@ -14,7 +16,7 @@ class Carousel extends Component {
 
                 <div class="carousel-inner">
                     <div class="item active">
-                    <img src="la.jpg" alt="Chania" />
+                    <img src={vote1} alt="Chania" />
                     <div class="carousel-caption">
                         <h3>Los Angeles</h3>
                         <p>LA is always so much fun!</p>
@@ -22,7 +24,7 @@ class Carousel extends Component {
                     </div>
 
                     <div class="item">
-                    <img src="chicago.jpg" alt="Chicago" />
+                    <img src={vote2} alt="Chicago" />
                     <div class="carousel-caption">
                         <h3>Chicago</h3>
                         <p>Thank you, Chicago!</p>
@@ -30,7 +32,7 @@ class Carousel extends Component {
                     </div>
 
                     <div class="item">
-                    <img src="ny.jpg" alt="New York"/ >
+                    <img src="ny.jpg" alt="New York" />
                     <div class="carousel-caption">
                         <h3>New York</h3>
                         <p>We love the Big Apple!</p>
@@ -50,3 +52,5 @@ class Carousel extends Component {
         )
     }
 }
+
+export default Carousel
