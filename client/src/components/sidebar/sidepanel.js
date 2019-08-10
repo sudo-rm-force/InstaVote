@@ -19,11 +19,11 @@ class SidePanel extends Component {
 
     render() {
         return(
-            <div className='sidepanel' style={{ borderLeft: this.props.active === this.props.name ? '10px solid #08BBF4' : '0px' }}>
+            <div className='sidepanel' style={{ borderLeft: this.props.active === this.props.name ? '10px solid #08BBF4' : '0px' }} onClick={this.handleClick}>
                 <span className='sidepanel--state'>
                 { this.props.name === this.props.active ? <span/> : <span>(<img src={dot} alt='' />)</span> }
                 </span>
-                <span className='sidepanel--name' style={{ color: this.props.active === this.props.name ? '#08BBF4' : '#FFFFFF', marginLeft: this.props.active === this.props.name ? '22px' : '12px' }} onClick={this.handleClick}>
+                <span className='sidepanel--name' style={{ color: this.props.active === this.props.name ? '#08BBF4' : '#FFFFFF', marginLeft: this.props.active === this.props.name ? '22px' : '12px' }}>
                     {this.props.name}
                 </span>
             </div>
