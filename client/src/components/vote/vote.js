@@ -7,7 +7,7 @@ class Vote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            voted: true
+            voted: false
         }
     }
 
