@@ -14,6 +14,7 @@ class Sidebar extends Component {
 
     handleClick(activeName) {
         this.setState({ active:activeName })
+        this.props.handleChange(activeName)
     }
 
     render() {
