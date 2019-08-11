@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { Drizzle, generateStore } from "drizzle";
 import Election from "./contracts/Election.json";
 
+
+
 const options = {
     contracts: [Election],
     web3: {
@@ -20,7 +22,9 @@ const drizzleStore = generateStore(options)
 const drizzle = new Drizzle(options, drizzleStore)
 
 
-ReactDOM.render(<App drizzle={drizzle} />, document.getElementById('root'));
+ReactDOM.render(
+        <App drizzle={drizzle} />, 
+        document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

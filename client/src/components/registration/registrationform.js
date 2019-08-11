@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { voterIdChanged_reg, mobileNumChanged, nameChanged, register, genderSelect  } from '../../actions'
 import back from '../../assets/back.svg'
 import '../../styles/main.scss'
 
@@ -13,6 +15,28 @@ class RegistrationForm extends Component {
         window.location = '/'
     }
 
+    onVoterIdChange(text) {
+        this.props.voterIdChanged_reg(text);
+    }
+
+    onNameChange(text) {
+        this.props.nameChanged(text);
+    }
+
+    onMobileNumChange(text) {
+        this.props.mobileNumChanged(text);
+    }
+
+    onGenderSelect(text) {
+        this.props.genderSelect(text)
+    }
+
+    onButtonPress() {
+        const { voterId, name, mobile_no, gender } = this.props;
+
+        this.props.register({ voterId, name, mobile_no, gender });
+    }
+
     render() {
         return(
             <div className='registrationform'>
@@ -23,16 +47,46 @@ class RegistrationForm extends Component {
                 <div className='registrationform--form'>
                     <form>
                         <div className='registrationform--heading-name'>Name:</div>
-                        <input className='registrationform--input-name' type='text' required/>
+                        <input 
+                            className='registrationform--input-name' 
+                            type='text' 
+                            onChangeText={ this.onNameChange.bind(this) }
+                            required/>
                         <div className='registrationform--heading-voterid'>VoterID:</div>
-                        <input className='registrationform--input-voterid' type='text' required/>
+                        <input 
+                            className='registrationform--input-voterid' 
+                            type='text' 
+                            onChangeText={ this.onVoterIdChange.bind(this) }
+                            required/>
                         <div className='registrationform--heading-gender'>Gender:</div>
-                        <input className='registrationform--input-gender_male' type='radio' name='gender' required/><span className='registrationform--heading-gender_male'>Male</span>
-                        <input className='registrationform--input-gender_female' type='radio' name='gender' required/><span className='registrationform--heading-gender_female'>Female</span>
-                        <input className='registrationform--input-gender_other' type='radio' name='gender' required/><span className='registrationform--heading-gender_other'>Other</span>
+                        <input 
+                            className='registrationform--input-gender_male' 
+                            type='radio'
+                            name='gender' 
+                            checked= {this.onGenderSelect('Male')}
+                            required/><span className='registrationform--heading-gender_male'>Male</span>
+                        <input 
+                            className='registrationform--input-gender_female' 
+                            type='radio'
+                            name='gender'
+                            checked= {this.onGenderSelect('Female')}
+                            required/><span className='registrationform--heading-gender_female'>Female</span>
+                        <input 
+                            className='registrationform--input-gender_other' 
+                            type='radio'
+                            name='gender' 
+                            checked= {this.onGenderSelect('other')}
+                            required/><span className='registrationform--heading-gender_other'>Other</span>
                         <div className='registrationform--heading-mobile'>Mobile Number:</div>
-                        <input className='registrationform--input-mobile' type='text' required/>
-                        <button className='registrationform--button' type='submit'>Register</button>
+                        <input 
+                            className='registrationform--input-mobile' 
+                            type='text' 
+                            onChangeText={ this.onVoterIdChange.bind(this) }
+                            required/>
+                        <button 
+                            className='registrationform--button' 
+                            onPress={ this.onButtonPress.bind(this) }
+                            type='submit'>Register</button>
                     </form>
                 </div>
             </div>
@@ -40,4 +94,12 @@ class RegistrationForm extends Component {
     }
 }
 
-export default RegistrationForm
+const mapStateToProps = ({ register }) => {
+    const { name , voterId, mobile_no, gender  } = register;
+  
+    return { name , voterId, mobile_no, gender };
+  };
+  
+  export default connect(mapStateToProps, {
+    voterIdChanged_reg, mobileNumChanged, nameChanged, register, genderSelect
+  })(RegistrationForm);
