@@ -16,6 +16,11 @@ class VoterPage extends Component {
         this.panel = this.panel.bind(this)
     }
 
+    componentDidMount() {
+        const route = this.props.match.params
+        console.log(route)
+    }
+
     panel(route) {
         this.setState({route:route});
     }

@@ -14,6 +14,7 @@ class Carousel extends Component {
                     length={3}
                     showControls={true}
                     showIndicators={true}
+                    interval={2000}
                     className="z-depth-1"
                 >
                     <MDBCarouselInner>

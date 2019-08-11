@@ -147,6 +147,70 @@
             color: rgba(0, 0, 0, 0.5);
         }
 
+        &-date {
+            position: absolute;
+            left: 24px;
+            top: 45px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-start {
+            position: absolute;
+            left: 24px;
+            top: 80px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-duration {
+            position: absolute;
+            left: 24px;
+            top: 103px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-constituency {
+            position: absolute;
+            left: 24px;
+            top: 135px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
         &-image {
             position: absolute;
             top: 37.5px;

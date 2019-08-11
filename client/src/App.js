@@ -36,12 +36,12 @@ class App extends Component {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
     return(
-      <Provider store={store}>
+      <Provider store={ store }>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/register' component={Registration} />
-            <Route exact path='/:voterid' component={VoterPage} />
+            <Route exact path='/' component={ Landing } />
+            <Route exact path='/register' component={ Registration } />
+            <Route exact path='/:voterid' component={ VoterPage } />
           </Switch>
         </BrowserRouter>
       </Provider>

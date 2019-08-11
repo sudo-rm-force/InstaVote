@@ -1,0 +1,47 @@
+.constituency {
+    position: absolute;
+    width: calc(100% - 475px);
+    height: calc(100% - 80px);
+    top: 80px;
+    left: 475px;
+}
+
+.constituency-- {
+    &heading {
+        position: absolute;
+        left: 98px;
+        top: 68px;
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        text-indent: 12px;
+
+        color: #000000;
+    }
+
+    &panel1 {
+        position: absolute;
+        left: 98px;
+        top: 125px;
+        width: 840px;
+        height: 190px;
+
+        background: #FBFBFB;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &panel2 {
+        position: absolute;
+        left: 98px;
+        top: 375px;
+        width: 840px;
+        height: 190px;
+
+        background: #FBFBFB;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
