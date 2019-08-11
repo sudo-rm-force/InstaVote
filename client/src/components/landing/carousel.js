@@ -32,7 +32,6 @@ class Carousel extends Component {
                             className="d-block w-100"
                             src={vote2}
                             alt="Second slide"
-                            height='calc(100% - 100px)'
                         />
                         </MDBView>
                     </MDBCarouselItem>

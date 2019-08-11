@@ -3,6 +3,8 @@ import Header from '../components/header/header'
 import Sidebar from '../components/sidebar/sidebar'
 import Profile from '../components/profile/profile'
 import Vote from '../components/vote/vote'
+import Candidate from '../components/candidate/candidate'
+import Constituency from '../components/constituency/constituency';
 
 class VoterPage extends Component {
     constructor(props) {
@@ -36,6 +38,26 @@ class VoterPage extends Component {
                     <Header />
                     <Sidebar handleChange={this.panel}/>
                     <Vote />
+                </div>
+            )
+        }
+
+        else if(this.state.route === 'Candidates') {
+            return (
+                <div>
+                    <Header />
+                    <Sidebar handleChange={this.panel}/>
+                    <Candidate />
+                </div>
+            )
+        }
+
+        else if(this.state.route === 'Constituency') {
+            return (
+                <div>
+                    <Header />
+                    <Sidebar handleChange={this.panel}/>
+                    <Constituency />
                 </div>
             )
         }
