@@ -5,7 +5,7 @@
     top: 80px;
     right: 0px;
 
-    background-color: rgba($color: #000000, $alpha: 0.9);
+    background-color: rgba($color: #000000, $alpha: 1.0);
 }
 
 .login-- {
@@ -35,7 +35,7 @@
 
         background-color: #FFFFFF;
         border-radius: 2px;
-        border: 1.25px solid #000000;
+        border: 2px solid #08BBF4;
     }
 
     &voterid {
@@ -46,7 +46,7 @@
         left: calc(50% - 145px);
 
         border-radius: 2px;
-        border: 1.25px solid #000000;
+        border: 2px solid #08BBF4;
 
         padding: 18px;
         font-family: Orienta;
