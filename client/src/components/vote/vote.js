@@ -10,6 +10,8 @@ class Vote extends Component {
             voted: false,
             votingStarted: false
         }
+
+        this.hidesignout = this.hidesignout.bind(this)
     }
 
     hidesignout() {
