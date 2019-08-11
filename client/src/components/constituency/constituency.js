@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 
 class Constituency extends Component {
+    constructor(props) {
+        super(props);
+        this.hidesignout = this.hidesignout.bind(this)
+    }
+
+    hidesignout() {
+        this.props.hidesignout()
+    }
+
     render() {
         return(
-            <div className='constituency'>
+            <div className='constituency' onClick={this.hidesignout}>
                 <div className='constituency--heading'>
                     Constituency: 
                 </div>

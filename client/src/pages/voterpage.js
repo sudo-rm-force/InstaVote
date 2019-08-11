@@ -10,19 +10,35 @@ class VoterPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            route: 'Profile'
+            route: 'Profile',
+            signout: false
         }
 
         this.panel = this.panel.bind(this)
+        this.signout = this.signout.bind(this)
+        this.hidesignout = this.hidesignout.bind(this)
     }
 
     componentDidMount() {
         const route = this.props.match.params
-        console.log(route)
     }
 
     panel(route) {
         this.setState({route:route});
+    }
+
+    signout() {
+        if(!this.state.signout) {
+            this.setState({ signout:true })
+        }
+
+        else {
+            this.setState({ signout: false })
+        }
+    }
+
+    hidesignout() {
+        this.setState({ signout:false })
     }
 
     render() {
@@ -30,9 +46,9 @@ class VoterPage extends Component {
         if(this.state.route === 'Profile') {
             return (
                 <div>
-                    <Header />
-                    <Sidebar handleChange={this.panel}/>
-                    <Profile />
+                    <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
+                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
+                    <Profile hidesignout={this.hidesignout}/>
                 </div>
             )
         }
@@ -40,9 +56,9 @@ class VoterPage extends Component {
         else if(this.state.route === 'Vote') {
             return (
                 <div>
-                    <Header />
-                    <Sidebar handleChange={this.panel}/>
-                    <Vote />
+                    <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
+                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
+                    <Vote hidesignout={this.hidesignout}/>
                 </div>
             )
         }
@@ -50,9 +66,9 @@ class VoterPage extends Component {
         else if(this.state.route === 'Candidates') {
             return (
                 <div>
-                    <Header />
-                    <Sidebar handleChange={this.panel}/>
-                    <Candidate />
+                    <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
+                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
+                    <Candidate hidesignout={this.hidesignout}/>
                 </div>
             )
         }
@@ -60,9 +76,9 @@ class VoterPage extends Component {
         else if(this.state.route === 'Constituency') {
             return (
                 <div>
-                    <Header />
-                    <Sidebar handleChange={this.panel}/>
-                    <Constituency />
+                    <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
+                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
+                    <Constituency hidesignout={this.hidesignout}/>
                 </div>
             )
         }

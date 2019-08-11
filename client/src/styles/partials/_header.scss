@@ -12,7 +12,32 @@
         left: 48px;
         width: 48px;
         height: 48px;
-        background-color: #FFFFFF;
+        background-color: #000000;
+        border-radius: 48px;
+    }
+
+    &name {
+        position: absolute;
+        top: 28px;
+        left: 132px;
+        width: 200px;
+        height: 48px;
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 21px;
+
+        color: #000000;
+    }
+
+    &button {
+        position: absolute;
+        top: 16px;
+        left: 48px;
+        width: 400px;
+        height: 48px;
     }
 
     &user {
@@ -39,5 +64,9 @@
         height: 48px;
 
         background-color: #FFFFFF;
+    }
+
+    &user:hover, &user-image:hover {
+        cursor: pointer;
     }
 }

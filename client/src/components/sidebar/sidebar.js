@@ -10,6 +10,7 @@ class Sidebar extends Component {
         }
 
         this.handleClick = this.handleClick.bind(this);
+        this.hidesignout = this.hidesignout.bind(this)
     }
 
     handleClick(activeName) {
@@ -17,9 +18,13 @@ class Sidebar extends Component {
         this.props.handleChange(activeName)
     }
 
+    hidesignout() {
+        this.props.hidesignout()
+    }
+
     render() {
         return (
-            <div className='sidebar'>
+            <div className='sidebar' onClick={this.hidesignout}>
                 <div className='sidebar--panel'>
                     <SidePanel name='Profile' active={this.state.active} handleClick={this.handleClick}/>
                     <SidePanel name='Vote' active={this.state.active} handleClick={this.handleClick}/>

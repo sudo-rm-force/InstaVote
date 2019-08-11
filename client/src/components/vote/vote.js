@@ -12,12 +12,16 @@ class Vote extends Component {
         }
     }
 
+    hidesignout() {
+        this.props.hidesignout()
+    }
+
 
     render() {
         if(this.state.votingStarted) {
             if(!this.state.voted) {
                 return(
-                    <div className='vote'>
+                    <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
                             <Candidate />
@@ -31,7 +35,7 @@ class Vote extends Component {
     
             else {
                 return(
-                    <div className='vote'>
+                    <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Congratulations!! Your all important vote has been recorded</div>
                         <div className='vote--transaction'>
                             <div className='vote--transaction-time'>Voted On: 15 October 2019 05:00</div>
@@ -47,7 +51,7 @@ class Vote extends Component {
         
         else {
             return (
-                <div className='vote'>
+                <div className='vote' onClick={this.hidesignout}>
                     <div className='vote--heading'>Voting yet to start</div>
                     <div className='vote--transaction'>
                         <div className='vote--transaction-date'>Election Date: 15 October 2019</div>

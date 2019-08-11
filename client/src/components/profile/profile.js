@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.hidesignout = this.hidesignout.bind(this)
+    }
+
+    hidesignout() {
+        this.props.hidesignout()
+    }
+
     render() {
         return(
-            <div className='profile'>
+            <div className='profile' onClick={this.hidesignout}>
                 <div className='profile--photo'>
                     <img src='' alt='voter' />
                 </div>

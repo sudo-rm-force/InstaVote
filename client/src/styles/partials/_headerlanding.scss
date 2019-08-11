@@ -16,7 +16,8 @@
         top: 16px;
         left: 24px;
 
-        background: #FFFFFF;
+        background: #000000;
+        border-radius: 48px;
     }
 
     &heading {
@@ -24,7 +25,7 @@
         width: 548px;
         height: 48px;
         left: calc(50% - 274px);
-        top: 16px;
+        top: 18px;
 
         font-family: Orienta;
         font-style: normal;
