@@ -6,6 +6,18 @@
     background-color: #000000;
 }
 
+.react-html5-camera-photo>img, .react-html5-camera-photo>video {
+    // position: relative;
+    // resize: horizontal;
+    width: 285px;
+    height: 285px;
+}
+
+.registrationbar--photo video {
+    object-position: right;
+    width: 285px;
+}
+
 .registrationbar-- {
     &photo {
         position: absolute;
