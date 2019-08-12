@@ -2,24 +2,47 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 import { connect } from 'react-redux'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
+import Webcam from "react-webcam"
 
 class Login extends Component {
 
+    setRef = webcam => {
+        this.webcam = webcam;
+      }
+     
     onVoterIdChange(text) {
           this.props.voterIdChanged(text);
       }
 
-    onButtonPress() {
-        const { voterId , faceData } = this.props;
+    onButtonPress(event) {
+        event.preventDefault()
+
+        const imageSrc = this.webcam.getScreenshot();
     
-        this.props.loginUser({  voterId , faceData });
+        this.props.faceDataChanged(imageSrc)
+
+        const { voterId , faceData } = this.props;
+
+        this.props.loginUser({  voterId }, imageSrc);
+
+        event.preventDefault()
     }
     render() {
+        const videoConstraints = {
+            facingMode: "user"
+        }
+
         return(
             <div className='login'>
                 <div className='login--heading'>Sign In</div>
+             <form onSubmit={this.onButtonPress.bind(this)}>
                 <div className='login--photo'>
-                    
+                 <Webcam
+                    audio={false}
+                    ref={this.setRef}
+                    screenshotFormat="image/jpeg"
+                    videoConstraints={videoConstraints}
+                    />  
                 </div>
                 <input 
                         className='login--voterid' 
@@ -27,7 +50,8 @@ class Login extends Component {
                         placeholder='VoterID' 
                         onChangeText = {this.onVoterIdChange.bind(this)}
                         required/>
-                <button className='login--button' type='submit' onPress = { this.onButtonPress.bind(this) } >Sign In</button>
+                <button className='login--button' type='submit'>Sign In</button>
+             </form>
             </div>
         )
     }
@@ -40,5 +64,5 @@ const mapStateToProps = ({ login }) => {
   };
   
   export default connect(mapStateToProps, {
-   voterIdChanged, loginUser
+   voterIdChanged, faceDataChanged, loginUser
   })(Login);

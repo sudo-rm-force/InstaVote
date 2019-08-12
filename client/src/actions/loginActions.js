@@ -12,10 +12,9 @@ export const faceDataChanged = (text) => {
     };
 }
 
-export const loginUser = ({ voterId , faceData }) => {
-    return  {
-
-   // here callback to mongo for face detection
+export const loginUser = ({ voterId}, faceData ) => {
+    return (dispatch) => {
+        loginFail(dispatch)
     };
 }
 
