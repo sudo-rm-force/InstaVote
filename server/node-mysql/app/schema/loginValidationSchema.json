@@ -1,0 +1,30 @@
+{
+    "getSchema":{
+       "type": "object",
+       "required": [
+         "voter_id"     
+       ],
+       "properties": {
+         "voter_id" : {
+           "type": "varchar"
+         }
+       }
+    },
+    "postSchema":{
+        "type": "object",
+        "required": [
+          "voter_id",
+          "face_id"    
+        ],
+        "properties": {
+          "voter_id" : {
+            "type": "varchar",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "face_id" : {
+            "type": "varbinary"
+          }
+        }
+     }
+}
