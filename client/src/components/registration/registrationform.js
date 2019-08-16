@@ -47,7 +47,7 @@ class RegistrationForm extends Component {
     onButtonPress(event) {
         event.preventDefault()
         const { voterId, name, mobile_no, gender } = this.props;
-        this.props.register({ voterId, name, mobile_no, gender });
+        // this.props.register({ voterId, name, mobile_no, gender });
         Election.methods.register(this.state.VoterID).call().then((res) => {
             Election.methods.assignCandidateToConstituency(this.state.VoterID, this.state.MobileNo).call().then((res) => {
                 Election.methods.getCandidateByConstituency(this.state.MobileNo).call().then((res) => {
