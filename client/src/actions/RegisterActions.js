@@ -70,7 +70,7 @@ const registerSuccess = (dispatch,response) => {
     })
 }
 
-const takePic = (pic) => {
+export const takePic = (pic) => {
     return {
         type : takePic,
         payload: pic
