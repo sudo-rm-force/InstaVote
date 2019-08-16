@@ -2,13 +2,36 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 import { connect } from 'react-redux'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
-import Webcam from "react-webcam"
+import Camera from 'react-html5-camera-photo';
+import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
 
-    setRef = webcam => {
-        this.webcam = webcam;
-      }
+    onTakePhoto (dataUri) {
+        // Naming the image
+        const date = new Date().valueOf();
+        let text = '';
+        const possibleText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < 5; i++) {
+        text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
+        }
+        // Replace extension according to your media type like this 
+        const imageName = date + '.' + text + '.jpeg';
+        console.log(imageName);
+        // call method that creates a blob from dataUri
+        let imageBlob;
+        const byteString = window.atob(dataUri);
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const int8Array = new Uint8Array(arrayBuffer);
+        for (let i = 0; i < byteString.length; i++) {
+            int8Array[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([int8Array], { type: 'image/jpeg' });
+        imageBlob = blob;
+        const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
+        this.generatedImage =  window.URL.createObjectURL(imageFile);
+        window.open(this.generatedImage);
+    }
      
     onVoterIdChange(text) {
           this.props.voterIdChanged(text);
@@ -27,6 +50,7 @@ class Login extends Component {
 
         event.preventDefault()
     }
+
     render() {
         const videoConstraints = {
             facingMode: "user"
@@ -37,12 +61,10 @@ class Login extends Component {
                 <div className='login--heading'>Sign In</div>
              <form onSubmit={this.onButtonPress.bind(this)}>
                 <div className='login--photo'>
-                 <Webcam
-                    audio={false}
-                    ref={this.setRef}
-                    screenshotFormat="image/jpeg"
-                    videoConstraints={videoConstraints}
-                    />  
+                    <Camera
+                        idealResolution= { { width: 285, height: 285 } }
+                        onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
+                    /> 
                 </div>
                 <input 
                         className='login--voterid' 
