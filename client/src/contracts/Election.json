@@ -8757,12 +8757,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xbaaD041D4b712CFacB5A9a03E231394285133461",
-      "transactionHash": "0xb65b46c82082cb32c86fd423a7331c44694118d90bae3a16e34c59f3397c1cbe"
+      "address": "0x77D84312b2579e991c07a7a3A942457eb36A34CC",
+      "transactionHash": "0x71cb4badec500df634a06c145e8f952f36aaf1d08b65b04212792d466ad72ee3"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-13T11:40:17.430Z",
+  "updatedAt": "2019-08-15T21:12:15.290Z",
   "devdoc": {
     "methods": {}
   },
