@@ -14,7 +14,7 @@ export default class Response {
         //     this.getURL = config.API.baseURL + 'responses/' + this.id + '/user?username=' + this.userId
         //     this.postURL = config.API.baseURL + 'responses/' + this.id + '/user?username=' + this.userId
         // }
-        this.postURL = config.baseURL + 'user'
+        this.postURL = config.API.baseURL + 'user'
     }
 
     // fetchQuizResponse(){
@@ -60,10 +60,12 @@ export default class Response {
         .then(res => {
             const body = res.data
             const error = body.error
+            const msg = "registered successfully"
             if (error) throw error
-            return body
+            return msg
         }).catch(err => {
-            return err
+            const errmsg = "register failed"
+            return errmsg
         })
     }
 }

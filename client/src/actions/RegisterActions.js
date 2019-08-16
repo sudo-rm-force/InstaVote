@@ -1,3 +1,5 @@
+import Response from '../api/register'
+
 export const voterIdChanged_reg = (text) => {
     return {
         type: voterIdChanged_reg,
@@ -26,14 +28,51 @@ export const genderSelect = (text) => {
     }
 }
 
-export const register = ({ voterId, name , mobile_no }) => {
- // call to backend for registration
+export const register = ({voterId, name, mobile_no, gender, pic}) => {
+    return (dispatch) => {
+        // dispatch({ type: LOGIN_USER });
+    
+        // firebase.auth().signInWithEmailAndPassword(email, password)
+        //   .then(user => loginUserSuccess(dispatch, user))
+        //   .catch((error) => {
+        //     console.log(error);
+    
+        //     firebase.auth().createUserWithEmailAndPassword(email, password)
+        //       .then(user => loginUserSuccess(dispatch, user))
+        //       .catch(() => loginUserFail(dispatch));
+        //   });
+        const userData = {
+            voter_Id : voterId,
+            name : name,
+            face_id : pic ,
+            gender : gender ,
+            mobile_no : mobile_no
+        }
+
+        Response.addUser(userData)
+            .then((response) => registerSuccess(dispatch,response))
+            .catch((err) =>registerFail(dispatch,err))
+
+      };
 }
 
-const registerFail = (dispatch) => {
-    dispatch({type : registerFail})
+const registerFail = (dispatch,err) => {
+    dispatch({
+        type : registerFail,
+        payload : err
+    })
 }
 
-const registerSuccess = (dispatch) => {
-    dispatch({ type : registerSuccess })
+const registerSuccess = (dispatch,response) => {
+    dispatch({ 
+        type : registerSuccess ,
+        payload : response 
+    })
+}
+
+const takePic = (pic) => {
+    return {
+        type : takePic,
+        payload: pic
+    }
 }
