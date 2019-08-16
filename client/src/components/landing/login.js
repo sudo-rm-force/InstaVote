@@ -61,21 +61,10 @@ class Login extends Component {
                 <div className='login--heading'>Sign In</div>
              <form onSubmit={this.onButtonPress.bind(this)}>
                 <div className='login--photo'>
-<<<<<<< HEAD
                     <Camera
                         idealResolution= { { width: 285, height: 285 } }
                         onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
                     /> 
-=======
-                 <Webcam
-                    audio={false}
-                    ref={this.setRef}
-                    screenshotFormat="image/jpeg"
-                    width='290px'
-                    height='290px'
-                    videoConstraints={videoConstraints}
-                    />  
->>>>>>> Initialized web3 injection
                 </div>
                 <input 
                         className='login--voterid' 

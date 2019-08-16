@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import Webcam from 'react-webcam'
 import '../../styles/main.scss'
 import Camera from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 
 class RegistrationBar extends Component {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     onTakePhoto (dataUri) {
         // Naming the image
@@ -49,72 +46,6 @@ class RegistrationBar extends Component {
                     />
                 </div>
                 <button className='registrationbar--button' onClick={this.triggerCamera()}>Take Photo</button>
-=======
-    constructor(props) {
-        super(props)
-        this.onSnap = this.onSnap.bind(this)
-    }
-
-    setRef = webcam => {
-        this.webcam = webcam;
-      }
-
-    onSnap(event) {
-        event.preventDefault();
-        const imageSrc = this.webcam.getScreenshot()
-        console.log(imageSrc)
-    }
-
-    render() {
-        const videoConstraints = {
-            height: '290',
-            width: '290',
-            facingMode: 'user'
-        }
-
-        return(
-            <div className='registrationbar'>
-=======
-    constructor(props) {
-        super(props)
-        this.onSnap = this.onSnap.bind(this)
-    }
-
-    setRef = webcam => {
-        this.webcam = webcam;
-      }
-
-    onSnap(event) {
-        event.preventDefault();
-        const imageSrc = this.webcam.getScreenshot()
-        console.log(imageSrc)
-    }
-
-    render() {
-        const videoConstraints = {
-            height: '290',
-            width: '290',
-            facingMode: 'user'
-        }
-
-        return(
-            <div className='registrationbar'>
->>>>>>> dac13f50877a5e8d83c886da32cf9dca7e8a6706
-                <div className='registrationbar--photo'>
-                    <Webcam 
-                    audio={false}
-                    ref={this.setRef}
-                    screenshotFormat='image/jpeg'
-                    videoConstraints={videoConstraints}
-                    width='284px'
-                    height='284px'
-                    />
-                </div>
-                <button className='registrationbar--button' onClick={this.onSnap}>Take Photo</button>
-<<<<<<< HEAD
->>>>>>> Initialized web3 injection
-=======
->>>>>>> dac13f50877a5e8d83c886da32cf9dca7e8a6706
             </div>
         )
     }
