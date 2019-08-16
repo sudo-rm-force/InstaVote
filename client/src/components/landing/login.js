@@ -47,12 +47,12 @@ class Login extends Component {
         const { voterId , faceData } = this.props;
 
         this.props.loginUser({  voterId }, imageSrc);
-
-        event.preventDefault()
     }
 
     render() {
         const videoConstraints = {
+            width: '290',
+            height: '290',
             facingMode: "user"
         }
 
