@@ -32,9 +32,9 @@ class RegistrationForm extends Component {
     }
 
     onButtonPress() {
-        const { voterId, name, mobile_no, gender } = this.props;
+        const { voterId, name, mobile_no, gender, pic } = this.props;
 
-        this.props.register({ voterId, name, mobile_no, gender });
+        this.props.register({ voterId, name, mobile_no, gender, pic });
     }
 
     render() {
@@ -95,9 +95,9 @@ class RegistrationForm extends Component {
 }
 
 const mapStateToProps = ({ register }) => {
-    const { name , voterId, mobile_no, gender  } = register;
+    const { name , voterId, mobile_no, gender ,pic } = register;
   
-    return { name , voterId, mobile_no, gender };
+    return { name , voterId, mobile_no, gender,pic };
   };
   
   export default connect(mapStateToProps, {

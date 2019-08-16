@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 import Camera from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
+import { takePic } from '../../actions'
 
 class RegistrationBar extends Component {
 
@@ -29,6 +30,7 @@ class RegistrationBar extends Component {
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         window.open(this.generatedImage);
+        this.props.takePic(blob);
     }
 
     triggerCamera() {
@@ -51,4 +53,12 @@ class RegistrationBar extends Component {
     }
 }
 
-export default RegistrationBar
+const mapStateToProps = ({ register }) => {
+    const { pic  } = register;
+  
+    return { pic };
+  };
+  
+  export default connect(mapStateToProps, {
+    takePic
+  })(RegistrationBar);

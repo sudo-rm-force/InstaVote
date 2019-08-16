@@ -3,7 +3,8 @@ const INITIAL_STATE = {
     voterId: '',
     mobile_no: '',
     gender: '',
-    msg: ''
+    msg: '',
+    pic: null
 }
 
 export default (state = INITIAL_STATE, action ) => {
@@ -15,9 +16,11 @@ export default (state = INITIAL_STATE, action ) => {
         case 'genderSelect': 
             return {...state, gender: action.payload }
         case 'registerSuccess': 
-            return { ...state, msg : 'Registration successfull'}
+            return { ...state, msg : action.payload}
         case 'registerFail':
-            return { ...state,...INITIAL_STATE, msg : 'Registration Fail'}
+            return { ...state,...INITIAL_STATE, msg : action.paylaod}
+        case 'takePic' :
+            return { ...state, pic : action.payload }
         default:
             return state
         }
