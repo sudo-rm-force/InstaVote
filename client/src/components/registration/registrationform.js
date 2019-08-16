@@ -45,8 +45,10 @@ class RegistrationForm extends Component {
     }
 
     onButtonPress(event) {
+        const { voterId, name, mobile_no, gender, pic } = this.props;
+
+        this.props.register({ voterId, name, mobile_no, gender, pic })
         event.preventDefault()
-        const { voterId, name, mobile_no, gender } = this.props;
         // this.props.register({ voterId, name, mobile_no, gender });
         Election.methods.register(this.state.VoterID).call().then((res) => {
             Election.methods.assignCandidateToConstituency(this.state.VoterID, this.state.MobileNo).call().then((res) => {
@@ -114,9 +116,9 @@ class RegistrationForm extends Component {
 }
 
 const mapStateToProps = ({ register }) => {
-    const { name , voterId, mobile_no, gender  } = register;
+    const { name , voterId, mobile_no, gender ,pic } = register;
   
-    return { name , voterId, mobile_no, gender };
+    return { name , voterId, mobile_no, gender,pic };
   };
   
   export default connect(mapStateToProps, {
