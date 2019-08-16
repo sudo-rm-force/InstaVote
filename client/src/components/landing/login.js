@@ -6,6 +6,15 @@ import Camera from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            camera: true,
+            url: ''
+        }
+
+        this.onTakePhoto = this.onTakePhoto.bind(this)
+    }
 
     onTakePhoto (dataUri) {
         // Naming the image
@@ -30,7 +39,8 @@ class Login extends Component {
         imageBlob = blob;
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);
-        window.open(this.generatedImage);
+        this.setState({ url:this.generatedImage })
+        this.setState({ camera:false })
     }
      
     onVoterIdChange(text) {
@@ -50,21 +60,15 @@ class Login extends Component {
     }
 
     render() {
-        const videoConstraints = {
-            width: '290',
-            height: '290',
-            facingMode: "user"
-        }
-
         return(
             <div className='login'>
                 <div className='login--heading'>Sign In</div>
              <form onSubmit={this.onButtonPress.bind(this)}>
                 <div className='login--photo'>
-                    <Camera
-                        idealResolution= { { width: 285, height: 285 } }
-                        onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
-                    /> 
+                { this.state.camera ? ( <Camera
+                    idealResolution= { { width: 285, height: 285 } }
+                    onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
+                    /> ) : <img src={this.state.url}/> }
                 </div>
                 <input 
                         className='login--voterid' 
