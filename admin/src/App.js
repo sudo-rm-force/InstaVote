@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import AdminPage from './pages/adminpage'
+import Landing from './pages/landing'
+// import Registration from './pages/registration'
+// import Landing from './pages/landing'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import ReduxThunk from 'redux-thunk';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { loading: true, drizzleState: null };
+
+  componentDidMount() {
+    const { drizzle } = this.props;
+
+    // subscribe to changes in the store
+    this.unsubscribe = drizzle.store.subscribe(() => {
+
+      // every time the store updates, grab the state from drizzle
+      const drizzleState = drizzle.store.getState();
+
+      // check to see if it's ready, if so, update local component state
+      if (drizzleState.drizzleStatus.initialized) {
+        this.setState({ loading: false, drizzleState });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  render() {
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
+    return(
+      <Provider store={ store }>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={ Landing } />
+            <Route exact path='/:adminid' component={ AdminPage } />
+            {/* <Route exact path='/:voterid' component={ VoterPage } /> */}
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    )
+  }
 }
 
 export default App;

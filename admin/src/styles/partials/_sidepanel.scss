@@ -1,0 +1,35 @@
+.sidepanel {
+    width: 100%;
+    height: 72px;
+
+    border-top: 1.5px solid rgba($color: #FFFFFF, $alpha: 0.9);
+    border-bottom: 1.5px solid rgba($color: #FFFFFF, $alpha: 0.9);
+
+    cursor: default;
+}
+
+.sidepanel-- {
+    &state {
+        margin-left: 24px;
+    }
+
+    &name {
+        height: 72px;
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 72px;
+        letter-spacing: 0.02em;
+
+        color: #FFFFFF;
+        margin-left: 12px;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.sidepanel:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+.candidatepanel {
+    position: relative;
+    width: 90%;
+    height: 74px;
+
+    border-top: 1px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
+
+    cursor: default;
+}
+
+.candidatepanel-- {
+    &name {
+        position: absolute;
+        width: 200px;
+        height: 48px;
+        top: 23px;
+        left: 12px;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        text-indent: 12px;
+
+        color: #000000;
+    }
+
+    &icon {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        top: 13px;
+        left: calc(50% - 24px);
+
+        border: 1px solid #08BBF4;
+    }
+
+    &radio {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: 21px;
+        right: 48px;
+
+        border: 1px solid #08BBF4;
+    }
+}

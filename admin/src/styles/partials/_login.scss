@@ -1,0 +1,82 @@
+.login {
+    position: absolute;
+    width: 600px;
+    height: calc(100% - 80px);
+    top: 80px;
+    right: 0px;
+
+    background-color: rgba($color: #000000, $alpha: 1.0);
+    cursor: default;
+}
+
+.login--photo video {
+    object-position: right;
+    width: 285px;
+}
+
+.login-- {
+    &heading {
+        position: absolute;
+        width: 290px;
+        height: 48px;
+        top: calc(40% - 193px);
+        left: calc(50% - 145px);
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &photo {
+        position: absolute;
+        width: 290px;
+        height: 290px;
+        top: calc(40% - 145px);
+        left: calc(50% - 145px);
+        overflow: hidden;
+
+        background-color: #FFFFFF;
+        border-radius: 2px;
+        border: 2px solid #08BBF4;
+    }
+
+    &voterid {
+        position: absolute;
+        width: 290px;
+        height: 48px;
+        top: calc(40% + 193px);
+        left: calc(50% - 145px);
+
+        border-radius: 2px;
+        border: 2px solid #08BBF4;
+
+        padding: 18px;
+        font-family: Orienta;
+    }
+
+    &button {
+        position: absolute;
+        width: 200px;
+        height: 48px;
+        top: calc(40% + 265px);
+        left: calc(50% - 100px);
+
+        border-radius: 2px;
+        border: 2px solid #000000;
+        background-color: #08BBF4;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+}

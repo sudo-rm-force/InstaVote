@@ -1,0 +1,59 @@
+.registrationbar{
+    position: absolute;
+    width: 600px;
+    height: 100%;
+
+    background-color: #000000;
+    cursor: default;
+}
+
+.react-html5-camera-photo>img, .react-html5-camera-photo>video {
+    // position: relative;
+    // resize: horizontal;
+    width: 285px;
+    height: 285px;
+}
+
+.registrationbar--photo video {
+    object-position: right;
+    width: 285px;
+}
+
+.registrationbar-- {
+    &photo {
+        position: absolute;
+        left: 155px;
+        top: calc(45% - 145px);
+        width: 290px;
+        height: 290px;
+
+        background: #FFFFFF;
+        border: 3px solid #08BBF4;
+        border-radius: 2px;
+    }
+
+    &button {
+        position: absolute;
+        left: 175px;
+        top: calc(45% + 177px);
+        width: 250px;
+        height: 48px;
+
+        background: #08BBF4;
+        border: 2px solid #08BBF4;
+        border-radius: 2px;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &button:hover {
+        cursor: pointer;
+    }
+}
