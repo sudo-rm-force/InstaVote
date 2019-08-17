@@ -1,0 +1,228 @@
+.landing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    cursor: default;
+}
+
+.landing-- {
+    &sidebar {
+        position: absolute;
+        width: 698px;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+
+        background: #000000;
+
+        &-name {
+            position: absolute;
+            width: 326px;
+            height: 48px;
+            top: 48px;
+            left: 120px;
+
+            font-family: Droid Sans;
+            font-style: normal;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            line-height: 21px;
+            letter-spacing: 0.02em;
+
+            color: #FFFFFF;
+        }
+
+        &-heading {
+            position: absolute;
+            width: 342px;
+            height: 352px;
+            top: calc(50% - 176px);
+            left: calc(50% - 171px);
+
+            font-family: Droid Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 48px;
+            line-height: 56px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+
+            color: #FFFFFF;
+        }
+    }
+
+    &logo {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        left: 48px;
+        top: 48px;
+    }
+
+    &background {
+        position: absolute;
+        width: calc(100% - 698px);
+        height: 100%;
+        top: 0px;
+        left: 698px;
+
+        &-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+        }
+
+    }
+
+    &overlay {
+        position: absolute;
+        width: calc(100% - 698px);
+        height: 100%;
+        left: 698px;
+        top: 0px;
+
+        background: rgba(6, 52, 85, 0.75);
+    }
+
+    &signin {
+        position: absolute;
+        width: 780px;
+        height: 450px;
+        top: calc(50% - 225px);
+        left: calc(50% - 390px);
+
+        background: #FFFFFF;
+        border: 3px solid #08BBF4;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        &-block {
+            position: absolute;
+            width: 55%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+
+            border-right: 4px solid #08BBF4;
+        }
+
+        &-details {
+            position: absolute;
+            width: calc(45% - 32px);
+            height: 100%;
+            top: 0px;
+            left: 55%;
+
+            padding: 16px;
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+    }
+
+    &heading {
+        &-id {
+            position: absolute;
+            width: 148px;
+            height: 32px;
+            top: 64px;
+            left: 69px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+
+        &-password {
+            position: absolute;
+            width: 148px;
+            height: 32px;
+            top: 181px;
+            left: 69px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+    }
+
+    &input {
+        &-id {
+            position: absolute;
+            width: 271px;
+            height: 36px;
+            top: 108px;
+            left: 69px;
+            padding-left: 12px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            border-radius: 2px;
+        }
+
+        &-password {
+            position: absolute;
+            width: 271px;
+            height: 36px;
+            top: 225px;
+            left: 69px;
+            padding-left: 12px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            border-radius: 2px;
+        }
+    }
+
+    &submit {
+        position: absolute;
+        width: 150px;
+        height: 42px;
+        top: 327px;
+        left: 69px;
+
+        background: #000000;
+        border: 2px solid #000000;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &submit:hover {
+        cursor: pointer;
+    }
+}

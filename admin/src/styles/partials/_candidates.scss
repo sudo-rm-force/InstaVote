@@ -1,0 +1,153 @@
+.candidates {
+    position: absolute;
+    width: calc(100% - 475px);
+    height: calc(100% - 80px);
+    top: 80px;
+    left: 475px;
+
+    cursor: default;
+}
+
+.candidates-- {
+    &heading {
+        position: absolute;
+        left: 98px;
+        top: 68px;
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        text-indent: 12px;
+
+        color: #000000;
+
+        &-name {
+            position: absolute;
+            width: 296px;
+            height: 48px;
+            top: 181px;
+            left: 172px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+
+        &-id {
+            position: absolute;
+            width: 254px;
+            height: 48px;
+            top: 311px;
+            left: 172px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+
+        &-constituency {
+            position: absolute;
+            width: 254px;
+            height: 48px;
+            top: 455px;
+            left: 172px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+    }
+
+    &input {
+        &-name {
+            position: absolute;
+            width: 500px;
+            height: 48px;
+            top: 230px;
+            left: 172px;
+            padding-left: 12px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-family: Orienta;
+        }
+
+        &-id {
+            position: absolute;
+            width: 500px;
+            height: 48px;
+            top: 360px;
+            left: 172px;
+            padding-left: 12px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-family: Orienta;
+        }
+
+        &-constituency {
+            position: absolute;
+            width: 500px;
+            height: 48px;
+            top: 510px;
+            left: 172px;
+            padding-left: 12px;
+
+            background: #FFFFFF;
+            border: 2px solid #08BBF4;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-family: Orienta;
+        }
+    }
+
+    &submit {
+        position: absolute;
+        width: 200px;
+        height: 48px;
+        top: 615px;
+        left: 172px;
+
+        background: #08BBF4;
+        border-radius: 2px;
+        border: 2px solid #08BBF4;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &submit:hover {
+        cursor: pointer;
+    }
+}

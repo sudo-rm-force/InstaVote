@@ -1,0 +1,224 @@
+.vote {
+    position: absolute;
+    width: calc(100% - 475px);
+    height: calc(100% - 80px);
+    top: 80px;
+    left: 475px;
+
+    cursor: default;
+}
+
+.vote-- {
+    &heading {
+        position: absolute;
+        left: 98px;
+        top: 68px;
+
+        font-family: Droid Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        text-indent: 12px;
+
+        color: #000000;
+    }
+
+    &ballot {
+        position: absolute;
+        width: 90%;
+        height: 600px;
+        left: 108px;
+        top: 152px;
+    }
+
+    &clearall {
+        position: absolute;
+        width: 175px;
+        height: 48px;
+        bottom: 72px;
+        left: 98px;
+
+        background: #000000;
+        border-radius: 2px;
+        border: 2px solid #000000;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &submit {
+        position: absolute;
+        width: 175px;
+        height: 48px;
+        bottom: 72px;
+        left: calc(90% - 175px);
+
+        background: #08BBF4;
+        border-radius: 2px;
+        border: 2px solid #08BBF4;
+
+        font-family: Orienta;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    &transaction {
+        position: absolute;
+        left: 98px;
+        top: 155px;
+        width: 840px;
+        height: 190px;
+
+        background: #FBFBFB;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        &-time {
+            position: absolute;
+            left: 24px;
+            top: 48px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-candidate {
+            position: absolute;
+            left: 24px;
+            top: 80px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+
+            &_party {
+                position: absolute;
+                left: 109px;
+                top: 103px;
+
+                font-family: Orienta;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                letter-spacing: 0.02em;
+                text-indent: 12px;
+
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        &-id {
+            position: absolute;
+            left: 24px;
+            top: 132px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-date {
+            position: absolute;
+            left: 24px;
+            top: 42px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-start {
+            position: absolute;
+            left: 24px;
+            top: 76px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-duration {
+            position: absolute;
+            left: 24px;
+            top: 103px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-constituency {
+            position: absolute;
+            left: 24px;
+            top: 135px;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-indent: 12px;
+
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &-image {
+            position: absolute;
+            top: 37.5px;
+            right: 72px;
+            width: 105px;
+            height: 115px;
+        }
+    }
+}
