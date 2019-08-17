@@ -13,8 +13,11 @@ class Sidebar extends Component {
         this.hidesignout = this.hidesignout.bind(this)
     }
 
+    componentWillMount() {
+        this.setState({ active:this.props.active })
+    }
+
     handleClick(activeName) {
-        this.setState({ active:activeName })
         this.props.handleChange(activeName)
     }
 

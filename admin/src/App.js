@@ -41,7 +41,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={ Landing } />
-            <Route exact path='/:adminid' component={ AdminPage } />
+            <Route exact path='/:id/:route/:constituency?' component={ AdminPage } />
             {/* <Route exact path='/:voterid' component={ VoterPage } /> */}
           </Switch>
         </BrowserRouter>

@@ -18,9 +18,9 @@ class Landing extends Component {
                         <div className='landing--signin-block'>
                             <form>
                                 <div className='landing--heading-id'>Admin ID</div>
-                                <input className='landing--input-id' />
+                                <input className='landing--input-id' name='id' required/>
                                 <div className='landing--heading-password'>Password</div>
-                                <input className='landing--input-password' />
+                                <input className='landing--input-password' name='password' type='password' required/>
                                 <button className='landing--submit' type='submit'>Sign In</button>
                             </form>
                         </div>
