@@ -48,6 +48,7 @@ class RegistrationForm extends Component {
         const { voterId, name, mobile_no, gender, pic } = this.props;
 
         this.props.register({ voterId, name, mobile_no, gender, pic })
+        console.log('ghj')
         event.preventDefault()
         // this.props.register({ voterId, name, mobile_no, gender });
         Election.methods.register(this.state.VoterID).call().then((res) => {

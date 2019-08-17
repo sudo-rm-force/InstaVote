@@ -1,6 +1,6 @@
 {
     "API": {
-        "baseURL": "http://127.0.0.1:9890/"
+        "baseURL": "http://localhost:7000/"
     },
-    "baseURL": "127.0.0.1:9890/"
+    "baseURL": "http://localhost:7000/"
 }

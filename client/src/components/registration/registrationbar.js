@@ -17,6 +17,7 @@ class RegistrationBar extends Component {
     }
 
     onTakePhoto (dataUri) {
+        console.log(dataUri)
         // Naming the image
         const date = new Date().valueOf();
         let text = '';
@@ -36,6 +37,7 @@ class RegistrationBar extends Component {
             int8Array[i] = byteString.charCodeAt(i);
         }
         const blob = new Blob([int8Array], { type: 'image/jpeg' });
+        console.log(blob);
         imageBlob = blob;
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);

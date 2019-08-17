@@ -48,11 +48,11 @@ export const register = ({voterId, name, mobile_no, gender, pic}) => {
             gender : gender ,
             mobile_no : mobile_no
         }
+        console.log(userData)
 
-        Response.addUser(userData)
+        Response.addUser(pic)
             .then((response) => registerSuccess(dispatch,response))
             .catch((err) =>registerFail(dispatch,err))
-
       };
 }
 
