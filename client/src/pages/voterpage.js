@@ -20,11 +20,12 @@ class VoterPage extends Component {
     }
 
     componentDidMount() {
-        const route = this.props.match.params
+        const route = this.props.match.params.route
+        this.setState({ route:this.props.match.params.route }) 
     }
 
     panel(route) {
-        this.setState({route:route});
+        window.location = '/'+this.props.match.params.id+'/'+route
     }
 
     signout() {
@@ -47,7 +48,7 @@ class VoterPage extends Component {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
-                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
+                    <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
                     <Profile hidesignout={this.hidesignout}/>
                 </div>
             )
