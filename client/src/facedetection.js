@@ -1,6 +1,7 @@
 // 'use strict';
 
 const request = require('request');
+const fs = require('fs');
 
 // Replace <Subscription Key> with your valid subscription key.
 const subscriptionKey = 'b5c5cfb44a1c49a3b519d59843c01c21';
@@ -10,8 +11,10 @@ const subscriptionKey = 'b5c5cfb44a1c49a3b519d59843c01c21';
 // westus, replace "westcentralus" in the URL below with "westus".
 const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
 
-const imageUrl = 'file:///home/subham/github/temp/rec/face/test/images/i1.jpg';
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+fs.readFile('./test/images/i1.jpg', function (err, data) {
 
+// console.log(data);
 // Request parameters.
 const params = {
   returnFaceId: 'true',
@@ -22,9 +25,9 @@ const params = {
 const options = {
   uri: uriBase,
   qs: params,
-  body: `${'{"url": "'}${imageUrl}"}`,
+  body: data,
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/octet-stream',
     'Ocp-Apim-Subscription-Key': subscriptionKey
   }
 };
@@ -37,4 +40,5 @@ request.post(options, (error, response, body) => {
   const jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
   console.log('JSON Response\n');
   console.log(jsonResponse);
+});
 });
