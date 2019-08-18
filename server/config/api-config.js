@@ -5,14 +5,6 @@ var dbfunc = require('./db-function');
 var bodyParser = require('body-parser');
 const { addUser, getUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
-// var AuthenticRoute = require('../app/routes/authentic.route');
-// var checkToken = require('./secureRoute');
-
-// var schedule = require('node-schedule');
- 
-// var j = schedule.scheduleJob('*/1 * * * *', function(){
-//   console.log('The answer to life, the universe, and everything!');
-// });
 
 dbfunc.connectionCheck.then((data) =>{
     console.log(data);
