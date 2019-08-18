@@ -7,6 +7,7 @@ var userService = {
 }
 
 function addUser(userData) {
+    // console.log(userData)
     return new Promise((resolve,reject) => {
         userModel.addUser(userData).then((data)=>{
             resolve(data);

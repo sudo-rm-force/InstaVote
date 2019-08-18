@@ -1,5 +1,4 @@
 
-var errorCode = require('./error-code')
 var errorMessage = require('./error-methods')
 var Ajv = require('ajv');
 var schemaValidator = Ajv({

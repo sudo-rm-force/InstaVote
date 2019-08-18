@@ -1,12 +1,11 @@
 
-CREATE TABLE [dbo].[User](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[username] [bit] NULL,
-	[password] [int] NULL,
-	[CreatedDate] [datetime] NULL,
-	[UpdatedDate] [datetime] NULL,
-	[UpdatedBy] [int] NULL,
-	[IsEnabled] [bit] NULL,
+CREATE TABLE [dbo].[testvoters](
+	[voter_id] [varchar] IDENTITY(1,1) NOT NULL,
+	[user] [varchar] NOT NULL,
+	[gender] [varchar] NOT NULL,
+	[face_id] [varchar] NULL,
+	[mobile_no] [varchar] NOT NULL,
+	[date] [timestamp] NOT NULL,
 )
 GO
 

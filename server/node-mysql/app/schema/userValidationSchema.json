@@ -15,7 +15,6 @@
         "required": [
           "voter_id",
           "name" ,
-          "face_id",
           "gender",
           "mobile_no"  
         ],
@@ -30,13 +29,15 @@
             "minimum": 1,
             "maximum": 100
           },
-          "face_id": {
-            "type": "varbinary"
-          },
           "gender": {
             "type": "varchar",
             "minLength": 1,
             "maxLength": 12
+          },
+          "face_id": {
+            "type": "varchar",
+            "maxLength": 1000,
+            "default": null
           },
           "mobile_no": {
             "type": "varchar",
