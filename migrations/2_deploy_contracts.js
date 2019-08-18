@@ -1,5 +1,5 @@
-var Election = artifacts.require("./Election.sol");
+var Authorizer = artifacts.require("./Authorizer.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Election);
+  deployer.deploy(Authorizer);
 };

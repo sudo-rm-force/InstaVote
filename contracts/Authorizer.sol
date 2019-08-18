@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
-import './Election.sol';
+import './ResultHelper.sol';
 
-contract Authorizer is Election {
+contract Authorizer is ResultHelper {
     function register(uint256 _id, uint256 _constituencyId) external {
         createVoter(_id, _constituencyId);
     }

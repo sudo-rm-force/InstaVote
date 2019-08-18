@@ -10,7 +10,7 @@ contract ElectionHelper is Election {
         _constituency._duration = _duration;
     }
 
-    function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) private {
+    function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId) public {
         candidateToConstituency[_id] = _constituencyId;
         constituencyCandidateCount[_constituencyId]++;
     }
