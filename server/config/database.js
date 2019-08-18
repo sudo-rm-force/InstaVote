@@ -8,7 +8,7 @@ const config =mysql.createPool({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'c2joui-ins'
+	database: 'instavote'
 });
 
 config.on('connection', function (connection) {
