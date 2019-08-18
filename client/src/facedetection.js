@@ -3,14 +3,14 @@
 const request = require('request');
 
 // Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '9a22224851b04d5fa19f5091b188a1e9';
+const subscriptionKey = 'b5c5cfb44a1c49a3b519d59843c01c21';
 
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
 // westus, replace "westcentralus" in the URL below with "westus".
 const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
 
-const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+const imageUrl = 'file:///home/subham/github/temp/rec/face/test/images/i1.jpg';
 
 // Request parameters.
 const params = {

@@ -14,8 +14,8 @@ const config =mysql.createPool({
 config.on('connection', function (connection) {
     console.log('DB Connection established');
 
-    connection.on('error', function (err) {
-        console.error(new Date(), 'MySQL error', err.code);
+    conn.on('error', function (err) {
+        console.error(new Date(), 'MySQL error', err);
     });
     connection.on('close', function (err) {
         console.error(new Date(), 'MySQL close', err);
