@@ -11,14 +11,11 @@ class Login extends Component {
         super(props);
         this.state = {
             camera: true,
-            url: ''
+            url: '',
+            voterId: ''
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
-    }
-
-    componentDidMount() {
-        loginApi("1234").then((res) => {console.log(res)})
     }
 
     onTakePhoto (dataUri) {
@@ -48,20 +45,21 @@ class Login extends Component {
         this.setState({ camera:false })
     }
      
-    onVoterIdChange(text) {
-          this.props.voterIdChanged(text);
+    onVoterIdChange(event) {
+        //   this.props.voterIdChanged(text);
+          this.setState({voterId:event.target.value})
       }
 
     onButtonPress(event) {
         event.preventDefault()
-
-        const imageSrc = this.webcam.getScreenshot();
-    
-        this.props.faceDataChanged(imageSrc)
-
-        const { voterId , faceData } = this.props;
-
-        this.props.loginUser({  voterId }, imageSrc);
+        // this.props.faceDataChanged(imageSrc)
+        // const { voterId , faceData } = this.props;
+        // this.props.loginUser({  voterId }, imageSrc);
+        loginApi(this.state.voterId).then((res) => {
+            if (res.success) {
+                window.location = '/'+this.state.voterId+'/Profile'
+            }
+        })
     }
 
     render() {
@@ -79,7 +77,7 @@ class Login extends Component {
                         className='login--voterid' 
                         type='text' 
                         placeholder='VoterID' 
-                        onChangeText = {this.onVoterIdChange.bind(this)}
+                        onChange = {this.onVoterIdChange.bind(this)}
                         required/>
                 <button className='login--button' type='submit'>Sign In</button>
              </form>
