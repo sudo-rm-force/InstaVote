@@ -20,29 +20,7 @@ dbfunc.connectionCheck.then((data) =>{
 });
 
 app.use(bodyParser.json());
-
-// var router = express.Router();
-// app.use('/api',router);
-// AuthenticRoute.init(router);
-
-// var secureApi = express.Router();
-
-//set static folder
 app.use(express.static(path.join(__dirname, 'public')));
-
-//body parser middleware
-
-// app.use('/secureApi',secureApi);
-// secureApi.use(checkToken);
-
-
-// app.use(function (err, req, res) {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// });
-
-
-// index route
 app.get('/', (req,res) => {
     res.send('hello world');
 });
@@ -54,7 +32,5 @@ app.post('/login', authentic);
 var ApiConfig = {
   app: app
 }
-
-// UserRoute.init(secureApi);
 
 module.exports = ApiConfig;

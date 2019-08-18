@@ -3,6 +3,7 @@ import '../../styles/main.scss'
 import { connect } from 'react-redux'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
+import loginApi from '../../api/loginApi'
 import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
@@ -14,6 +15,10 @@ class Login extends Component {
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
+    }
+
+    componentDidMount() {
+        loginApi("1234").then((res) => {console.log(res)})
     }
 
     onTakePhoto (dataUri) {
