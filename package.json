@@ -18,6 +18,7 @@
   "dependencies": {
     "ipfs-api": "^26.1.2",
     "solc": "^0.5.0",
+    "truffle-contract": "^4.0.29",
     "web3": "^1.2.1"
   }
 }
