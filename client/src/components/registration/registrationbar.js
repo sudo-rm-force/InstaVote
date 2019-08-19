@@ -44,7 +44,7 @@ class RegistrationBar extends Component {
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         this.setState({ url:this.generatedImage })
         this.setState({ camera:false })
-        this.props.takePic(blob)
+        this.props.handleSnap(dataUri);
     }
 
     triggerCamera() {

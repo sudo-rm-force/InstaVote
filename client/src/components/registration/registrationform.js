@@ -13,7 +13,8 @@ class RegistrationForm extends Component {
             Name: '',
             VoterID: '',
             Gender: '',
-            MobileNo: ''
+            MobileNo: '',
+            FaceID: props.faceID
         }
 
         this.return = this.return.bind(this);
@@ -60,6 +61,12 @@ class RegistrationForm extends Component {
         registerApi(this.state.VoterID, this.state.Name, this.state.Gender, this.state.MobileNo).then((res) => {
             console.log(res)
         })
+    }
+
+    componentWillReceiveProps(props) {
+        if(props.faceID !== this.state.FaceID) {
+            this.setState({ FaceID:props.faceID })
+        }
     }
 
     render() {

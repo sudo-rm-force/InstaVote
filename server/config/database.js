@@ -5,7 +5,7 @@ const config =mysql.createPool({
     connectTimeout  : 60 * 60 * 1000,
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
-	host: 'localhost',
+	host: 'c2joui-ins',
 	user: 'root',
 	password: '',
 	database: 'instavote'
@@ -14,7 +14,7 @@ const config =mysql.createPool({
 config.on('connection', function (connection) {
     console.log('DB Connection established');
 
-    conn.on('error', function (err) {
+    connection.on('error', function (err) {
         console.error(new Date(), 'MySQL error', err);
     });
     connection.on('close', function (err) {
