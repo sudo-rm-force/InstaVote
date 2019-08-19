@@ -1,4 +1,4 @@
-import Response from '../api/register'
+import Response from '../api/registerApi'
 
 export const voterIdChanged_reg = (text) => {
     return {
