@@ -10,7 +10,7 @@ import reducers from './reducers';
 import ReduxThunk from 'redux-thunk';
 
 class App extends Component {
-  state = { loading: true, drizzleState: null };
+  // state = { loading: true, drizzleState: null };
 
   // componentDidMount() {
   //   const { drizzle } = this.props;

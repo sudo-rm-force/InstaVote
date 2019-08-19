@@ -48,7 +48,7 @@ class RegistrationForm extends Component {
         const { voterId, name, mobile_no, gender, pic } = this.props;
 
         //this.props.register({ voterId, name, mobile_no, gender, pic })
-        console.log('ghj')
+        
         // this.props.register({ voterId, name, mobile_no, gender });
         // Election.methods.register(this.state.VoterID).call().then((res) => {
         //     Election.methods.assignCandidateToConstituency(this.state.VoterID, this.state.MobileNo).call().then((res) => {
