@@ -4,26 +4,26 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Drizzle, generateStore } from "drizzle";
-import Election from "./contracts/Election.json";
+// import Authorizer from "~/build/contracts/Authorizer.json";
 
 
 
-const options = {
-    contracts: [Election],
-    web3: {
-        fallback: {
-            type: "ws",
-            url: "ws://127.0.0.1:9545"
-        },
-    },
-};
+// const options = {
+//     contracts: [Authorizer],
+//     web3: {
+//         fallback: {
+//             type: "ws",
+//             url: "ws://127.0.0.1:9545"
+//         },
+//     },
+// };
 
-const drizzleStore = generateStore(options)
-const drizzle = new Drizzle(options, drizzleStore)
+// const drizzleStore = generateStore(options)
+// const drizzle = new Drizzle(options, drizzleStore)
 
 
 ReactDOM.render(
-        <App drizzle={drizzle} />, 
+        <App />, 
         document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
