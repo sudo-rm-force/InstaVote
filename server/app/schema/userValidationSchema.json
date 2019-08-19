@@ -16,7 +16,9 @@
           "voter_id",
           "name" ,
           "gender",
-          "mobile_no"  
+          "mobile_no",
+          "age",
+          "constituency_id" 
         ],
         "properties": {
           "voter_id" : {
@@ -45,6 +47,13 @@
           },
           "date": {
             "type": "varchar"
+          },
+          "age": {
+            "type": "int"
+          },
+          "constituency_id": {
+            "type": "varchar",
+            "maxLength": 100
           }
         }
      }

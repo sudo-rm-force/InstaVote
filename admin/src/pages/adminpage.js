@@ -20,7 +20,6 @@ class AdminPage extends Component {
     }
 
     componentDidMount() {
-        const route = this.props.match.params
         this.setState({ route:this.props.match.params.route })
     }
 

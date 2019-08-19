@@ -5,23 +5,22 @@ const config =mysql.createPool({
     connectTimeout  : 60 * 60 * 1000,
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
-	host: 'c2joui-ins',
+	host: 'localhost',
 	user: 'root',
-	password: '',
-	database: 'instavote'
+	password: 'Subham8249041078',
+	database: 'c2joui-ins'
 });
 
-config.on('connection', function (connection) {
+config.on('connection', function (conn) {
     console.log('DB Connection established');
 
-    connection.on('error', function (err) {
+    conn.on('error', function (err) {
         console.error(new Date(), 'MySQL error', err);
     });
-    connection.on('close', function (err) {
+    conn.on('close', function (err) {
         console.error(new Date(), 'MySQL close', err);
     });
         
 });
-
 
 module.exports = config

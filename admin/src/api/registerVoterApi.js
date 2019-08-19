@@ -7,12 +7,12 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8080',
   });
 
-export default function registerApi(voter_id, gender, mobile_no) {
-    return axiosInstance.post('/userUpdate', {
+export default function registerVoterApi(voter_id, name, age, constituency_id) {
+    return axiosInstance.post('/user', {
         voter_id: voter_id,
-        gender: gender,
-        mobile_no: mobile_no,
-        face_id: face_id
+        name: name,
+        age: age,
+        constituency_id: constituency_id
     }).then((response) => {
         const res = JSON.parse(response.request.response)
         return res

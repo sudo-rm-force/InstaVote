@@ -40,11 +40,21 @@ class RegistrationBar extends Component {
         const blob = new Blob([int8Array], { type: 'image/jpeg' });
         console.log(blob);
         imageBlob = blob;
+
+        fs.writeFile("./../../../../server/documents/images/"+imageName, base64Data, 'base64', function(err) {
+            if(err){
+                console.log(err);
+                }else{
+                // res.send(JSON.stringify({'status': 1, 'msg': 'Image Uploaded'}));
+            }
+        });
+
+
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         this.setState({ url:this.generatedImage })
         this.setState({ camera:false })
-        this.props.handleSnap(dataUri);
+        this.props.handleSnap(imageName);
     }
 
     triggerCamera() {

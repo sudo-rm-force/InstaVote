@@ -8,6 +8,8 @@ class Registration extends Component {
         this.state = {
             faceID: ''
         }
+
+        this.setFaceID = this.setFaceID.bind(this)
     }
 
     setFaceID(faceID) {
