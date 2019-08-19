@@ -5,7 +5,7 @@ var dbfunc = require('./db-function');
 var bodyParser = require('body-parser');
 const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
-const { candidate } = require('../app/routes/candidate.route')
+const { addCandidate } = require('../app/routes/candidate.route')
 
 dbfunc.connectionCheck.then((data) =>{
     console.log(data);
@@ -20,16 +20,17 @@ dbfunc.connectionCheck.then((data) =>{
   next();
 });
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req,res) => {
     res.send('hello world');
 });
 
 app.post('/user', addUser);
-app.put('/userUpdate', updateUserById);
+app.post('/userUpdate', updateUserById);
 app.post('/login', authentic);
-app.post('/candidate', candidate);
+app.post('/candidate', addCandidate);
 
 
 var ApiConfig = {

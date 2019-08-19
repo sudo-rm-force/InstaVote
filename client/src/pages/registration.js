@@ -14,6 +14,7 @@ class Registration extends Component {
 
     setFaceID(faceID) {
         this.setState({ faceID })
+        // console.log(faceID)
     }
 
     render() {

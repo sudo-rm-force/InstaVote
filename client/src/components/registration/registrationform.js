@@ -58,7 +58,8 @@ class RegistrationForm extends Component {
         //         })
         //     })
         // }) 
-        registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo).then((res) => {
+        // console.log(this.state.FaceID)
+        registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo, this.state.FaceID).then((res) => {
             console.log(res)
         })
     }
@@ -66,6 +67,7 @@ class RegistrationForm extends Component {
     componentWillReceiveProps(props) {
         if(props.faceID !== this.state.FaceID) {
             this.setState({ FaceID:props.faceID })
+            // console.log(props.faceID)
         }
     }
 

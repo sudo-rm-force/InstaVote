@@ -20,7 +20,7 @@ function addUser(userData) {
 
 function updateUserById(userData) {
     return new Promise((resolve,reject) => {
-        userModel.updateUser(userData).then((data)=>{
+        userModel.updateUserById(userData).then((data)=>{
             resolve(data);
         }).catch((err) => {
             reject(err);

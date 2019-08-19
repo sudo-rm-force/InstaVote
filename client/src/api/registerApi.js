@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8080',
   });
 
-export default function registerApi(voter_id, gender, mobile_no) {
+export default function registerApi(voter_id, gender, mobile_no, face_id) {
     return axiosInstance.post('/userUpdate', {
         voter_id: voter_id,
         gender: gender,

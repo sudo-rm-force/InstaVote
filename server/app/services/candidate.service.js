@@ -2,7 +2,7 @@ var candidateModel = require("../models/candidate-model.js");
 
 
 var candidateService = {
-    addCadidate: addCandidate
+    addCandidate: addCandidate
 }
 
 function addCandidate(candidateData) {

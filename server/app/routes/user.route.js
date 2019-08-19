@@ -42,13 +42,16 @@ function addUser(req,res) {
     // mail.mail(err);
     res.json(err);
   });
+}
 
+function updateUserById(req, res) {
+  const userData=req.body;
+  // console.log(userData)
   userService.updateUserById(userData).then((data) => {
     res.json(data);
   }).catch((err) => {
     res.json(err);
   });
-
 }
 
 module.exports.addUser = addUser;

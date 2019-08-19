@@ -17,9 +17,9 @@ class RegistrationBar extends Component {
     }
 
     onTakePhoto (dataUri) {
-        console.log(dataUri)
+        // console.log(dataUri)
         // Naming the image
-        console.log(dataUri);
+        // console.log(dataUri);
         const date = new Date().valueOf();
         let text = '';
         const possibleText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -28,7 +28,7 @@ class RegistrationBar extends Component {
         }
         // Replace extension according to your media type like this 
         const imageName = date + '.' + text + '.jpeg';
-        console.log(imageName);
+        // console.log(imageName);
         // call method that creates a blob from dataUri
         let imageBlob;
         const byteString = window.atob(dataUri);
@@ -41,20 +41,20 @@ class RegistrationBar extends Component {
         console.log(blob);
         imageBlob = blob;
 
-        fs.writeFile("./../../../../server/documents/images/"+imageName, base64Data, 'base64', function(err) {
-            if(err){
-                console.log(err);
-                }else{
-                // res.send(JSON.stringify({'status': 1, 'msg': 'Image Uploaded'}));
-            }
-        });
+        // fs.writeFile("./../../../../server/documents/images/"+imageName, dataUri, 'base64', function(err) {
+        //     if(err){
+        //         console.log(err);
+        //         }else{
+        //         // res.send(JSON.stringify({'status': 1, 'msg': 'Image Uploaded'}));
+        //     }
+        // });
 
 
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         this.setState({ url:this.generatedImage })
         this.setState({ camera:false })
-        this.props.handleSnap(imageName);
+        this.props.handleSnap(dataUri, imageName);
     }
 
     triggerCamera() {

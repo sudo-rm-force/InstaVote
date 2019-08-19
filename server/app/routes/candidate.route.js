@@ -1,5 +1,5 @@
-const candidateService = require('../services/user.service');
-var schema = require('../schema/userValidationSchema.json')
+const candidateService = require('../services/candidate.service');
+// var schema = require('../schema/userValidationSchema.json')
 
 function addCandidate(req,res) {
   var candidateData=req.body;
@@ -19,4 +19,4 @@ function addCandidate(req,res) {
 
 }
 
-module.exports = addCandidate;
+module.exports.addCandidate = addCandidate;
