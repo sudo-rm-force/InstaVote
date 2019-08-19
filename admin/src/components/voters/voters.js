@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import registerVoterApi from '../../api/registerVoterApi'
+import election from '../../web3/web3-config'
 import '../../styles/main.scss'
 
 class Voters extends Component {
@@ -24,21 +25,24 @@ class Voters extends Component {
     }
 
     onChangeVoterId(event) {
-        this.setState({Name:event.target.value})
+        this.setState({VoterId:event.target.value})
     }
 
     onChangeAge(event) {
-        this.setState({Name:event.target.value})
+        this.setState({Age:event.target.value})
     }
 
     onChangeConstituencyId(event) {
-        this.setState({Name:event.target.value})
+        this.setState({ConstituencyId:event.target.value})
     }
 
     onSubmit(event) {
         this.preventDefault();
         registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
             console.log(res)
+            election.methods.register(this.state.VoterId,this.state.ConstituencyId).send((res) => {
+                console.log(res)
+            })
         })
 
     }

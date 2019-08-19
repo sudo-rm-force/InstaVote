@@ -1,28 +1,55 @@
 import React, { Component } from 'react'
+import registerCandidateApi from '../../api/registerCandidateApi'
 import '../../styles/main.scss'
 
 class Candidates extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            Name:'',
+            CandidateId:'',
+            ConstituencyId:''
+        }
 
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     handleClick() {
         this.props.hidesignout()
     }
 
+    onChangeName(event) {
+        this.setState({Name:event.target.value})
+    }
+
+    onChangeId(event) {
+        this.setState({CandidateId:event.target.value})
+    }
+
+    onChangeConstituencyId(event) {
+        this.setState({ConstituencyId:event.target.value})
+    }
+
+    onSubmit(event) {
+        event.preventDefault();
+        registerCandidateApi(this.state.CandidateId, this.state.Name, this.state.ConstituencyId).then((res) => {
+            console.log(res)
+        })
+
+    }
+
     render() {
         return(
             <div className='candidates' onClick={this.handleClick}>
                 <div className='candidates--heading'>Candidate Registration</div>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <div className='candidates--heading-name'>Name</div>
-                    <input className='candidates--input-name' name='name' required/>
+                    <input className='candidates--input-name' name='name' onChange={this.onChangeName.bind(this)} required/>
                     <div className='candidates--heading-id'>Candidate ID</div>
-                    <input className='candidates--input-id' name='id' required/>
+                    <input className='candidates--input-id' name='id' onChange={this.onChangeId.bind(this)} required/>
                     <div className='candidates--heading-constituency'>Constituency ID</div>
-                    <input className='candidates--input-constituency' name='constituency' required/>
+                    <input className='candidates--input-constituency' name='constituency' onChange={this.onChangeConstituencyId.bind(this)} required/>
                     <button className='candidates--submit' type='submit'>Register</button>
                 </form>
             </div>
