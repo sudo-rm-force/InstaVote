@@ -109,7 +109,7 @@ class RegistrationForm extends Component {
                         <input 
                             className='registrationform--input-mobile' 
                             type='text' 
-                            onChangeText={ this.onVoterIdChange.bind(this) }
+                            onChange={ this.onMobileNumChange.bind(this) }
                             required/>
                         <button 
                             className='registrationform--button' 
