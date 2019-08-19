@@ -19,6 +19,7 @@ class RegistrationBar extends Component {
     onTakePhoto (dataUri) {
         console.log(dataUri)
         // Naming the image
+        console.log(dataUri);
         const date = new Date().valueOf();
         let text = '';
         const possibleText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
