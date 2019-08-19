@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
+import registerVoterApi from '../../api/registerVoterApi'
 import '../../styles/main.scss'
 
 class Voters extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            Name:'',
+            VoterId:'',
+            Age:'',
+            ConstituencyId:''
+        }
         
         this.handleClick = this.handleClick.bind(this)
     }
@@ -12,19 +19,43 @@ class Voters extends Component {
         this.props.hidesignout()
     }
 
+    onChangeName(event) {
+        this.setState({Name:event.target.value})
+    }
+
+    onChangeVoterId(event) {
+        this.setState({Name:event.target.value})
+    }
+
+    onChangeAge(event) {
+        this.setState({Name:event.target.value})
+    }
+
+    onChangeConstituencyId(event) {
+        this.setState({Name:event.target.value})
+    }
+
+    onSubmit(event) {
+        this.preventDefault();
+        registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
+            console.log(res)
+        })
+
+    }
+
     render() {
         return(
             <div className='voters' onClick={this.handleClick}>
                 <div className='voters--heading'>Voter Database Addition</div>
-                <form>
+                <form onSubmit={this.onSubmit.bind(this)}>
                     <div className='voters--heading-name'>Name</div>
-                    <input className='voters--input-name' name='name' required/>
+                    <input className='voters--input-name' name='name' onChange={this.onChangeName.bind(this)} required/>
                     <div className='voters--heading-id'>Voter ID</div>
-                    <input className='voters--input-id' name='id' required/>
+                    <input className='voters--input-id' name='id' onChange={this.onChangeVoterId.bind(this)} required/>
                     <div className='voters--heading-age'>Age</div>
-                    <input className='voters--input-age' name='age' required/>
+                    <input className='voters--input-age' name='age' onChange={this.onChangeAge.bind(this)} required/>
                     <div className='voters--heading-constituency'>Constituency ID</div>
-                    <input className='voters--input-constituency' name='constituency' required/>
+                    <input className='voters--input-constituency' onChange={this.onChangeConstituencyId.bind(this)} name='constituency' required/>
                     <button className='voters--submit' type='submit'>Register</button>
                 </form>
             </div>

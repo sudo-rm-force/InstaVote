@@ -58,7 +58,7 @@ class RegistrationForm extends Component {
         //         })
         //     })
         // }) 
-        registerApi(this.state.VoterID, this.state.Name, this.state.Gender, this.state.MobileNo).then((res) => {
+        registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo).then((res) => {
             console.log(res)
         })
     }
