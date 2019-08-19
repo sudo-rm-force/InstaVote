@@ -3,11 +3,11 @@ var userModel = require("../models/user-model.js");
 
 var userService = {
     getUserById:getUserById,
-    addUser: addUser
+    addUser:addUser,
+    updateUserById:updateUserById
 }
 
 function addUser(userData) {
-    // console.log(userData)
     return new Promise((resolve,reject) => {
         userModel.addUser(userData).then((data)=>{
             resolve(data);
@@ -15,20 +15,19 @@ function addUser(userData) {
             reject(err);
         })
     })
-   
 }
 
 
-// function updateUser(id,userData,callback) {
-//     return new Promise((resolve,reject) => {
-//         userModel.updateUser(id,userData).then((data)=>{
-//             resolve(data);
-//         }).catch((err) => {
-//             reject(err);
-//         })
-//     })
+function updateUserById(userData) {
+    return new Promise((resolve,reject) => {
+        userModel.updateUser(userData).then((data)=>{
+            resolve(data);
+        }).catch((err) => {
+            reject(err);
+        })
+    })
      
-// }
+}
 
 // function deleteUser(id) {
 //     return new Promise((resolve,reject) => {

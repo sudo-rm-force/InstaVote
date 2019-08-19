@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
 import loginApi from '../../api/loginApi'
+import election from '../../web3/web3-config'
 import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
@@ -57,7 +58,11 @@ class Login extends Component {
         // this.props.loginUser({  voterId }, imageSrc);
         loginApi(this.state.voterId).then((res) => {
             if (res.success) {
-                window.location = '/'+this.state.voterId+'/Profile'
+                election.methods.login(this.state.voterId).call((res,err) => {
+                    console.log(res)
+                }).then((res,err) => {
+                    window.location = '/'+this.state.voterId+'/Profile'
+                })
             }
         })
     }

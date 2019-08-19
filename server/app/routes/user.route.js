@@ -43,10 +43,17 @@ function addUser(req,res) {
     res.json(err);
   });
 
+  userService.updateUserById(userData).then((data) => {
+    res.json(data);
+  }).catch((err) => {
+    res.json(err);
+  });
+
 }
 
 module.exports.addUser = addUser;
 module.exports.getUserById = getUserById;
+module.exports.updateUserById = updateUserById;
 
 
 

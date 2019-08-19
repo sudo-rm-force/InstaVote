@@ -3,8 +3,9 @@ var app = express();
 var path  = require('path');
 var dbfunc = require('./db-function');
 var bodyParser = require('body-parser');
-const { addUser, getUserById } = require('../app/routes/user.route');
+const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
+const { candidate } = require('../app/routes/candidate.route')
 
 dbfunc.connectionCheck.then((data) =>{
     console.log(data);
@@ -26,7 +27,9 @@ app.get('/', (req,res) => {
 });
 
 app.post('/user', addUser);
+app.put('/userUpdate', updateUserById);
 app.post('/login', authentic);
+app.post('/candidate', candidate);
 
 
 var ApiConfig = {
