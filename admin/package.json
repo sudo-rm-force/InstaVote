@@ -17,7 +17,9 @@
     "react-scripts": "^3.1.0",
     "react-webcam": "^1.1.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "truffle": "^5.0.32",
+    "truffle-contract": "^4.0.29"
   },
   "scripts": {
     "start": "react-scripts start",
