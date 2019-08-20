@@ -7,8 +7,8 @@ const config =mysql.createPool({
     timeout         : 60 * 60 * 1000,
 	host: 'localhost',
 	user: 'root',
-	password: 'Subham8249041078',
-	database: 'c2joui-ins'
+	password: '',
+	database: 'instavote'
 });
 
 config.on('connection', function (conn) {
