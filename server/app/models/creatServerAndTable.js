@@ -1,4 +1,5 @@
 const conn = require('../../config/database');
+const crypto = require('crypto');
 
 const serverAndTable = {
     createDatabase: createDatabase
@@ -46,6 +47,17 @@ function createDatabase() {
         let createAdmin = "CREATE TABLE IF NOT EXISTS `instavote`.`admin` ( `u_id` INT NOT NULL AUTO_INCREMENT , `admin_id` VARCHAR(100) NOT NULL , `password` VARCHAR(200) NOT NULL , PRIMARY KEY (`u_id`));";
 
         conn.query(createAdmin, function(err, results, fields) {
+            if (err) {
+            console.log(err.message);
+            } else {
+                console.log(results);
+            }
+        });
+
+        let addAdmin = "INSERT INTO admin (admin_id,password) VLAUES (?,?);";
+        const pass = crypto.createHash('sha256').update(pwd).digest('base64');
+        const params = ['admin', pass]
+        conn.query(addAdmin, params, function(err, results, fields) {
             if (err) {
             console.log(err.message);
             } else {
