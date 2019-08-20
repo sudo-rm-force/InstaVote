@@ -61,5 +61,5 @@ typings/
 .env
 
 # database credentials
-./config/database.js
+config/database.js
 
