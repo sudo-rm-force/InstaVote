@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import Candidate from './candidatepanel'
 import election from '../../web3/web3-config'
 import voted from '../../assets/voted.svg'
+import bjp from '../../assets/bjp.jpg'
+import bsp from '../../assets/bsp.jpg'
+import cpim from '../../assets/cpim.jpg'
+import banyan from '../../assets/banyan.png'
+import aap from '../../assets/aap.jpg'
+import axe from '../../assets/axe.png'
+import fan from '../../assets/fan.png'
+import pen from '../../assets/pen.png'
+import phone from '../../assets/phone.png'
+import sp from '../../assets/sp.jpg'
 import '../../styles/main.scss'
 
 class Vote extends Component {
@@ -45,16 +55,16 @@ class Vote extends Component {
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            <Candidate name='Subham Sahoo'/>
-                            <Candidate name='Karanpreet Singh'/>
-                            <Candidate name='Ayan Choudhary'/>
-                            <Candidate name='Adrij Shikhar'/>
-                            <Candidate name='Manas Chaudhary'/>
-                            <Candidate name='Savita Gupta'/>
-                            <Candidate name='Aniket Kumar'/>
-                            <Candidate name='Nupur Agarwal'/>
-                            <Candidate name='Ashutosh Bharambe'/>
-                            <Candidate name='Leshna Balara'/>
+                            <Candidate name='Subham Sahoo' image={bsp}/>
+                            <Candidate name='Karanpreet Singh' image={fan}/>
+                            <Candidate name='Ayan Choudhary' image={bjp}/>
+                            <Candidate name='Adrij Shikhar' image={aap}/>
+                            <Candidate name='Manas Chaudhary' image={pen}/>
+                            <Candidate name='Savita Gupta' image={axe}/>
+                            <Candidate name='Aniket Kumar' image={cpim}/>
+                            <Candidate name='Nupur Agarwal' image={banyan}/>
+                            <Candidate name='Ashutosh Bharambe' image={sp}/>
+                            <Candidate name='Leshna Balara' image={phone}/>
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit'>Vote</button>

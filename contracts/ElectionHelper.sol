@@ -14,7 +14,7 @@ contract ElectionHelper is Election {
         _constituency._duration = _duration;
     }
 
-    function getConstituencyDetails(uint256 _id, uint256 _userId) external onlyUser(_userId) returns(Constituency) {
+    function getConstituencyDetails(uint256 _id, uint256 _userId) external onlyUser(_userId) returns(Constituency memory) {
         Constituency memory _constituency = idToConstituency[_id];
         return _constituency;
     }

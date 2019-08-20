@@ -32,7 +32,7 @@ class Sidebar extends Component {
                     <SidePanel name='Profile' active={this.state.active} handleClick={this.handleClick}/>
                     <SidePanel name='Vote' active={this.state.active} handleClick={this.handleClick}/>
                     <SidePanel name='Candidates' active={this.state.active} handleClick={this.handleClick}/>
-                    <SidePanel name='Constituency' active={this.state.active} handleClick={this.handleClick}/>
+                    <SidePanel name='Results' active={this.state.active} handleClick={this.handleClick}/>
                 </div>
             </div>
         )
