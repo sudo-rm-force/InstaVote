@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
+import loginAdminApi from '../api/loginAdminApi'
 import logo from '../assets/logo.png'
 import cover from '../assets/cover.jpg'
 import '../styles/main.scss'
 
 class Landing extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id:'',
+            password:''
+        }
+    }
+
+    onChangeId(event) {
+        this.setState({id:event.target.value})
+    }
+
+    onChangePassword(event) {
+        this.setState({password:event.target.value})
+    }
 
     onButtonPress(event) {
         event.preventDefault()
-        window.location = '/18117019/Candidates'
+        loginAdminApi(this.state.id, this.state.password).then((res) => {
+            console.log(res)
+            window.location = '/'+this.state.id+'/Candidates'
+        })
     }
 
     render() {
@@ -24,9 +43,9 @@ class Landing extends Component {
                         <div className='landing--signin-block'>
                             <form onSubmit={this.onButtonPress.bind(this)}>
                                 <div className='landing--heading-id'>Admin ID</div>
-                                <input className='landing--input-id' name='id' required/>
+                                <input className='landing--input-id' name='id' onChange={this.onChangeId.bind(this)} required/>
                                 <div className='landing--heading-password'>Password</div>
-                                <input className='landing--input-password' name='password' type='password' required/>
+                                <input className='landing--input-password' name='password' type='password' onChange={this.onChangePassword.bind(this)} required/>
                                 <button className='landing--submit' type='submit'>Sign In</button>
                             </form>
                         </div>
