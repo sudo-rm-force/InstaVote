@@ -8,7 +8,7 @@ class CandidateCard extends Component {
                     {this.props.name}
                 </div>
                 <div className='candidatecard--party'>
-                    <img className='candidatecard--party-icon' src='' alt=''/>
+                    <img className='candidatecard--party-icon' src={this.props.image} alt=''/>
                 </div>
                 { this.props.electionended ? (<div className='candidatecard--result'></div>) : <div /> }
             </div>

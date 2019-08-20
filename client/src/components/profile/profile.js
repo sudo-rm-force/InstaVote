@@ -27,7 +27,7 @@ class Profile extends Component {
                     VoterID:
                 </div>
                 <div className='profile--voterid'>
-                    1452365568
+                    18117019
                 </div>
                 <div className='profile--heading-constituencyid'>
                     ConstituencyID:

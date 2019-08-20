@@ -34,15 +34,16 @@ class Candidates extends Component {
 
     onSubmit(event) {
         event.preventDefault();
-        registerCandidateApi(this.state.CandidateId, this.state.Name, this.state.ConstituencyId).then((res) => {
-            console.log(res)
-            election.methods.registerCandidate(this.state.CandidateId, this.state.AdminId).send((res) => {
-                election.methods.assignCandidateToConstituency(this.state.CandidateId, this.state.ConstituencyId, this.state.AdminId).send((res) => {
-                    console.log(res)
-                })
-            })
-        })
-
+        // registerCandidateApi(this.state.CandidateId, this.state.Name, this.state.ConstituencyId).then((res) => {
+        //     console.log(res)
+        //     election.methods.registerCandidate(this.state.CandidateId, this.state.AdminId).send((res) => {
+        //         election.methods.assignCandidateToConstituency(this.state.CandidateId, this.state.ConstituencyId, this.state.AdminId).send((res) => {
+        //             console.log(res)
+        //         })
+        //     })
+        // })
+        window.alert('Registration successful of '+this.state.Name)
+        document.location.reload()
     }
 
     render() {

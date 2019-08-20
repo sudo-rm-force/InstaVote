@@ -6,6 +6,9 @@ import '../../styles/main.scss'
 class ConstituencyCard extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            name:''
+        }
 
         this.close = this.close.bind(this)
     }
@@ -14,10 +17,21 @@ class ConstituencyCard extends Component {
         this.props.close()
     }
 
+    onButtonPress() {
+        window.alert('Election started for '+this.state.name)
+        this.props.close()
+        this.props.splice(this.state.name)
+    }
+
     componentDidMount() {
         // election.methods.generateElectionforConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
         //     console.log(res)
         // })
+        this.setState({name:this.props.name})
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({name:props.name})
     }
 
     render() {
@@ -26,13 +40,13 @@ class ConstituencyCard extends Component {
                 <div className='constituency--start'>
                     <div className='constituency--start-heading'>Start Election</div>
                     <img className='constituency--close' src={close} alt='close' onClick={this.close} />
-                    <div className='constituency--heading-name'>Roorkee</div>
-                    <div className='constituency--heading-id'>12.212.12156</div>
+                    <div className='constituency--heading-name'>{this.state.name}</div>
+                    <div className='constituency--heading-id'>1221212156</div>
                     <div className='constituency--heading-start'>Start Time</div>
                     <input className='constituency--input-start' value={Date.now()} name='start' />
                     <div className='constituency--heading-duration'>Duration</div>
                     <input className='constituency--input-duration' name='duration' />
-                    <button className='constituency--button'>Start</button>
+                    <button className='constituency--button' onClick={this.onButtonPress.bind(this)}>Start</button>
                 </div>
             </div>
         )
