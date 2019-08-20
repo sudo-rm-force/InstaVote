@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CandidateCard from '../candidate/candidatecard'
+import election from '../../web3/web3-config'
 import '../../styles/main.scss'
 
 class Candidate extends Component {
@@ -10,6 +11,12 @@ class Candidate extends Component {
 
     hidesignout() {
         this.props.hidesignout()
+    }
+
+    componentDidMount() {
+        // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
+        //     console.log(res)
+        // })
     }
 
     render() {

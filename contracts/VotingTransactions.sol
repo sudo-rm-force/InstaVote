@@ -12,7 +12,7 @@ contract VotingTransactions is ElectionHelper {
     //     return owner;
     // }
 
-    function transferFrom(uint256 from, uint256 to, bytes32 tokenId) public {
+    function transferFrom(uint256 from, uint256 to, bytes32 tokenId) public onlyUser(from) {
         require(idToVoter[from]._constituencyId == candidateToConstituency[to]);
         Voter memory voter = idToVoter[from];
         voter._hasVoted = true;
@@ -21,7 +21,7 @@ contract VotingTransactions is ElectionHelper {
         emit Transfer(from, to, tokenId);
     }
 
-    function _transferredTo(bytes32 _id) private view returns (Candidate memory) {
+    function _transferredTo(bytes32 _id, uint256 _userId) private view onlyUser(_userId) returns(Candidate memory) {
         uint256 candidateId = voteToCandidate[_id];
         Candidate memory candidate = idToCandidate[candidateId];
         return candidate;

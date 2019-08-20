@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ConstituencyPanel from './constituencypanel'
+import ConstituencyCard from './constituencycard'
+import election from '../../web3/web3-config'
 import search from '../../assets/search.svg'
 import close from '../../assets/close.svg'
 import '../../styles/main.scss'
@@ -8,7 +10,7 @@ class Constituency extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            start: false
+            start: false,
         }
 
         this.close = this.close.bind(this)
@@ -28,6 +30,12 @@ class Constituency extends Component {
         this.props.hidesignout()
     }
 
+    // componentDidMount() {
+    //     election.methods.getConstituencies(this.state.AdminId).call((res) => {
+    //         console.log(res)
+    //     })
+    // }
+
     render() {
         return(
             <div className='constituency' onClick={this.click}>
@@ -40,19 +48,7 @@ class Constituency extends Component {
                     <ConstituencyPanel handleClick={this.start}/>
                     <ConstituencyPanel handleClick={this.start}/>
                 </div>
-                { this.state.start ? (<div className='constituency--overlay'>
-                    <div className='constituency--start'>
-                        <div className='constituency--start-heading'>Start Election</div>
-                        <img className='constituency--close' src={close} alt='close' onClick={this.close} />
-                        <div className='constituency--heading-name'>Roorkee</div>
-                        <div className='constituency--heading-id'>12.212.12156</div>
-                        <div className='constituency--heading-start'>Start Time</div>
-                        <input className='constituency--input-start' value={Date.now()} name='start' />
-                        <div className='constituency--heading-duration'>Duration</div>
-                        <input className='constituency--input-duration' name='duration' />
-                        <button className='constituency--button'>Start</button>
-                    </div>
-                </div>) : (<Fragment />) } 
+                { this.state.start ? (<ConstituencyCard close={this.close} />) : (<Fragment />) } 
             </div>
         )
     }

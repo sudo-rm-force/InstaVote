@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import registerCandidateApi from '../../api/registerCandidateApi'
+import election from '../../web3/web3-config'
 import '../../styles/main.scss'
 
 class Candidates extends Component {
@@ -35,6 +36,11 @@ class Candidates extends Component {
         event.preventDefault();
         registerCandidateApi(this.state.CandidateId, this.state.Name, this.state.ConstituencyId).then((res) => {
             console.log(res)
+            election.methods.registerCandidate(this.state.CandidateId, this.state.AdminId).send((res) => {
+                election.methods.assignCandidateToConstituency(this.state.CandidateId, this.state.ConstituencyId, this.state.AdminId).send((res) => {
+                    console.log(res)
+                })
+            })
         })
 
     }

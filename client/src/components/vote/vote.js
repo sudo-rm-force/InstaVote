@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Candidate from './candidatepanel'
+import election from '../../web3/web3-config'
 import voted from '../../assets/voted.svg'
 import '../../styles/main.scss'
 
@@ -16,6 +17,24 @@ class Vote extends Component {
 
     hidesignout() {
         this.props.hidesignout()
+    }
+
+    componentWillMount() {
+        // if(this.props.voted) {
+        //     this.setState({ voted:true })
+        // }
+        // election.methods.getConstituencyDetails(this.state.ConstituencyId, this.state.voterId).call((res) => {
+        //     console.log(res)
+        //     if(Date.now() < res._startTime+res._duration && Date.now() > res._startTime) {
+        //         this.setState({ votingStarted:true })
+        //     }
+        // })
+    }
+
+    componentDidMount() {
+        // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
+        //     console.log(res)
+        // })
     }
 
 
@@ -59,7 +78,7 @@ class Vote extends Component {
                         <div className='vote--transaction-date'>Election Date: 15 October 2019</div>
                         <div className='vote--transaction-start'>Start Time: 05:00</div>
                         <div className='vote--transaction-duration'>Duration: 18 Hours</div>
-                        <div className='vote--transaction-constituency'>TransactionID: 141d1d651dw63f1w6</div>
+                        <div className='vote--transaction-constituency'>Constituency: Roorkee</div>
                         <img className='vote--transaction-image' src={voted} alt='' />
                     </div>
                 </div>

@@ -40,8 +40,11 @@ class Voters extends Component {
         this.preventDefault();
         registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
             console.log(res)
-            election.methods.register(this.state.VoterId,this.state.ConstituencyId).send((res) => {
+            election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, this.state.AdminId).send((res) => {
                 console.log(res)
+                election.methods.registerConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
+                    console.log(res)
+                })
             })
         })
 
