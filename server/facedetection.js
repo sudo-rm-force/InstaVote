@@ -12,7 +12,7 @@ const subscriptionKey = 'b5c5cfb44a1c49a3b519d59843c01c21';
 const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
 
 // const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
-fs.readFile('1566245276582.HKWR2.jpeg', function (err, data) {
+fs.readFile('1566313638594.9FJTQ.jpeg', function (err, data) {
 
 // console.log(data);
 // Request parameters.
