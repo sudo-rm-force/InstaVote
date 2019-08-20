@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import SignOut from './signout'
 import logo from '../../assets/logo.png'
+import image from '../../assets/admin.jpg'
 import '../../styles/main.scss'
 
 class Header extends Component {
@@ -32,7 +33,7 @@ class Header extends Component {
                     Admin
                 </div>
                 <div className='header--user-image' onClick={this.signout}>
-                    <img alt='admin'/>
+                    <img className='header--admin-image' alt='admin' src={image}/>
                 </div>
                 { this.state.signout ? <SignOut /> : <Fragment /> }
             </div>

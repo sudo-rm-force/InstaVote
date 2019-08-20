@@ -14,22 +14,17 @@ class RegistrationBar extends Component {
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
+        this.reset = this.reset.bind(this)
     }
 
     onTakePhoto (dataUri) {
-        // console.log(dataUri)
-        // Naming the image
-        // console.log(dataUri);
         const date = new Date().valueOf();
         let text = '';
         const possibleText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for (let i = 0; i < 5; i++) {
         text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
         }
-        // Replace extension according to your media type like this 
         const imageName = date + '.' + text + '.jpeg';
-        // console.log(imageName);
-        // call method that creates a blob from dataUri
         let imageBlob;
         const byteString = window.atob(dataUri);
         const arrayBuffer = new ArrayBuffer(byteString.length);
@@ -40,16 +35,6 @@ class RegistrationBar extends Component {
         const blob = new Blob([int8Array], { type: 'image/jpeg' });
         console.log(blob);
         imageBlob = blob;
-
-        // fs.writeFile("./../../../../server/documents/images/"+imageName, dataUri, 'base64', function(err) {
-        //     if(err){
-        //         console.log(err);
-        //         }else{
-        //         // res.send(JSON.stringify({'status': 1, 'msg': 'Image Uploaded'}));
-        //     }
-        // });
-
-
         const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' });
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         this.setState({ url:this.generatedImage })
@@ -57,8 +42,8 @@ class RegistrationBar extends Component {
         this.props.handleSnap(dataUri, imageName);
     }
 
-    triggerCamera() {
-        document.getElementsByClassName("camera")
+    reset() {
+        document.location.reload()
     }
 
     render() {
@@ -71,7 +56,7 @@ class RegistrationBar extends Component {
                     onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
                     /> ) : <img src={this.state.url}/> }
                 </div>
-                <button className='registrationbar--button' onClick={this.triggerCamera()}>Take Photo</button>
+                <button className='registrationbar--button' onClick={this.reset}>Take Another Photo</button>
             </div>
         )
     }

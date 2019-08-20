@@ -226,28 +226,67 @@
             &_male {
                 position: absolute;
                 left: 170px;
-                top: 380px;
+                top: 383px;
                 height: 24px;
                 width: 24px;
                 background-color: #FFFFFF;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border-radius: 50%;
+
+                border: 2px solid #08BBF4;
+                transition: 0.2s all ease-in;
+                outline: none;
+            }
+
+            &_male:checked {
+                border: 6px solid #08BBF4;
             }
 
             &_female {
                 position: absolute;
                 left: 260px;
-                top: 380px;
+                top: 383px;
                 height: 24px;
                 width: 24px;
                 background-color: #FFFFFF;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border-radius: 50%;
+
+                border: 2px solid #08BBF4;
+                transition: 0.2s all ease-in;
+                outline: none;
+            }
+
+            &_female:checked {
+                border: 6px solid #08BBF4;
             }
 
             &_other {
                 position: absolute;
                 left: 370px;
-                top: 380px;
+                top: 383px;
                 height: 24px;
                 width: 24px;
                 background-color: #FFFFFF;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border-radius: 50%;
+
+                border: 2px solid #08BBF4;
+                transition: 0.2s all ease-in;
+                outline: none;
+            }
+
+            &_other:checked {
+                border: 6px solid #08BBF4;
             }
 
             &_male:hover, &_female:hover, &_other:hover {

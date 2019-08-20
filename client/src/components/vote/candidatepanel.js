@@ -6,7 +6,7 @@ class CandidatePanel extends Component {
         return(
             <div className='candidatepanel'>
                 <div className='candidatepanel--name'>
-                    Ayan Choudhary
+                    {this.props.name}
                 </div>
                 <img className='candidatepanel--icon' src='' alt='icon' />
                 <input className='candidatepanel--radio' type='radio' name='vote' value='' /> 

@@ -22,17 +22,14 @@ class Login extends Component {
     }
 
     onTakePhoto (dataUri) {
-        // Naming the image
         const date = new Date().valueOf();
         let text = '';
         const possibleText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for (let i = 0; i < 5; i++) {
         text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
         }
-        // Replace extension according to your media type like this 
         const imageName = date + '.' + text + '.jpeg';
         console.log(imageName);
-        // call method that creates a blob from dataUri
         let imageBlob;
         const byteString = window.atob(dataUri);
         const arrayBuffer = new ArrayBuffer(byteString.length);
@@ -51,24 +48,18 @@ class Login extends Component {
     }
      
     onVoterIdChange(event) {
-        //   this.props.voterIdChanged(text);
           this.setState({voterId:event.target.value})
       }
 
     onButtonPress(event) {
         event.preventDefault()
-        // this.props.faceDataChanged(imageSrc)
-        // const { voterId , faceData } = this.props;
-        // this.props.loginUser({  voterId }, imageSrc);
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
-            console.log(res)
-            if (res) {
+            if(res.success) {
                 // election.methods.login(this.state.voterId).call((res,err) => {
                 //     console.log(res)
-                // }).then((res,err) => {
-                //     window.location = '/'+this.state.voterId+'/Profile'
+                //     //Map user data to global variables
                 // })
-                // window.location = '/'+this.state.voterId+'/Profile'
+                window.location = '/'+this.state.voterId+'/Profile'
             }
         })
     }
