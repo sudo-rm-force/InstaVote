@@ -13,7 +13,9 @@ class Login extends Component {
         this.state = {
             camera: true,
             url: '',
-            voterId: ''
+            voterId: '',
+            faceID: '',
+            faceName: ''
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
@@ -41,6 +43,8 @@ class Login extends Component {
         this.generatedImage =  window.URL.createObjectURL(imageFile);
         this.setState({ url:this.generatedImage })
         this.setState({ camera:false })
+        this.setState({ faceID:dataUri })
+        this.setState({ faceName:imageName })
     }
      
     onVoterIdChange(event) {
@@ -49,13 +53,13 @@ class Login extends Component {
 
     onButtonPress(event) {
         event.preventDefault()
-        loginApi(this.state.voterId).then((res) => {
-            if (res.success) {
-                election.methods.login(this.state.voterId).call((res,err) => {
-                    console.log(res)
-                    //Map user data to global variables
-                    window.location = '/'+this.state.voterId+'/Profile'
-                })
+        loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
+            if(res.success) {
+                // election.methods.login(this.state.voterId).call((res,err) => {
+                //     console.log(res)
+                //     //Map user data to global variables
+                // })
+                window.location = '/'+this.state.voterId+'/Profile'
             }
         })
     }
