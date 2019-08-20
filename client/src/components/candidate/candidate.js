@@ -24,8 +24,16 @@ class Candidate extends Component {
             <div className='candidate'onClick={this.hidesignout}>
                 <div className='candidate--heading'>Candidates</div>
                 <div className='candidate--list'>
-                    <CandidateCard />
-                    <CandidateCard />
+                    <CandidateCard name='Subham Sahoo'/>
+                    <CandidateCard name='Karanpreet Singh'/>
+                    <CandidateCard name='Ayan Choudhary'/>
+                    <CandidateCard name='Adrij Shikhar'/>
+                    <CandidateCard name='Manas Chaudhary'/>
+                    <CandidateCard name='Savita Gupta'/>
+                    <CandidateCard name='Aniket Kumar'/>
+                    <CandidateCard name='Nupur Agarwal'/>
+                    <CandidateCard name='Ashutosh Bharambe'/>
+                    <CandidateCard name='Leshna Balara'/>
                 </div>
             </div>
         )

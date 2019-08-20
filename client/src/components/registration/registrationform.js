@@ -67,7 +67,6 @@ class RegistrationForm extends Component {
     componentWillReceiveProps(props) {
         if(props.faceID !== this.state.FaceID) {
             this.setState({ FaceID:props.faceID })
-            // console.log(props.faceID)
         }
     }
 

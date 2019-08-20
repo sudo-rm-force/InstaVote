@@ -16,7 +16,7 @@ class Results extends Component {
         return(
             <div className='results' onClick={this.click}>
                 <div className='results--heading'>Results</div>
-                <div className='results--description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non aliquet elit, quis vulputate velit. Curabitur vitae risus ac eros consectetur interdum. Mauris sapien ante, porta id lobortis sed, egestas ac lectus. Proin sed nunc porta, lacinia dui id, consequat elit. Aliquam condimentum ante eu neque vulputate pharetra. Duis leo turpis, dignissim at odio vitae, cursus pellentesque nibh. Integer imperdiet mattis condimentum. Donec ornare nibh a nisi lacinia semper. Sed felis tortor, tempus ut laoreet non, hendrerit in nulla. Vivamus lobortis dictum faucibus. Nulla facilisi.</div>
+                <div className='results--description'>Welcome to the long awaited results section. <br/><br/>The whole of India waits anxiously for this result. Elections are the upholding pillars of Indian democracy. Elections are one of those events which binds the whole country together. Conduting and managing elections is an enormous task in itself and every care shoultd be taken to ensure there is an error free election and its result.<br/><br/> Now you hold the key to declaring this result. Make sure you follow the prescribed instructions from the Election Commission before declaring the results.</div>
                 <div className='results--image'><img alt='vote' src={vote}/></div>
                 <button type='button' className='results--button'>Declare Results</button>
             </div>

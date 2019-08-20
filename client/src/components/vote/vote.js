@@ -9,7 +9,7 @@ class Vote extends Component {
         super(props);
         this.state = {
             voted: false,
-            votingStarted: false
+            votingStarted: true
         }
 
         this.hidesignout = this.hidesignout.bind(this)
@@ -45,8 +45,16 @@ class Vote extends Component {
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            <Candidate />
-                            <Candidate />
+                            <Candidate name='Subham Sahoo'/>
+                            <Candidate name='Karanpreet Singh'/>
+                            <Candidate name='Ayan Choudhary'/>
+                            <Candidate name='Adrij Shikhar'/>
+                            <Candidate name='Manas Chaudhary'/>
+                            <Candidate name='Savita Gupta'/>
+                            <Candidate name='Aniket Kumar'/>
+                            <Candidate name='Nupur Agarwal'/>
+                            <Candidate name='Ashutosh Bharambe'/>
+                            <Candidate name='Leshna Balara'/>
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit'>Vote</button>

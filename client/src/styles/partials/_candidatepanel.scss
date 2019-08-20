@@ -45,6 +45,17 @@
         top: 21px;
         right: 48px;
 
-        border: 1px solid #08BBF4;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 50%;
+
+        border: 2px solid #08BBF4;
+        transition: 0.2s all ease-in;
+        outline: none;
+    }
+
+    &radio:checked {
+        border: 8px solid #08BBF4;
     }
 }

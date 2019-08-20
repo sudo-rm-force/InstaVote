@@ -28,8 +28,9 @@
     &list {
         position: absolute;
         width: 90%;
-        height: 600px;
+        height: 700px;
         left: 108px;
         top: 152px;
+        overflow: auto;
     }
 }

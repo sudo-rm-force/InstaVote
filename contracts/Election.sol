@@ -32,6 +32,7 @@ contract Election is Ownable{
   }
 
   Vote InitialVoteState = Vote(0, 0, 0);
+  ResultsDeclared = false;
 
   mapping(uint256 => Voter) internal idToVoter;
   mapping(uint256 => Candidate) internal idToCandidate;
@@ -60,6 +61,11 @@ contract Election is Ownable{
         continue;
       }
     }
+  }
+
+  modifier declaredResults() {
+    require(ResultsDeclared == true);
+    _;
   }
 
   function createVoter(uint256 _id, uint256 _constituencyId) internal {

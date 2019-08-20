@@ -5,7 +5,11 @@ import "./VotingTransactions.sol";
 
 contract ResultHelper is VotingTransactions{
 
-    function retreiveConstituencyVoteCount(uint256 _constituencyId) external view returns(uint32) {
+    function declareResults(uint256 _adminId) external onlyAdmin(_adminId) {
+        ResultsDeclared = true;
+    }
+
+    function retreiveConstituencyVoteCount(uint256 _constituencyId) external view declaredResults returns(uint32) {
         Candidate[] memory _candidates = getCandidatesByConstituency(_constituencyId);
         uint32 _votes;
         for (uint i = 0; i < _candidates.length; i++) {

@@ -5,7 +5,7 @@ class CandidateCard extends Component {
         return(
             <div className='candidatecard'>
                 <div className='candidatecard--name'>
-                    Subham Sahoo
+                    {this.props.name}
                 </div>
                 <div className='candidatecard--party'>
                     <img className='candidatecard--party-icon' src='' alt=''/>
