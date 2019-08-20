@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar/sidebar'
 import Profile from '../components/profile/profile'
 import Vote from '../components/vote/vote'
 import Candidate from '../components/candidate/candidate'
-import Constituency from '../components/constituency/constituency';
+import Results from '../components/results/results';
 
 class VoterPage extends Component {
     constructor(props) {
@@ -74,12 +74,12 @@ class VoterPage extends Component {
             )
         }
 
-        else if(this.state.route === 'Constituency') {
+        else if(this.state.route === 'Results') {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
-                    <Constituency hidesignout={this.hidesignout}/>
+                    <Results hidesignout={this.hidesignout}/>
                 </div>
             )
         }

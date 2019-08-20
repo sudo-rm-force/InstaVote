@@ -32,7 +32,7 @@ contract Election is Ownable{
   }
 
   Vote InitialVoteState = Vote(0, 0, 0);
-  ResultsDeclared = false;
+  bool ResultsDeclared = false;
 
   mapping(uint256 => Voter) internal idToVoter;
   mapping(uint256 => Candidate) internal idToCandidate;

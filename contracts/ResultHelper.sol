@@ -9,8 +9,8 @@ contract ResultHelper is VotingTransactions{
         ResultsDeclared = true;
     }
 
-    function retreiveConstituencyVoteCount(uint256 _constituencyId) external view declaredResults returns(uint32) {
-        Candidate[] memory _candidates = getCandidatesByConstituency(_constituencyId);
+    function retreiveConstituencyVoteCount(uint256 _constituencyId, uint256 _userId) external view declaredResults onlyUser(_userId) returns(uint32) {
+        Candidate[] memory _candidates = getCandidatesByConstituency(_constituencyId,_userId);
         uint32 _votes;
         for (uint i = 0; i < _candidates.length; i++) {
             _votes = _votes + uint32(candidateVoteCount[_candidates[i]._id]);

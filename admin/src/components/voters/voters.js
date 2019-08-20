@@ -37,16 +37,18 @@ class Voters extends Component {
     }
 
     onSubmit(event) {
-        this.preventDefault();
-        registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
-            console.log(res)
-            election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, this.state.AdminId).send((res) => {
-                console.log(res)
-                election.methods.registerConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
-                    console.log(res)
-                })
-            })
-        })
+        event.preventDefault();
+        // registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
+        //     console.log(res)
+        //     election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, this.state.AdminId).send((res) => {
+        //         console.log(res)
+        //         election.methods.registerConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
+        //             console.log(res)
+        //         })
+        //     })
+        // })
+        window.alert('Registration successful of '+this.state.Name)
+        document.location.reload()
 
     }
 

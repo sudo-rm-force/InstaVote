@@ -130,8 +130,9 @@
         position: absolute;
         width: 85%;
         height: 70%;
-        top: 219px;
+        top: 200px;
         left: 98px;
+        overflow-y: auto;
     }
 
     &overlay {

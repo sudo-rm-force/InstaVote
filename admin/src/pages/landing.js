@@ -4,6 +4,12 @@ import cover from '../assets/cover.jpg'
 import '../styles/main.scss'
 
 class Landing extends Component {
+
+    onButtonPress(event) {
+        event.preventDefault()
+        window.location = '/18117019/Candidates'
+    }
+
     render() {
         return(
             <div className='landing'>
@@ -16,7 +22,7 @@ class Landing extends Component {
                 <div className='landing--overlay'>
                     <div className='landing--signin'>
                         <div className='landing--signin-block'>
-                            <form>
+                            <form onSubmit={this.onButtonPress.bind(this)}>
                                 <div className='landing--heading-id'>Admin ID</div>
                                 <input className='landing--input-id' name='id' required/>
                                 <div className='landing--heading-password'>Password</div>

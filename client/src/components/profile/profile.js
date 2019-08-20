@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ayan from '../../assets/ayan.jpeg'
 import '../../styles/main.scss'
 
 class Profile extends Component {
@@ -15,7 +16,7 @@ class Profile extends Component {
         return(
             <div className='profile' onClick={this.hidesignout}>
                 <div className='profile--photo'>
-                    <img src='' alt='voter' />
+                    <img className='profile--photo-image' src={ayan} alt='voter' />
                 </div>
                 <div className='profile--heading-name'>
                     Name:
@@ -27,7 +28,7 @@ class Profile extends Component {
                     VoterID:
                 </div>
                 <div className='profile--voterid'>
-                    1452365568
+                    18117019
                 </div>
                 <div className='profile--heading-constituencyid'>
                     ConstituencyID:

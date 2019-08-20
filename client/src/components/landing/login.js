@@ -59,9 +59,11 @@ class Login extends Component {
                 //     console.log(res)
                 //     //Map user data to global variables
                 // })
-                window.location = '/'+this.state.voterId+'/Profile'
+                // window.location = '/'+this.state.voterId+'/Profile'
+                window.location = '/18117019/Profile'
             }
         })
+        window.location = '/18117019/Profile'
     }
 
     render() {

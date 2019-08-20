@@ -8,7 +8,7 @@ class CandidatePanel extends Component {
                 <div className='candidatepanel--name'>
                     {this.props.name}
                 </div>
-                <img className='candidatepanel--icon' src='' alt='icon' />
+                <img className='candidatepanel--icon' src={this.props.image} alt='icon' />
                 <input className='candidatepanel--radio' type='radio' name='vote' value='' /> 
             </div>
         )
