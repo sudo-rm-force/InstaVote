@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
 const { addCandidate } = require('../app/routes/candidate.route')
+const { createDatabase } = require('../app/models/creatServerAndTable')
 
 dbfunc.connectionCheck.then((data) =>{
     console.log(data);
@@ -19,6 +20,8 @@ dbfunc.connectionCheck.then((data) =>{
     res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
+createDatabase();
 
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
