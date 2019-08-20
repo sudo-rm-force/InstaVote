@@ -6,22 +6,23 @@ class Registration extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            faceID: ''
+            faceID: '',
+            faceName: ''
         }
 
         this.setFaceID = this.setFaceID.bind(this)
     }
 
-    setFaceID(faceID) {
-        this.setState({ faceID })
-        // console.log(faceID)
+    setFaceID(faceID, faceName) {
+        this.setState({ faceID, faceName })
+        // console.log(faceName)
     }
 
     render() {
         return(
             <div>
                 <RegistrationBar handleSnap={this.setFaceID} />
-                <RegistrationForm faceID={this.state.faceID} />
+                <RegistrationForm faceID={this.state.faceID} faceName={this.state.faceName} />
             </div>
         )
     }
