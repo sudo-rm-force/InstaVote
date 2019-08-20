@@ -33,6 +33,26 @@ function createDatabase() {
             }
         });
 
+        let createCandidates = "CREATE TABLE IF NOT EXISTS `instavote`.`candidates` ( `candidate_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `constitution_id` VARCHAR(100) NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`candidate_id`));";
+
+        conn.query(createCandidates, function(err, results, fields) {
+            if (err) {
+            console.log(err.message);
+            } else {
+                console.log(results);
+            }
+        });
+
+        let createAdmin = "CREATE TABLE IF NOT EXISTS `instavote`.`admin` ( `u_id` INT NOT NULL AUTO_INCREMENT , `admin_id` VARCHAR(100) NOT NULL , `password` VARCHAR(200) NOT NULL , PRIMARY KEY (`u_id`));";
+
+        conn.query(createAdmin, function(err, results, fields) {
+            if (err) {
+            console.log(err.message);
+            } else {
+                console.log(results);
+            }
+        });
+
         conn.on('error', function (err) {
             console.error(new Date(), 'MySQL error', err);
         });
