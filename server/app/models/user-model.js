@@ -9,9 +9,9 @@ var userModel = {
    updateUserById:updateUserById
 }
 
-function getUserById(id) {
+function getUserById(voter_id) {
     return new Promise((resolve,reject) => {
-        conn.query("SELECT * FROM voters WHERE voter_id ="+id.id+";",(error,rows,fields)=>{
+        conn.query("SELECT * FROM voters WHERE voter_id ='"+voter_id+"';",(error,rows,fields)=>{
             if(error) {
                 reject(error);
             } else {

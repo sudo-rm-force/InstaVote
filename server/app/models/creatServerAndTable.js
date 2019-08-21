@@ -54,16 +54,18 @@ function createDatabase() {
             }
         });
 
-        // let addAdmin = "INSERT INTO admin (admin_id,password) VLAUES (?,?);";
-        // const pass = crypto.createHash('sha256').update(pwd).digest('base64');
-        // const params = ['admin', pass]
-        // conn.query(addAdmin, params, function(err, results, fields) {
-        //     if (err) {
-        //     console.log(err.message);
-        //     } else {
-        //         console.log(results);
-        //     }
-        // });
+        let admin_name = 'admin';
+        let pwd = 'Sdslabs@1234567890';
+        let addAdmin = "INSERT INTO admin (admin_id,password) SELECT * FROM (SELECT ?,?) AS tmp WHERE NOT EXISTS (SELECT admin_id FROM admin WHERE admin_id='"+admin_name+"');";
+        const pass = crypto.createHash('sha256').update(pwd).digest('base64');
+        const params = [admin_name, pass]
+        conn.query(addAdmin, params, function(err, results, fields) {
+            if (err) {
+            console.log(err.message);
+            } else {
+                console.log(results);
+            }
+        });
 
         conn.on('error', function (err) {
             console.error(new Date(), 'MySQL error', err);
