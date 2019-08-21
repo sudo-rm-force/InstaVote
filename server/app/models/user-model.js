@@ -11,7 +11,7 @@ var userModel = {
 
 function getUserById(id) {
     return new Promise((resolve,reject) => {
-        conn.query("SELECT * FROM voters WHERE voter_id ="+id.id,(error,rows,fields)=>{
+        conn.query("SELECT * FROM voters WHERE voter_id ="+id.id+";",(error,rows,fields)=>{
             if(error) {
                 reject(error);
             } else {
@@ -25,7 +25,7 @@ function addUser(user) {
     console.log(user)
     return new Promise((resolve,reject) => {
         const params = [user.voter_id, user.name, user.age, user.constituency_id];
-        conn.query("INSERT INTO voters (voter_id,name,age,constituency_id) VLAUES (?,?,?,?);", params, (error,rows,fields)=>{
+        conn.query("INSERT INTO voters (voter_id,name,age,constituency_id) VALUES (?,?,?,?);", params, (error,rows,fields)=>{
             if(error) {
                 console.log(error);
                 reject(error);

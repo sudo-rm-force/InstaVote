@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { voterIdChanged_reg, mobileNumChanged, nameChanged, register, genderSelect  } from '../../actions'
 import election from '../../web3/web3-config'
 import registerApi from '../../api/registerApi'
 import back from '../../assets/back.svg'
@@ -132,12 +130,4 @@ class RegistrationForm extends Component {
     }
 }
 
-const mapStateToProps = ({ register }) => {
-    const { name , voterId, mobile_no, gender ,pic } = register;
-  
-    return { name , voterId, mobile_no, gender,pic };
-  };
-  
-  export default connect(mapStateToProps, {
-    voterIdChanged_reg, mobileNumChanged, nameChanged, register, genderSelect
-  })(RegistrationForm);
+export default RegistrationForm

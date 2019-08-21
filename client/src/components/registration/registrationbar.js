@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import '../../styles/main.scss'
 import Camera from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
-import { takePic } from '../../actions'
-import { connect } from 'react-redux'
 
 class RegistrationBar extends Component {
     constructor(props) {
@@ -62,12 +60,4 @@ class RegistrationBar extends Component {
     }
 }
 
-const mapStateToProps = ({ register }) => {
-    const { pic  } = register;
-  
-    return { pic };
-  };
-  
-  export default connect(mapStateToProps, {
-    takePic
-  })(RegistrationBar);
+export default RegistrationBar

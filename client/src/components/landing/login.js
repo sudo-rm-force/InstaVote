@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../../styles/main.scss'
-import { connect } from 'react-redux'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
 import loginApi from '../../api/loginApi'
@@ -15,7 +14,9 @@ class Login extends Component {
             url: '',
             voterId: '',
             faceID: '',
-            faceName: ''
+            faceName: '',
+            name:'',
+            constituency_id:''
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
@@ -54,16 +55,22 @@ class Login extends Component {
     onButtonPress(event) {
         event.preventDefault()
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
+            console.log(res)
             if(res.success) {
                 // election.methods.login(this.state.voterId).call((res,err) => {
                 //     console.log(res)
                 //     //Map user data to global variables
                 // })
-                // window.location = '/'+this.state.voterId+'/Profile'
-                window.location = '/18117019/Profile'
+                const voter = res.data[0]
+                window.name = voter.name
+                window.location = '/'+this.state.voterId+'/Profile'
+                
+            }
+            else {
+                window.alert('You might not be registered.')
+                window.location = '/register'
             }
         })
-        window.location = '/18117019/Profile'
     }
 
     render() {
@@ -90,12 +97,4 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = ({ login }) => {
-    const { voterId , faceData } = login;
-  
-    return { voterId , faceData };
-  };
-  
-  export default connect(mapStateToProps, {
-   voterIdChanged, faceDataChanged, loginUser
-  })(Login);
+export default Login

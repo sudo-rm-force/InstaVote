@@ -10,11 +10,10 @@ function authentic(authenticData) {
     console.log(authenticData.face_name)
     return new Promise((resolve, reject) => {
         db.query(`SELECT * FROM voters WHERE voter_id ='${authenticData.voter_id}'`, (error, rows, fields) => {
-            console.log(rows)
             if (error) {
                 reject(error);
             } else {
-                if (rows == ''){  
+                if (rows == ''){
                     return false;
                 }
                 const log_face_data = authenticData.face_id
@@ -60,7 +59,7 @@ function authentic(authenticData) {
                             response = await request.post(options, async (error, response, body) => {
                                 if (error) {
                                     console.log('Error: ', error);
-                                    return;
+                                    reject(error);
                                 }
                                 const jsonResponse = JSON.parse(body);
                                 const login_faceData = jsonResponse[0].faceId
@@ -93,9 +92,8 @@ function authentic(authenticData) {
                                                     resolve(rows)
                                                 }
                                             });
-                                            // return rows;
                                         } else {
-                                            return false
+                                            return rows
                                         }
                                     }
                                 });

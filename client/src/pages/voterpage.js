@@ -21,7 +21,7 @@ class VoterPage extends Component {
 
     componentDidMount() {
         const route = this.props.match.params.route
-        this.setState({ route:this.props.match.params.route }) 
+        this.setState({ route:this.props.match.params.route })
     }
 
     panel(route) {
@@ -49,7 +49,7 @@ class VoterPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Profile hidesignout={this.hidesignout}/>
+                    <Profile state={this.props.state} hidesignout={this.hidesignout} id={this.props.match.params.id}/>
                 </div>
             )
         }
@@ -59,7 +59,7 @@ class VoterPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
-                    <Vote hidesignout={this.hidesignout}/>
+                    <Vote hidesignout={this.hidesignout} id={this.props.match.params.id}/>
                 </div>
             )
         }
@@ -69,7 +69,7 @@ class VoterPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
-                    <Candidate hidesignout={this.hidesignout}/>
+                    <Candidate hidesignout={this.hidesignout} id={this.props.match.params.id}/>
                 </div>
             )
         }
@@ -79,7 +79,7 @@ class VoterPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
-                    <Results hidesignout={this.hidesignout}/>
+                    <Results hidesignout={this.hidesignout} id={this.props.match.params.id}/>
                 </div>
             )
         }
