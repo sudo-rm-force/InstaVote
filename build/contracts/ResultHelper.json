@@ -565,10 +565,10 @@
           }
         ],
         "contractDependencies": [
-          813,
           312,
           476,
-          641
+          641,
+          813
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1482,10 +1482,10 @@
           }
         ],
         "contractDependencies": [
-          813,
           312,
           476,
-          641
+          641,
+          813
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -2342,7 +2342,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-20T22:01:51.365Z",
+  "updatedAt": "2019-08-21T02:47:24.934Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

@@ -16,6 +16,10 @@ import '../../styles/main.scss'
 class Candidate extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            ConstituencyId:15136168186,
+            voterId:18117019
+        }
         this.hidesignout = this.hidesignout.bind(this)
     }
 
@@ -24,9 +28,9 @@ class Candidate extends Component {
     }
 
     componentDidMount() {
-        // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
-        //     console.log(res)
-        // })
+        election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
+            console.log(res)
+        })
     }
 
     render() {

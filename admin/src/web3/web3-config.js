@@ -4,6 +4,6 @@ const web3 = new Web3(rpcURL)
 const contract = require('truffle-contract')
 const election_artifact = require('../contracts/Authorizer.json')
 const Election = contract(election_artifact)
-const election = new web3.eth.Contract(Election.abi, Election.networks.address)
+const election = new web3.eth.Contract(Election.abi, "0xA9c3216817003072fd89b196a5D6E46735254368")
 
 export default election
