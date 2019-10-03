@@ -62,7 +62,7 @@ class Login extends Component {
                 //     //Map user data to global variables
                 // })
                 const voter = res.data[0]
-                window.name = voter.name
+                localStorage.setItem('name',voter.name)
                 window.location = '/'+this.state.voterId+'/Profile'
                 
             }
