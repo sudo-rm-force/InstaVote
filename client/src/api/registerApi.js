@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
   });
 
 export default function registerApi(voter_id, gender, mobile_no, face_id, faceName) {
-    console.log(faceName)
+    console.log(voter_id, faceName, gender, mobile_no, face_id)
     return axiosInstance.post('/userUpdate', {
         voter_id: voter_id,
         gender: gender,

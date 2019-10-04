@@ -32,7 +32,7 @@ app.get('/', (req,res) => {
 });
 
 app.post('/user', addUser);
-app.get('/userUpdate', updateUserById);
+app.post('/userUpdate', updateUserById);
 app.get('/userId', getUserById)
 app.post('/login', authentic);
 app.post('/candidate', addCandidate);
