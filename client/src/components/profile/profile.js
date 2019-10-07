@@ -44,19 +44,19 @@ class Profile extends Component {
                     Name:
                 </div>
                 <div className='profile--name'>
-                    {this.state.name}Ayan Choudhary
+                    {localStorage.getItem('name')}
                 </div>
                 <div className='profile--heading-voterid'>
                     VoterID:
                 </div>
                 <div className='profile--voterid'>
-                    {this.state.voter_id}18117019
+                    {localStorage.getItem('voterid')}
                 </div>
                 <div className='profile--heading-constituencyid'>
                     ConstituencyID:
                 </div>
                 <div className='profile--constituencyid'>
-                    {this.state.constituency_id}5s1g36s51fg35sd1
+                    {localStorage.getItem('constituencyid')}
                 </div>
             </div>
         )

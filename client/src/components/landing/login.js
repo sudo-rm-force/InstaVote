@@ -63,6 +63,8 @@ class Login extends Component {
                 // })
                 const voter = res.data[0]
                 localStorage.setItem('name',voter.name)
+                localStorage.setItem('voterid',voter.voter_id)
+                localStorage.setItem('constituencyid',voter.constituency_id)
                 window.location = '/'+this.state.voterId+'/Profile'
                 
             }
