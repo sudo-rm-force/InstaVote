@@ -3,7 +3,7 @@ import '../../styles/main.scss'
 import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
 import loginApi from '../../api/loginApi'
-import election from '../../web3/web3-config'
+import { loadBlockChain } from '../../web3/web3-config'
 import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
@@ -15,11 +15,16 @@ class Login extends Component {
             voterId: '',
             faceID: '',
             faceName: '',
-            name:'',
-            constituency_id:''
+            election:''
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
+    }
+
+    async componentWillMount() {
+        const blockchain = await loadBlockChain()
+        localStorage.setItem('account',blockchain['accounts'])
+        this.setState({ election:blockchain['election'] })
     }
 
     onTakePhoto (dataUri) {
@@ -30,7 +35,6 @@ class Login extends Component {
         text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
         }
         const imageName = date + '.' + text + '.jpeg';
-        console.log(imageName);
         let imageBlob;
         const byteString = window.atob(dataUri);
         const arrayBuffer = new ArrayBuffer(byteString.length);
@@ -52,7 +56,7 @@ class Login extends Component {
           this.setState({voterId:event.target.value})
       }
 
-    onButtonPress(event) {
+    async onButtonPress(event) {
         event.preventDefault()
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
             console.log(res)

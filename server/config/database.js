@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mysql = require('mysql');
 
 const config =mysql.createPool({
@@ -6,7 +7,7 @@ const config =mysql.createPool({
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
 	host: process.env.HOST,
-	user: process.env.USER,
+	user: process.env.USER_NAME,
 	password: process.env.PASSWORD,
 	database: process.env.DATABASE
 });
