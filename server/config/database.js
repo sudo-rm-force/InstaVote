@@ -5,10 +5,10 @@ const config =mysql.createPool({
     connectTimeout  : 60 * 60 * 1000,
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'instavote'
+	host: process.env.HOST,
+	user: process.env.USER,
+	password: process.env.PASSWORD,
+	database: process.env.DATABASE
 });
 
 config.on('connection', function (conn) {
