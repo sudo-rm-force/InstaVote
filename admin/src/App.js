@@ -1,37 +1,20 @@
 import React, {Component} from 'react';
 import AdminPage from './pages/adminpage'
 import Landing from './pages/landing'
-// import Registration from './pages/registration'
-// import Landing from './pages/landing'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import ReduxThunk from 'redux-thunk';
+import { loadWeb3, loadBlockChain } from './web3/web3-config'
 
 class App extends Component {
-  // state = { loading: true, drizzleState: null };
-
-  // componentDidMount() {
-  //   const { drizzle } = this.props;
-
-  //   // subscribe to changes in the store
-  //   this.unsubscribe = drizzle.store.subscribe(() => {
-
-  //     // every time the store updates, grab the state from drizzle
-  //     const drizzleState = drizzle.store.getState();
-
-  //     // check to see if it's ready, if so, update local component state
-  //     if (drizzleState.drizzleStatus.initialized) {
-  //       this.setState({ loading: false, drizzleState });
-  //     }
-  //   });
-  // }
-
-  // componentWillUnmount() {
-  //   this.unsubscribe();
-  // }
+  
+  async componentWillMount() {
+    await loadWeb3();
+    await loadBlockChain()
+  }
 
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));

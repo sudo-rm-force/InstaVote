@@ -1,9 +1,32 @@
-const Web3 = require('web3')
-const rpcURL = "https://mainnet.infura.io/f67e7be592a4468084b16437579bf12f"
-const web3 = new Web3(rpcURL)
-const contract = require('truffle-contract')
-const election_artifact = require('../contracts/Authorizer.json')
-const Election = contract(election_artifact)
-const election = new web3.eth.Contract(Election.abi, "0xA9c3216817003072fd89b196a5D6E46735254368")
+const Web3 = require('web3');
+const rpcURL = "https://mainnet.infura.io/f67e7be592a4468084b16437579bf12f";
+const Election = require('../contracts/Authorizer.json');
 
-export default election
+const loadWeb3 = async () => {
+    if(window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+        await window.ethereum.enable()
+    }
+    else if(window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+        window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+    }
+}
+
+const loadBlockChain = async () => {
+    const web3 = window.web3;
+    const accounts = await web3.eth.getAccounts()
+    const networkId = await web3.eth.net.getId()
+    const networkData = Election.networks[networkId];
+    if(networkData) {
+        const socialNetwork = new web3.eth.Contract(Election.abi, networkData.address);
+        return({ 'accounts':accounts, 'socialNetwork':socialNetwork })
+    }
+}
+
+module.exports = {
+    loadWeb3,
+    loadBlockChain
+}

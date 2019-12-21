@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import loginAdminApi from '../api/loginAdminApi'
 import logo from '../assets/logo.png'
 import cover from '../assets/cover.jpg'
+import { loadBlockChain } from '../web3/web3-config'
 import '../styles/main.scss'
 
 class Landing extends Component {
@@ -9,8 +10,15 @@ class Landing extends Component {
         super(props);
         this.state = {
             id:'',
-            password:''
+            password:'',
+            election:''
         }
+    }
+
+    async componentWillMount() {
+        const blockchain = await loadBlockChain()
+        localStorage.setItem('admin-account',blockchain['accounts'])
+        this.setState({ election:blockchain['election'] })
     }
 
     onChangeId(event) {
@@ -24,7 +32,7 @@ class Landing extends Component {
     onButtonPress(event) {
         event.preventDefault()
         loginAdminApi(this.state.id, this.state.password).then((res) => {
-            console.log(res)
+            // console.log(res)
             window.location = '/'+this.state.id+'/Candidates'
         })
     }
