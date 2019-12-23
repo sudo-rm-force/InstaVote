@@ -37,7 +37,7 @@ class Profile extends Component {
         return(
             <div className='profile' onClick={this.hidesignout}>
                 <div className='profile--photo'>
-                    <img className='profile--photo-image' src={ayan} alt='voter' />
+                    <img className='profile--photo-image' src={localStorage.getItem('image')} alt='voter' />
                 </div>
                 <div className='profile--heading-name'>
                     Name:

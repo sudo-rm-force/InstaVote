@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-var path  = require('path');
+var fs = require('fs')
 var dbfunc = require('./db-function');
 var bodyParser = require('body-parser');
 const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
@@ -24,9 +24,17 @@ dbfunc.connectionCheck.then((data) =>{
 
 createDatabase();
 
+app.use(express.static(__dirname + '/images'));
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.get(`/images/*`, (req,res) => {
+  console.log(req.url)
+  fs.readFile(`${process.env.PWD}/${req.url}`, function(err, data) {
+    if (err) throw err; // Fail if the file can't be read.
+    res.writeHead(200, {'Content-Type': 'image/jpeg'});
+    res.end(data); // Send the file data to the browser.
+  });
+})
 app.get('/', (req,res) => {
     res.send('hello world');
 });

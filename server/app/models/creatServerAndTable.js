@@ -14,7 +14,7 @@ function createDatabase() {
           console.log("Database created ", result);
         });
 
-        let createvoters = "CREATE TABLE IF NOT EXISTS `instavote`.`voters` ( `voter_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `age` INT(10) NOT NULL DEFAULT '18' , `constituency_id` VARCHAR(100) NULL DEFAULT NULL , `gender` VARCHAR(12) NULL DEFAULT NULL, `face_id` VARCHAR(1000) NULL DEFAULT NULL , `mobile_no` BIGINT(20) NULL DEFAULT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP );";
+        let createvoters = "CREATE TABLE IF NOT EXISTS `instavote`.`voters` ( `voter_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `age` INT(10) NOT NULL DEFAULT '18' , `constituency_id` VARCHAR(100) NULL DEFAULT NULL , `gender` VARCHAR(12) NULL DEFAULT NULL, `face_id` VARCHAR(1000) NULL DEFAULT NULL , `face_name` VARCHAR(2000) NULL DEFAULT NULL , `mobile_no` BIGINT(20) NULL DEFAULT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP );";
 
         conn.query(createvoters, function(err, results, fields) {
             if (err) {

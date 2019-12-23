@@ -24,7 +24,7 @@ function authentic(authenticData) {
                         console.log(err);
                     } else {
                         // Replace <Subscription Key> with your valid subscription key.
-                        const subscriptionKey = '5bd5366ba1f04ed19025d3f36866a55a';
+                        const subscriptionKey = 'c3f653ea1d8449d5949a7d6465427dba';
             
                         // You must use the same location in your REST call as you used to get your
                         // subscription keys. For example, if you got your subscription keys from

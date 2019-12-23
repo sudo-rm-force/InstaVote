@@ -44,7 +44,7 @@ async function updateUserById(user) {
 			console.log(err);
         } else {
             // Replace <Subscription Key> with your valid subscription key.
-            const subscriptionKey = 'b75e5011afd646db8c5fa28fca9ca65a';
+            const subscriptionKey = 'c3f653ea1d8449d5949a7d6465427dba';
 
             // You must use the same location in your REST call as you used to get your
             // subscription keys. For example, if you got your subscription keys from
@@ -83,7 +83,7 @@ async function updateUserById(user) {
                     // console.log(jsonResponse,'fghj');
 
                     return new Promise((resolve,reject) => {
-                        conn.query("UPDATE voters SET gender='"+user.gender+"',face_id='"+jsonResponse[0].faceId+"',mobile_no='"+user.mobile_no+"' WHERE voter_id='"+user.voter_id+"';", (error,rows,fields)=>{
+                        conn.query("UPDATE voters SET gender='"+user.gender+"',face_id='"+jsonResponse[0].faceId+"',face_name='"+user.faceName+"',mobile_no='"+user.mobile_no+"' WHERE voter_id='"+user.voter_id+"';", (error,rows,fields)=>{
                             if(error) {
                                 console.log(error);
                                 reject(error);

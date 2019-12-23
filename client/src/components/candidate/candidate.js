@@ -28,9 +28,9 @@ class Candidate extends Component {
     }
 
     componentDidMount() {
-        election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
-            console.log(res)
-        })
+        // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
+        //     console.log(res)
+        // })
     }
 
     render() {

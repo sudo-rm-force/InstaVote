@@ -3,7 +3,7 @@ import '../../styles/main.scss'
 // import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
 import loginApi from '../../api/loginApi';
-import loader from '../common/loader';
+import { CONFIG } from '../../config/config'
 import { loadBlockChain } from '../../web3/web3-config'
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -27,7 +27,6 @@ class Login extends Component {
         const blockchain = await loadBlockChain()
         localStorage.setItem('account',blockchain['accounts'])
         this.setState({ election:blockchain['election'] })
-        this.setState({ loading:false })
     }
 
     onTakePhoto (dataUri) {
@@ -37,7 +36,7 @@ class Login extends Component {
         for (let i = 0; i < 5; i++) {
         text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
         }
-        const imageName = date + '.' + text + '.jpeg';
+        const imageName = date + text + '.jpeg';
         let imageBlob;
         const byteString = window.atob(dataUri);
         const arrayBuffer = new ArrayBuffer(byteString.length);
@@ -62,7 +61,6 @@ class Login extends Component {
     async onButtonPress(event) {
         event.preventDefault()
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
-            console.log(res)
             if(res.success) {
                 // election.methods.login(this.state.voterId).call((res,err) => {
                 //     console.log(res)
@@ -72,7 +70,8 @@ class Login extends Component {
                 localStorage.setItem('name',voter.name)
                 localStorage.setItem('voterid',voter.voter_id)
                 localStorage.setItem('constituencyid',voter.constituency_id)
-                window.location = '/'+this.state.voterId+'/Profile'
+                localStorage.setItem('image',`${CONFIG.baseURL}/images/${voter.face_name}`)
+                window.location = '/'+voter.voterId+'/Profile'
                 
             }
             else {
@@ -83,29 +82,26 @@ class Login extends Component {
     }
 
     render() {
-        if(this.state.loading)
-            return loader()
-        else
-            return(
-                <div className='login'>
-                    <div className='login--heading'>Sign In</div>
-                <form onSubmit={this.onButtonPress.bind(this)}>
-                    <div className='login--photo'>
-                    { this.state.camera ? ( <Camera
-                        idealResolution= { { width: 285, height: 285 } }
-                        onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
-                        /> ) : <img src={this.state.url} alt='user'/> }
-                    </div>
-                    <input 
-                            className='login--voterid' 
-                            type='text' 
-                            placeholder='VoterID' 
-                            onChange = {this.onVoterIdChange.bind(this)}
-                            required/>
-                    <button className='login--button' type='submit'>Sign In</button>
-                </form>
+        return(
+            <div className='login'>
+                <div className='login--heading'>Sign In</div>
+            <form onSubmit={this.onButtonPress.bind(this)}>
+                <div className='login--photo'>
+                { this.state.camera ? ( <Camera
+                    idealResolution= { { width: 285, height: 285 } }
+                    onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
+                    /> ) : <img src={this.state.url} alt='user'/> }
                 </div>
-            )
+                <input 
+                        className='login--voterid' 
+                        type='text' 
+                        placeholder='VoterID' 
+                        onChange = {this.onVoterIdChange.bind(this)}
+                        required/>
+                <button className='login--button' type='submit'>Sign In</button>
+            </form>
+            </div>
+        )
     }
 }
 

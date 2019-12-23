@@ -22,7 +22,7 @@ class RegistrationBar extends Component {
         for (let i = 0; i < 5; i++) {
         text += possibleText.charAt(Math.floor(Math.random() *    possibleText.length) );
         }
-        const imageName = date + '.' + text + '.jpeg';
+        const imageName = date + text + '.jpeg';
         let imageBlob;
         const byteString = window.atob(dataUri);
         const arrayBuffer = new ArrayBuffer(byteString.length);

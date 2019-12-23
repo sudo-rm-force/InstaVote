@@ -2034,10 +2034,16 @@
       "links": {},
       "address": "0xE9F5796b300Dc22F480FD1C0fD6C97182da75cdc",
       "transactionHash": "0xa47ce6775241b552b9cbe0420bfa21a67445912b709843eedbd313718b70939b"
+    },
+    "1577106457032": {
+      "events": {},
+      "links": {},
+      "address": "0xAd20d900BB0EBb515dd5541Ed35E744f16aCee15",
+      "transactionHash": "0x7c7d3f8b604d60534d235abffe362049b2abe66cdeacbd86b92685de2df25748"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-23T11:15:40.849Z",
+  "updatedAt": "2019-12-23T13:07:43.644Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

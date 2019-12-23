@@ -1,16 +1,16 @@
-import React, { Component,Fragment } from 'react'
-import Header from '../components/header/header'
-import Sidebar from '../components/sidebar/sidebar'
-import Profile from '../components/profile/profile'
-import Vote from '../components/vote/vote'
-import Candidate from '../components/candidate/candidate'
+import React, { Component,Fragment } from 'react';
+import Header from '../components/header/header';
+import Sidebar from '../components/sidebar/sidebar';
+import Profile from '../components/profile/profile';
+import Vote from '../components/vote/vote';
+import Candidate from '../components/candidate/candidate';
 import Results from '../components/results/results';
 
 class VoterPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            route: 'Profile',
+            route: 'profile',
             signout: false
         }
 
@@ -20,12 +20,12 @@ class VoterPage extends Component {
     }
 
     componentDidMount() {
-        const route = this.props.match.params.route
+        const route = this.props.match.params.route !== undefined ? this.props.match.params.route.toLowerCase() : this.props.match.params.route
         this.setState({ route })
     }
 
     panel(route) {
-        window.location = '/'+this.props.match.params.id+'/'+route
+        window.location = '/'+this.props.match.params.id+'/'+route.toLowerCase()
     }
 
     signout() {
@@ -43,8 +43,7 @@ class VoterPage extends Component {
     }
 
     render() {
-
-        if(this.state.route === 'Profile') {
+        if(this.state.route === 'profile' || this.state.route === undefined) {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
@@ -54,7 +53,7 @@ class VoterPage extends Component {
             )
         }
 
-        else if(this.state.route === 'Vote') {
+        else if(this.state.route === 'vote') {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
@@ -64,7 +63,7 @@ class VoterPage extends Component {
             )
         }
 
-        else if(this.state.route === 'Candidates') {
+        else if(this.state.route === 'candidates') {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
@@ -74,7 +73,7 @@ class VoterPage extends Component {
             )
         }
 
-        else if(this.state.route === 'Results') {
+        else if(this.state.route === 'results') {
             return (
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>

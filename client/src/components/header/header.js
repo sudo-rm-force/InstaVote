@@ -30,10 +30,10 @@ class Header extends Component {
                 </div>
                 <div className='header--name'>InstaVote</div>
                 <div className='header--user' onClick={this.signout}>
-                    Ayan Choudhary
+                    {localStorage.getItem('name')}
                 </div>
                 <div className='header--user-image' onClick={this.signout}>
-                    <img className='header--image' alt='user' src={ayan}/>
+                    <img className='header--image' alt='user' src={localStorage.getItem('image')}/>
                 </div>
                 { this.state.signout ? <SignOut /> : <Fragment /> }
             </div>
