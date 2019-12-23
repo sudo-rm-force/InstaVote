@@ -62,4 +62,5 @@ typings/
 
 # database credentials
 config/database.js
+images/*
 
