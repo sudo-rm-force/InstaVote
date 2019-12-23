@@ -2,6 +2,7 @@ var conn = require('../../config/database');
 // const faceDetecion = require('../faceRec/facedetection');
 const fs = require('fs')
 const request = require('request');
+const appDir = process.env.PWD;
 
 var userModel = {
    addUser:addUser,
@@ -22,7 +23,6 @@ function getUserById(voter_id) {
 }
 
 function addUser(user) {
-    console.log(user)
     return new Promise((resolve,reject) => {
         const params = [user.voter_id, user.name, user.age, user.constituency_id];
         conn.query("INSERT INTO voters (voter_id,name,age,constituency_id) VALUES (?,?,?,?);", params, (error,rows,fields)=>{
@@ -37,9 +37,9 @@ function addUser(user) {
 }
 
 async function updateUserById(user) {
-    console.log(user.faceName)
+    console.log(appDir)
 
-    fs.writeFile(user.faceName, user.face_id, 'base64', async function(err) {
+    fs.writeFile(`${appDir}/images/${user.faceName}`, user.face_id, 'base64', async function(err) {
 		if(err){
 			console.log(err);
         } else {
@@ -51,7 +51,7 @@ async function updateUserById(user) {
             // westus, replace "westcentralus" in the URL below with "westus".
             const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
 
-            fs.readFile(user.faceName, async function (err, data) {
+            fs.readFile(`${appDir}/images/${user.faceName}`, async function (err, data) {
 
                 // console.log(data);
                 // Request parameters.
@@ -80,7 +80,7 @@ async function updateUserById(user) {
                     }
                     const jsonResponse = JSON.parse(body);
                     console.log('JSON Response\n');
-                    console.log(jsonResponse,'fghj');
+                    // console.log(jsonResponse,'fghj');
 
                     return new Promise((resolve,reject) => {
                         conn.query("UPDATE voters SET gender='"+user.gender+"',face_id='"+jsonResponse[0].faceId+"',mobile_no='"+user.mobile_no+"' WHERE voter_id='"+user.voter_id+"';", (error,rows,fields)=>{
@@ -89,7 +89,7 @@ async function updateUserById(user) {
                                 reject(error);
                             }
                             else {
-                                console.log(rows, '71,user-model')
+                                // console.log(rows, '71,user-model')
                                 resolve(rows);
                             }
                         })

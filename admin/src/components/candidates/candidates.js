@@ -36,11 +36,8 @@ class Candidates extends Component {
     onSubmit(event) {
         event.preventDefault();
         registerCandidateApi(parseInt(this.state.CandidateId), this.state.Name, parseInt(this.state.ConstituencyId)).then((res) => {
-            console.log(res)
             election.methods.registerCandidate(parseInt(this.state.CandidateId), parseInt(this.state.AdminId)).call((res) => {
-                console.log(res)
                 election.methods.assignCandidateToConstituency(parseInt(this.state.CandidateId), parseInt(this.state.ConstituencyId), parseInt(this.state.AdminId)).call((res) => {
-                    console.log(res)
                     window.alert('Registration successful of '+this.state.Name)
                     document.location.reload()
                 })

@@ -17,10 +17,11 @@
     "react-loadingg": "^1.6.2",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^3.1.0",
+    "react-scripts": "^3.3.0",
     "react-webcam": "^1.1.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "scrypt-js": "^3.0.0",
     "truffle": "^5.0.32",
     "truffle-contract": "^4.0.29"
   },

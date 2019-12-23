@@ -78,10 +78,12 @@ class RegistrationForm extends Component {
         else 
             return(
                 <div className='registrationform'>
-                    <Link to='/'><div className='registrationform--back'>
-                        <img className='registrationform--back-image' src={back} alt='back'/>
-                        <span className='registrationform--back-text'>Back to Main Menu</span>
-                    </div></Link>
+                    <Link to='/'>
+                        <div className='registrationform--back'>
+                            <img className='registrationform--back-image' src={back} alt='back'/>
+                            <span className='registrationform--back-text'>Back to Home</span>
+                        </div>
+                    </Link>
                     <div className='registrationform--form'>
                         <form onSubmit={ this.onButtonPress.bind(this) }>
                             <div className='registrationform--heading-name'>Name:</div>

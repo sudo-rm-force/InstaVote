@@ -1,13 +1,13 @@
 var db = require('../../config/database');
 const fs = require('fs');
 const request = require('request');
+const appDir = process.env.PWD;
 
 var authenticModel = {
     authentic: authentic
 }
 
 function authentic(authenticData) {
-    console.log(authenticData.face_name)
     return new Promise((resolve, reject) => {
         db.query(`SELECT * FROM voters WHERE voter_id ='${authenticData.voter_id}'`, (error, rows, fields) => {
             if (error) {
@@ -18,10 +18,8 @@ function authentic(authenticData) {
                 }
                 const log_face_data = authenticData.face_id
 
-
-
                 // for face_id extraction of login faceData
-                fs.writeFile(authenticData.face_name, log_face_data, 'base64', async function(err) {
+                fs.writeFile(`${appDir}/images/${authenticData.face_name}`, log_face_data, 'base64', async function(err) {
                     if(err){
                         console.log(err);
                     } else {
@@ -34,7 +32,7 @@ function authentic(authenticData) {
                         const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
                         const uriBase_verify = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/verify';
             
-                        fs.readFile(authenticData.face_name, async function (err, data) {
+                        fs.readFile(`${appDir}/images/${authenticData.face_name}`, async function (err, data) {
             
                             // console.log(data);
                             // Request parameters.
@@ -63,8 +61,8 @@ function authentic(authenticData) {
                                 }
                                 const jsonResponse = JSON.parse(body);
                                 const login_faceData = jsonResponse[0].faceId
-                                console.log('JSON Response\n');
-                                console.log(login_faceData, rows[0].face_id);
+                                // console.log('JSON Response\n');
+                                // console.log(login_faceData, rows[0].face_id);
 
                 
                                 const match_options = {
@@ -81,7 +79,7 @@ function authentic(authenticData) {
                                     if (error) {
                                         console.log('Error: ', error);
                                     } else {
-                                        console.log(body.confidence > 0.70, body.confidence)
+                                        // console.log(body.confidence > 0.70, body.confidence)
                                         if(body.confidence > 0.70) {
                                             const params = [authenticData.voter_id, login_faceData]
                                             db.query('INSERT INTO voter_login (voter_id, face_id) VALUES (?,?);', params, (error, rows2, fields) => {
