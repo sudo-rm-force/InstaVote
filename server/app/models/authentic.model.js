@@ -79,7 +79,8 @@ function authentic(authenticData) {
                                     if (error) {
                                         console.log('Error: ', error);
                                     } else {
-                                        // console.log(body.confidence > 0.70, body.confidence)
+                                        console.log(body.confidence > 0.70, body.confidence)
+                                        fs.unlinkSync(`${appDir}/images/${authenticData.face_name}`);
                                         if(body.confidence > 0.70) {
                                             const params = [authenticData.voter_id, login_faceData]
                                             db.query('INSERT INTO voter_login (voter_id, face_id) VALUES (?,?);', params, (error, rows2, fields) => {
@@ -91,7 +92,7 @@ function authentic(authenticData) {
                                                 }
                                             });
                                         } else {
-                                            return rows
+                                            return false
                                         }
                                     }
                                 });

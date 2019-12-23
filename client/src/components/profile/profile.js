@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ayan from '../../assets/ayan.jpeg'
 import '../../global'
 import '../../styles/main.scss'
 import userApi from '../../api/userApi';

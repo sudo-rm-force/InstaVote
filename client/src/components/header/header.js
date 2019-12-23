@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import SignOut from './signout'
 import logo from '../../assets/logo.png'
-import ayan from '../../assets/ayan.jpeg'
 import '../../styles/main.scss'
 
 class Header extends Component {
