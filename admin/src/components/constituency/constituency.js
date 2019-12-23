@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import ConstituencyPanel from './constituencypanel'
 import ConstituencyCard from './constituencycard'
-import election from '../../web3/web3-config'
 import search from '../../assets/search.svg'
-import close from '../../assets/close.svg'
+// import close from '../../assets/close.svg'
 import '../../styles/main.scss'
-import { createInflateRaw } from 'zlib';
 
 class Constituency extends Component {
     constructor(props) {
@@ -40,7 +38,7 @@ class Constituency extends Component {
     }
 
     search(event) {
-        this.items = this.list.filter(x => x == event.target.value)
+        this.items = this.list.filter(x => x === event.target.value)
         this.forceUpdate()
     }
 

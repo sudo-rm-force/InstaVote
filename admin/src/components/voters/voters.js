@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import registerVoterApi from '../../api/registerVoterApi'
-import election from '../../web3/web3-config'
 import '../../styles/main.scss'
 
 class Voters extends Component {

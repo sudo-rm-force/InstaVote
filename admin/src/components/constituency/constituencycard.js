@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import election from '../../web3/web3-config'
 import close from '../../assets/close.svg'
 import '../../styles/main.scss'
 
