@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const rpcURL = "https://mainnet.infura.io/f67e7be592a4468084b16437579bf12f";
+// const rpcURL = "https://mainnet.infura.io/f67e7be592a4468084b16437579bf12f";
 const Election = require('../contracts/Authorizer.json');
 
 const loadWeb3 = async () => {

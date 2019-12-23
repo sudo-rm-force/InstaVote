@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import uerApi from '../../api/userApi'
 import ayan from '../../assets/ayan.jpeg'
 import '../../global'
 import '../../styles/main.scss'

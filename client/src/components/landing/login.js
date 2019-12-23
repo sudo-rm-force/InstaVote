@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import '../../styles/main.scss'
-import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
+// import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
-import loginApi from '../../api/loginApi'
+import loginApi from '../../api/loginApi';
+import loader from '../common/loader';
 import { loadBlockChain } from '../../web3/web3-config'
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -10,6 +11,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading:true,
             camera: true,
             url: '',
             voterId: '',
@@ -21,10 +23,11 @@ class Login extends Component {
         this.onTakePhoto = this.onTakePhoto.bind(this)
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         const blockchain = await loadBlockChain()
         localStorage.setItem('account',blockchain['accounts'])
         this.setState({ election:blockchain['election'] })
+        this.setState({ loading:false })
     }
 
     onTakePhoto (dataUri) {
@@ -80,26 +83,29 @@ class Login extends Component {
     }
 
     render() {
-        return(
-            <div className='login'>
-                <div className='login--heading'>Sign In</div>
-             <form onSubmit={this.onButtonPress.bind(this)}>
-                <div className='login--photo'>
-                { this.state.camera ? ( <Camera
-                    idealResolution= { { width: 285, height: 285 } }
-                    onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
-                    /> ) : <img src={this.state.url}/> }
+        if(this.state.loading)
+            return loader()
+        else
+            return(
+                <div className='login'>
+                    <div className='login--heading'>Sign In</div>
+                <form onSubmit={this.onButtonPress.bind(this)}>
+                    <div className='login--photo'>
+                    { this.state.camera ? ( <Camera
+                        idealResolution= { { width: 285, height: 285 } }
+                        onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
+                        /> ) : <img src={this.state.url} alt='user'/> }
+                    </div>
+                    <input 
+                            className='login--voterid' 
+                            type='text' 
+                            placeholder='VoterID' 
+                            onChange = {this.onVoterIdChange.bind(this)}
+                            required/>
+                    <button className='login--button' type='submit'>Sign In</button>
+                </form>
                 </div>
-                <input 
-                        className='login--voterid' 
-                        type='text' 
-                        placeholder='VoterID' 
-                        onChange = {this.onVoterIdChange.bind(this)}
-                        required/>
-                <button className='login--button' type='submit'>Sign In</button>
-             </form>
-            </div>
-        )
+            )
     }
 }
 

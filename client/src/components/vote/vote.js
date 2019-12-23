@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Candidate from './candidatepanel'
-import election from '../../web3/web3-config'
+// import election from '../../web3/web3-config'
 import voted from '../../assets/voted.svg'
 import bjp from '../../assets/bjp.jpg'
 import bsp from '../../assets/bsp.jpg'

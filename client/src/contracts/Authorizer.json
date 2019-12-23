@@ -1844,10 +1844,194 @@
       "links": {},
       "address": "0xE983a123F9A2C73A42BaD986BD17a1b8684aB4d9",
       "transactionHash": "0x47d351ecffe1cc7887e70b05fee9ed8d40cb4bd6542f0d1a2d9eb10ea70c9b29"
+    },
+    "1577092078601": {
+      "events": {
+        "0x612c500cbd8f1ed8a4643cbf6b41fda92203645d7e4f7c3a237a1be69565ea2c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_from",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event",
+          "signature": "0x612c500cbd8f1ed8a4643cbf6b41fda92203645d7e4f7c3a237a1be69565ea2c"
+        },
+        "0xa3b64c0b425d624b0d6d9f67d76ababb5e56dc10ef01de027c343a09fefdfb5d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_voterId",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoterCreated",
+          "type": "event",
+          "signature": "0xa3b64c0b425d624b0d6d9f67d76ababb5e56dc10ef01de027c343a09fefdfb5d"
+        },
+        "0x43dcee486fabffa2fb551555bfaa5bfcf6a42f2d014032ccef94bf09d83855eb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "CandidateRegistered",
+          "type": "event",
+          "signature": "0x43dcee486fabffa2fb551555bfaa5bfcf6a42f2d014032ccef94bf09d83855eb"
+        },
+        "0x21db1a92fb8efb483c22a581ee7e282b6d79d9d43b559ee1affa341818867969": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "ConstituencyRegistered",
+          "type": "event",
+          "signature": "0x21db1a92fb8efb483c22a581ee7e282b6d79d9d43b559ee1affa341818867969"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        }
+      },
+      "links": {},
+      "address": "0x34CB9B5d2758e0C9955518DDeF61555a469f5F7c",
+      "transactionHash": "0x00eef18718c49ea0390b6c6cb3cdcbf7d5f9548ca607eb7202a18c5d7cbf3421"
+    },
+    "1577092672022": {
+      "events": {
+        "0x612c500cbd8f1ed8a4643cbf6b41fda92203645d7e4f7c3a237a1be69565ea2c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_from",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event",
+          "signature": "0x612c500cbd8f1ed8a4643cbf6b41fda92203645d7e4f7c3a237a1be69565ea2c"
+        },
+        "0xa3b64c0b425d624b0d6d9f67d76ababb5e56dc10ef01de027c343a09fefdfb5d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_voterId",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoterCreated",
+          "type": "event",
+          "signature": "0xa3b64c0b425d624b0d6d9f67d76ababb5e56dc10ef01de027c343a09fefdfb5d"
+        },
+        "0x43dcee486fabffa2fb551555bfaa5bfcf6a42f2d014032ccef94bf09d83855eb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "CandidateRegistered",
+          "type": "event",
+          "signature": "0x43dcee486fabffa2fb551555bfaa5bfcf6a42f2d014032ccef94bf09d83855eb"
+        },
+        "0x21db1a92fb8efb483c22a581ee7e282b6d79d9d43b559ee1affa341818867969": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "ConstituencyRegistered",
+          "type": "event",
+          "signature": "0x21db1a92fb8efb483c22a581ee7e282b6d79d9d43b559ee1affa341818867969"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        }
+      },
+      "links": {},
+      "address": "0x8039C4f104F8694236b02dDCD3AD138f175F71bF",
+      "transactionHash": "0xd51fb0eceafccaa26e5b2ff1ff17baee2e94f0594742b04cb2c50cee5ffa9e4c"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-21T10:36:38.101Z",
+  "updatedAt": "2019-12-23T09:19:37.886Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

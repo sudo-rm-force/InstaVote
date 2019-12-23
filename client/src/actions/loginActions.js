@@ -12,11 +12,11 @@ export const faceDataChanged = (text) => {
     };
 }
 
-export const loginUser = ({ voterId}, faceData ) => {
-    return (dispatch) => {
-        loginFail(dispatch)
-    };
-}
+// export const loginUser = ({ voterId}, faceData ) => {
+//     return (dispatch) => {
+//         loginFail(dispatch)
+//     };
+// }
 
   const loginFail = (dispatch) => {
     dispatch({ type: loginFail });

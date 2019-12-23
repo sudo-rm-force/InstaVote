@@ -52,7 +52,7 @@ class RegistrationBar extends Component {
                     { this.state.camera ? ( <Camera
                     idealResolution= { { width: 285, height: 285 } }
                     onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri.replace(/^data:image\/(png|jpg);base64,/, '')); } }
-                    /> ) : <img src={this.state.url}/> }
+                    /> ) : <img src={this.state.url} alt='user'/> }
                 </div>
                 <button className='registrationbar--button' onClick={this.reset}>Take Another Photo</button>
             </div>
