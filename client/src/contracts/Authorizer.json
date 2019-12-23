@@ -2028,10 +2028,16 @@
       "links": {},
       "address": "0x8039C4f104F8694236b02dDCD3AD138f175F71bF",
       "transactionHash": "0xd51fb0eceafccaa26e5b2ff1ff17baee2e94f0594742b04cb2c50cee5ffa9e4c"
+    },
+    "1577099715875": {
+      "events": {},
+      "links": {},
+      "address": "0xE9F5796b300Dc22F480FD1C0fD6C97182da75cdc",
+      "transactionHash": "0xa47ce6775241b552b9cbe0420bfa21a67445912b709843eedbd313718b70939b"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-23T09:19:37.886Z",
+  "updatedAt": "2019-12-23T11:15:40.849Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
