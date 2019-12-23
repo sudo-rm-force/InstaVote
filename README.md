@@ -1,6 +1,6 @@
 # InstaVote
 
-## A blockchain app for conducting e-Elections.
+## A blockchain app for conducting e-Elections
 
 Elections are often a lengthy and cumbersome with a lot of difficulty for both the voter and the election commission. Our team has sought 2 major problems in the current process:
 
@@ -26,3 +26,13 @@ The technology stack we are using using:
 4. AzureSQL to maintain voter database
 
 So our product will result in a user friendly DApp that allows the voter to vote freely and makes the election process less cumbersome.
+
+## Setup Instructions (For development environments)
+
+1. Download and initiate `ganache-cli` or `ganache gui`
+2. Import the ganache accounts to your metamask and connect it to localhost:8545 network
+3. Run `truffle migrate --reset`
+4. Run `node build.js`
+5. Start sql server using `cd server && node app.js`
+6. Start client portal using `cd client && npm start`
+7. Start admin portal using `cd admin && npm start`
