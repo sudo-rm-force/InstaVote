@@ -21,7 +21,7 @@ contract VotingTransactions is ElectionHelper {
         emit Transfer(from, to, tokenId);
     }
 
-    function _transferredTo(bytes32 _id, uint256 _userId) private view onlyUser(_userId) returns(Candidate memory) {
+    function _transferredTo(uint256 _id, uint256 _userId) private view onlyUser(_userId) returns(Candidate memory) {
         uint256 candidateId = voteToCandidate[_id];
         Candidate memory candidate = idToCandidate[candidateId];
         return candidate;

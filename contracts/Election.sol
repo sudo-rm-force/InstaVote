@@ -3,13 +3,14 @@ pragma experimental ABIEncoderV2;
 import './Ownable.sol';
 
 contract Election is Ownable{
+  bool ResultsDeclared;
 
-  event VoterCreated(uint256 _id, uint256 _voterId);
+  event VoterCreated(uint256 _id, uint256 _constituencyId);
   event CandidateRegistered(uint256 _id);
   event ConstituencyRegistered(uint256 _id);
 
   struct Vote {
-    bytes32 _voteId;
+    uint256 _voteId;
     uint256 _votedId;
     uint64 _voteTime;
   }
@@ -31,16 +32,13 @@ contract Election is Ownable{
     uint256 _duration;
   }
 
-  Vote InitialVoteState = Vote(0, 0, 0);
-  bool ResultsDeclared = false;
-
-  mapping(uint256 => Voter) internal idToVoter;
-  mapping(uint256 => Candidate) internal idToCandidate;
-  mapping(uint256 => Constituency) internal idToConstituency;
-  mapping(bytes32 => uint256) internal voteToCandidate;
-  mapping(uint256 => uint256) internal candidateToConstituency;
-  mapping(uint256 => uint256) internal constituencyCandidateCount;
-  mapping(uint256 => uint256) internal candidateVoteCount;
+  mapping(uint256 => Voter) public idToVoter;
+  mapping(uint256 => Candidate) public idToCandidate;
+  mapping(uint256 => Constituency) public idToConstituency;
+  mapping(uint256 => uint256) public voteToCandidate;
+  mapping(uint256 => uint256) public candidateToConstituency;
+  mapping(uint256 => uint256) public constituencyCandidateCount;
+  mapping(uint256 => uint256) public candidateVoteCount;
 
   Voter[] public voters;
   Candidate[] public candidates;
@@ -68,8 +66,18 @@ contract Election is Ownable{
     _;
   }
 
+  constructor() public {
+    ResultsDeclared = false;
+  }
+
+  function initializeVote(uint256 _id) internal returns(Vote memory) {
+    Vote memory vote = Vote(_id,0,0);
+    return vote;
+  }
+
   function createVoter(uint256 _id, uint256 _constituencyId) internal {
-    uint id = voters.push(Voter(_id, _constituencyId, false, InitialVoteState)) - 1;
+    Vote memory vote = initializeVote(_id);
+    uint id = voters.push(Voter(_id, _constituencyId, false, vote)) - 1;
     idToVoter[_id] = voters[id];
     emit VoterCreated(_id, _constituencyId);
   }
