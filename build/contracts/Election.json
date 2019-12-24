@@ -486,7 +486,7 @@
         "id": 47,
         "nodeType": "ImportDirective",
         "scope": 337,
-        "sourceUnit": 666,
+        "sourceUnit": 705,
         "src": "58:23:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -500,10 +500,10 @@
               "id": 48,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 665,
+              "referencedDeclaration": 704,
               "src": "104:7:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$665",
+                "typeIdentifier": "t_contract$_Ownable_$704",
                 "typeString": "contract Ownable"
               }
             },
@@ -513,7 +513,7 @@
           }
         ],
         "contractDependencies": [
-          665
+          704
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -521,7 +521,7 @@
         "id": 336,
         "linearizedBaseContracts": [
           336,
-          665
+          704
         ],
         "name": "Election",
         "nodeType": "ContractDefinition",
@@ -1623,10 +1623,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        855,
-                        856
+                        894,
+                        895
                       ],
-                      "referencedDeclaration": 855,
+                      "referencedDeclaration": 894,
                       "src": "1176:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2080,10 +2080,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        855,
-                        856
+                        894,
+                        895
                       ],
-                      "referencedDeclaration": 855,
+                      "referencedDeclaration": 894,
                       "src": "1439:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4057,7 +4057,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 599,
+                  "referencedDeclaration": 638,
                   "src": "2466:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -4158,7 +4158,7 @@
         "id": 47,
         "nodeType": "ImportDirective",
         "scope": 337,
-        "sourceUnit": 666,
+        "sourceUnit": 705,
         "src": "58:23:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -4172,10 +4172,10 @@
               "id": 48,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 665,
+              "referencedDeclaration": 704,
               "src": "104:7:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$665",
+                "typeIdentifier": "t_contract$_Ownable_$704",
                 "typeString": "contract Ownable"
               }
             },
@@ -4185,7 +4185,7 @@
           }
         ],
         "contractDependencies": [
-          665
+          704
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -4193,7 +4193,7 @@
         "id": 336,
         "linearizedBaseContracts": [
           336,
-          665
+          704
         ],
         "name": "Election",
         "nodeType": "ContractDefinition",
@@ -5295,10 +5295,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        855,
-                        856
+                        894,
+                        895
                       ],
-                      "referencedDeclaration": 855,
+                      "referencedDeclaration": 894,
                       "src": "1176:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5752,10 +5752,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        855,
-                        856
+                        894,
+                        895
                       ],
-                      "referencedDeclaration": 855,
+                      "referencedDeclaration": 894,
                       "src": "1439:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -7729,7 +7729,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 599,
+                  "referencedDeclaration": 638,
                   "src": "2466:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -7800,7 +7800,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-24T13:36:00.451Z",
+  "updatedAt": "2019-12-24T14:08:21.768Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

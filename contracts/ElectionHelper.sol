@@ -5,7 +5,13 @@ import "./Election.sol";
 contract ElectionHelper is Election {
 
     function getConstituencies(uint256 _adminId) external onlyAdmin(_adminId) returns(Constituency[] memory) {
-        return constituencies;
+        Constituency[] memory _constituencies = new Constituency[](constituencies.length);
+        uint counter = 0;
+        for(uint i = 0; i < constituencies.length; i++) {
+            _constituencies[counter] = constituencies[i];
+            counter++;
+        }
+        return _constituencies;
     }
 
     function generateElectionforConstituency(uint256 _id, uint256 _duration, uint256 _adminId) external onlyAdmin(_adminId) {
