@@ -2040,10 +2040,16 @@
       "links": {},
       "address": "0xAd20d900BB0EBb515dd5541Ed35E744f16aCee15",
       "transactionHash": "0x7c7d3f8b604d60534d235abffe362049b2abe66cdeacbd86b92685de2df25748"
+    },
+    "1577180390520": {
+      "events": {},
+      "links": {},
+      "address": "0x3D8bcD6D93C4Fa78A75986039210e3C425C747ad",
+      "transactionHash": "0x6f1276e7086dcc0a96b55c805b65496007e9aa7d373aa33e1e3f2a353bdb8579"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-23T13:07:43.644Z",
+  "updatedAt": "2019-12-24T09:39:59.726Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
