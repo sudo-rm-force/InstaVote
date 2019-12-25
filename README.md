@@ -29,10 +29,30 @@ So our product will result in a user friendly DApp that allows the voter to vote
 
 ## Setup Instructions (For development environments)
 
+### Setup Blockchain
+
 1. Download and initiate `ganache-cli` or `ganache gui`
 2. Import the ganache accounts to your metamask and connect it to localhost:8545 network
-3. Run `truffle migrate --reset`
-4. Run `node build.js`
-5. Start sql server using `cd server && node app.js`
-6. Start client portal using `cd client && npm start`
-7. Start admin portal using `cd admin && npm start`
+3. Switch node to a version 11.x.x or lower
+4. Run `truffle migrate --reset`
+5. Run `node build.js`
+
+### Setup Server
+
+1. Run `cp server/.env.sample server/.env`
+2. Make a database named `instavote`
+3. Update the credentials in `.env` file
+4. Install dependencies using `cd server && npm install`
+5. Start sql server using `node app.js`
+
+### Setup client portal
+
+1. Install dependencies using `cd client && npm install`
+2. Start client portal using `npm start`
+3. Go to `localhost:4002` to view the portal
+
+### Setup admin portal
+
+1. Install dependencies using `cd admin && npm install`
+2. Start admin portal using `npm start`
+3. Go to `localhost:4001` to view the portal
