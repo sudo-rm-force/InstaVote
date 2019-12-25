@@ -1,9 +1,9 @@
 .profile {
     position: absolute;
-    height: calc(100% - 80px);
-    width: calc(100% - 475px);
-    top: 80px;
-    left: 475px;
+    height: calc(100% - 5rem);
+    width: calc(100% - 29.6875rem);
+    top: 5rem;
+    left: 29.6875rem;
 
     cursor: default;
 }
@@ -11,117 +11,117 @@
 .profile-- {
     &photo {
         position: absolute;
-        height: 275px;
-        width: 275px;
-        left: 72px;
-        top: 72px;
+        height: 17.1875rem;
+        width: 17.1875rem;
+        left: 4.5rem;
+        top: 4.5rem;
 
-        border: 3px solid #08BBF4;
+        border: 0.1875rem solid #08BBF4;
 
         &-image {
             position: absolute;
-            height: 269px;
-            width: 269px;
-            left: 0px;
-            top: 0px;
+            height: 16.8125rem;
+            width: 16.8125rem;
+            left: 0rem;
+            top: 0rem;
         }
     }
 
     &heading {
         &-name {
             position: absolute;
-            height: 48px;
-            width: 200px;
-            left: 387px;
-            top: 84px;
+            height: 3rem;
+            width: 12.5rem;
+            left: 24.1875rem;
+            top: 5.25rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
         }
 
         &-voterid {
             position: absolute;
-            height: 48px;
-            width: 200px;
-            left: 387px;
-            top: 160px;
+            height: 3rem;
+            width: 12.5rem;
+            left: 24.1875rem;
+            top: 10rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
         }
 
         &-constituencyid {
             position: absolute;
-            height: 48px;
-            width: 200px;
-            left: 387px;
-            top: 246px;
+            height: 3rem;
+            width: 12.5rem;
+            left: 24.1875rem;
+            top: 15.375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
         }
     }
 
     &name {
         position: absolute;
-        height: 48px;
-        width: 200px;
-        left: 387px;
-        top: 108px;
+        height: 3rem;
+        width: 12.5rem;
+        left: 24.1875rem;
+        top: 6.75rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
     }
 
     &voterid {
         position: absolute;
-        height: 48px;
-        width: 200px;
-        left: 387px;
-        top: 184px;
+        height: 3rem;
+        width: 12.5rem;
+        left: 24.1875rem;
+        top: 11.5rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
     }
 
     &constituencyid {
         position: absolute;
-        height: 48px;
-        width: 200px;
-        left: 387px;
-        top: 270px;
+        height: 3rem;
+        width: 12.5rem;
+        left: 24.1875rem;
+        top: 16.875rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
     }
 }

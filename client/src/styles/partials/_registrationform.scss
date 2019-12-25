@@ -1,45 +1,45 @@
 .registrationform {
     position: absolute;
     height: 100%;
-    width: calc(100% - 600px);
-    left: 600px;
-    top: 0px;
+    width: calc(100% - 37.5rem);
+    left: 37.5rem;
+    top: 0rem;
     cursor: default;
 }
 
 .registrationform-- {
     &back {
         position: absolute;
-        height: 100px;
-        width: 200px;
-        top: 32px;
-        left: 24px;
+        height: 6.25rem;
+        width: 12.5rem;
+        top: 2rem;
+        left: 1.5rem;
 
         &-image {
             position: absolute;
-            height: 70px;
-            width: 40px;
+            height: 4.375rem;
+            width: 2.5rem;
         }
 
         &-text {
             position: absolute;
-            width: 210px;
-            height: 54px;
-            left: 16px;
-            top: 24px;
+            width: 13.125rem;
+            height: 3.375rem;
+            left: 1rem;
+            top: 1.5rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             text-align: center;
 
             color: #000000;
         }
 
         &-text:hover {
-            text-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.4)
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba($color: #000000, $alpha: 0.4)
         }
     }
 
@@ -49,186 +49,186 @@
 
     &form {
         position: absolute;
-        top: 128px;
-        left: 72px;
+        top: 8rem;
+        left: 4.5rem;
     }
 
     &heading {
         &-name {
             position: absolute;
-            left: 170px;
-            top: 108px;
-            height: 32px;
+            left: 10.625rem;
+            top: 6.75rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
             color: #000000;
 
-            border-radius: 2px;
+            border-radius: 0.125rem;
         }
 
         &-voterid {
             position: absolute;
-            left: 170px;
-            top: 224px;
-            height: 32px;
+            left: 10.625rem;
+            top: 14rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
             color: #000000;
 
-            border-radius: 2px;
+            border-radius: 0.125rem;
         }
 
         &-gender {
             position: absolute;
-            left: 170px;
-            top: 340px;
-            height: 32px;
+            left: 10.625rem;
+            top: 21.25rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
             color: #000000;
 
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
             &_male {
                 position: absolute;
-                left: 206px;
-                top: 380px;
-                height: 32px;
+                left: 12.875rem;
+                top: 23.75rem;
+                height: 2rem;
 
                 font-family: Orienta;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 1.125rem;
+                line-height: 1.375rem;
                 display: flex;
                 align-items: center;
 
                 color: #000000;
 
-                border-radius: 2px;
+                border-radius: 0.125rem;
             }
 
             &_female {
                 position: absolute;
-                left: 296px;
-                top: 380px;
-                height: 32px;
+                left: 18.5rem;
+                top: 23.75rem;
+                height: 2rem;
 
                 font-family: Orienta;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 1.125rem;
+                line-height: 1.375rem;
                 display: flex;
                 align-items: center;
 
                 color: #000000;
 
-                border-radius: 2px;
+                border-radius: 0.125rem;
             }
 
             &_other {
                 position: absolute;
-                left: 406px;
-                top: 380px;
-                height: 32px;
+                left: 25.375rem;
+                top: 23.75rem;
+                height: 2rem;
 
                 font-family: Orienta;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 1.125rem;
+                line-height: 1.375rem;
                 display: flex;
                 align-items: center;
 
                 color: #000000;
 
-                border-radius: 2px;
+                border-radius: 0.125rem;
             }
         }
 
         &-mobile {
             position: absolute;
-            left: 170px;
-            top: 426px;
-            height: 32px;
-            width: 200px;
+            left: 10.625rem;
+            top: 26.625rem;
+            height: 2rem;
+            width: 12.5rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
             color: #000000;
 
-            border-radius: 2px;
+            border-radius: 0.125rem;
         }
     }
 
     &input {
         &-name {
             position: absolute;
-            left: 170px;
-            top: 158px;
-            width: 600px;
-            height: 48px;
+            left: 10.625rem;
+            top: 9.875rem;
+            width: 37.5rem;
+            height: 3rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
-            padding: 18px;
-            font-size: 20px;
+            padding: 1.125rem;
+            font-size: 1.25rem;
         }
 
         &-voterid {
             position: absolute;
-            left: 170px;
-            top: 274px;
-            width: 350px;
-            height: 48px;
+            left: 10.625rem;
+            top: 17.125rem;
+            width: 21.875rem;
+            height: 3rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
-            padding: 18px;
-            font-size: 20px;
+            padding: 1.125rem;
+            font-size: 1.25rem;
         }
 
         &-gender {
             &_male {
                 position: absolute;
-                left: 170px;
-                top: 383px;
-                height: 24px;
-                width: 24px;
+                left: 10.625rem;
+                top: 23.9375rem;
+                height: 1.5rem;
+                width: 1.5rem;
                 background-color: #FFFFFF;
 
                 -webkit-appearance: none;
@@ -236,21 +236,21 @@
                 appearance: none;
                 border-radius: 50%;
 
-                border: 2px solid #08BBF4;
+                border: 0.125rem solid #08BBF4;
                 transition: 0.2s all ease-in;
                 outline: none;
             }
 
             &_male:checked {
-                border: 6px solid #08BBF4;
+                border: 0.375rem solid #08BBF4;
             }
 
             &_female {
                 position: absolute;
-                left: 260px;
-                top: 383px;
-                height: 24px;
-                width: 24px;
+                left: 16.25rem;
+                top: 23.9375rem;
+                height: 1.5rem;
+                width: 1.5rem;
                 background-color: #FFFFFF;
 
                 -webkit-appearance: none;
@@ -258,21 +258,21 @@
                 appearance: none;
                 border-radius: 50%;
 
-                border: 2px solid #08BBF4;
+                border: 0.125rem solid #08BBF4;
                 transition: 0.2s all ease-in;
                 outline: none;
             }
 
             &_female:checked {
-                border: 6px solid #08BBF4;
+                border: 0.375rem solid #08BBF4;
             }
 
             &_other {
                 position: absolute;
-                left: 370px;
-                top: 383px;
-                height: 24px;
-                width: 24px;
+                left: 23.125rem;
+                top: 23.9375rem;
+                height: 1.5rem;
+                width: 1.5rem;
                 background-color: #FFFFFF;
 
                 -webkit-appearance: none;
@@ -280,13 +280,13 @@
                 appearance: none;
                 border-radius: 50%;
 
-                border: 2px solid #08BBF4;
+                border: 0.125rem solid #08BBF4;
                 transition: 0.2s all ease-in;
                 outline: none;
             }
 
             &_other:checked {
-                border: 6px solid #08BBF4;
+                border: 0.375rem solid #08BBF4;
             }
 
             &_male:hover, &_female:hover, &_other:hover {
@@ -296,37 +296,37 @@
 
         &-mobile {
             position: absolute;
-            left: 170px;
-            top: 476px;
-            height: 48px;
-            width: 350px;
+            left: 10.625rem;
+            top: 29.75rem;
+            height: 3rem;
+            width: 21.875rem;
             
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
-            padding: 18px;
-            font-size: 20px;
+            padding: 1.125rem;
+            font-size: 1.25rem;
         }
     }
 
     &button {
         position: absolute;
-        left: 170px;
-        top: 548px;
-        width: 200px;
-        height: 48px;
+        left: 10.625rem;
+        top: 34.25rem;
+        width: 12.5rem;
+        height: 3rem;
 
         background: #08BBF4;
-        border-radius: 2px;
-        border: 2px solid #08BBF4;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #08BBF4;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
 
         color: #FFFFFF;

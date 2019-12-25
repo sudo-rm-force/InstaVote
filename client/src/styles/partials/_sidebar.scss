@@ -1,9 +1,9 @@
 .sidebar {
     position: absolute;
-    top: 80px;
-    left: 0px;
-    width: 475px;
-    height: calc(100% - 80px);
+    top: 5rem;
+    left: 0rem;
+    width: 29.6875rem;
+    height: calc(100% - 5rem);
     background-color: rgba($color: #000000, $alpha: 0.95);
 
     cursor: default;
@@ -12,10 +12,10 @@
 .sidebar-- {
     &panel {
         position: absolute;
-        top: calc(47% - 144px);
-        left: 0px;
+        top: calc(47% - 9rem);
+        left: 0rem;
         width: 100%;
-        height:288px;
+        height:18rem;
     }
 
 }

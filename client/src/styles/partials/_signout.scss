@@ -1,13 +1,13 @@
 .signout {
     position: absolute;
-    width: 225px;
-    height: 271px;
-    right: 48px;
-    top: 70px;
+    width: 14.0625rem;
+    height: 16.9375rem;
+    right: 3rem;
+    top: 4.375rem;
 
     background-color: #FFFFFF;
-    border: 2px solid #08BBF4;
-    border-radius: 3px;
+    border: 0.125rem solid #08BBF4;
+    border-radius: 0.1875rem;
 
     z-index:2;
     cursor: default;
@@ -16,16 +16,16 @@
 .signout-- {
     &heading {
         position: absolute;
-        left: 40.5px;
-        top: 44px;
-        width: 131px;
-        height: 31px;
+        left: 2.5313rem;
+        top: 2.75rem;
+        width: 8.1875rem;
+        height: 1.9375rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1rem;
+        line-height: 1.1875rem;
         text-align: center;
 
         color: rgba(0, 0, 0, 0.7);
@@ -33,14 +33,14 @@
 
     &data {
         position: absolute;
-        left: 40.5px;
-        top: 96px;
+        left: 2.5313rem;
+        top: 6rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 15px;
+        font-size: 1rem;
+        line-height: 0.9375rem;
         display: flex;
         align-items: center;
 
@@ -49,20 +49,20 @@
 
     &button {
         position: absolute;
-        left: 40.5px;
-        top: 180px;
-        width: 144px;
-        height: 48px;
+        left: 2.5313rem;
+        top: 11.25rem;
+        width: 9rem;
+        height: 3rem;
 
         background: #000000;
-        border-radius: 2px;
-        border: 2px solid #000000;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #000000;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
 
         color: #FFFFFF;

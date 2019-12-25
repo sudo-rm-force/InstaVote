@@ -1,60 +1,60 @@
 .constituencypanel {
     position: relative;
     width: 98%;
-    height: 81px;
-    border-top: 1px solid #C4C4C4;
-    border-bottom: 1px solid #C4C4C4; 
+    height: 5.0625rem;
+    border-top: 0.0625rem solid #C4C4C4;
+    border-bottom: 0.0625rem solid #C4C4C4; 
 }
 
 .constituencypanel-- {
     &heading {
         position: absolute;
-        width: 298px;
-        height: 48px;
-        top: 30px;
-        left: 32px;
+        width: 18.625rem;
+        height: 3rem;
+        top: 1.875rem;
+        left: 2rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
 
         color: #000000;
     }
 
     &id {
         position: absolute;
-        width: 258px;
-        height: 48px;
-        top: 30px;
-        left: calc(50% - 129px);
+        width: 16.125rem;
+        height: 3rem;
+        top: 1.875rem;
+        left: calc(50% - 8.0625rem);
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
 
         color: #000000;
     }
 
     &start {
         position: absolute;
-        width: 199px;
-        height: 48px;
-        top: 16px;
-        right: 32px;
+        width: 12.4375rem;
+        height: 3rem;
+        top: 1rem;
+        right: 2rem;
 
         background: #000000;
-        border: 1px solid #000000;
+        border: 0.0625rem solid #000000;
         box-sizing: border-box;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
         letter-spacing: 0.02em;
 

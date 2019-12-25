@@ -1,119 +1,119 @@
 .results {
     position: absolute;
-    width: calc(100% - 475px);
-    height: calc(100% - 80px);
-    top: 80px;
-    left: 475px;
+    width: calc(100% - 29.6875rem);
+    height: calc(100% - 5rem);
+    top: 5rem;
+    left: 29.6875rem;
     cursor: default;
 }
 
 .results-- {
     &heading {
         position: absolute;
-        left: 98px;
-        top: 68px;
+        left: 6.125rem;
+        top: 4.25rem;
 
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
     }
 
     &description {
         position: absolute;
-        left: 110px;
-        top: 150px;
+        left: 6.875rem;
+        top: 9.375rem;
 
         font-family: Orienta;
         font-style: normal;
-        font-size: 16px;
-        line-height: 28px;
+        font-size: 1rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
 
         color: #000000;
 
         &-image {
             position: absolute;
-            left: 0px;
-            top: 150px;
-            height: 350px;
-            width: 500px;
+            left: 0rem;
+            top: 9.375rem;
+            height: 21.875rem;
+            width: 31.25rem;
         }
     }
 
     &panel1 {
         position: absolute;
-        left: 98px;
-        top: 125px;
-        width: 840px;
-        height: 190px;
+        left: 6.125rem;
+        top: 7.8125rem;
+        width: 52.5rem;
+        height: 11.875rem;
 
         background: #FBFBFB;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
     }
 
     &data {
         &-voters {
             position: absolute;
-            left: 32px;
-            top: 44px;
-            width: 200px;
-            height: 32px;
+            left: 2rem;
+            top: 2.75rem;
+            width: 12.5rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
-            font-size: 16px;
-            line-height: 28px;
+            font-size: 1rem;
+            line-height: 1.75rem;
 
             color: rgba($color: #000000, $alpha: 0.65);
         }
 
         &-candidates {
             position: absolute;
-            left: 324px;
-            top: 44px;
-            width: 200px;
-            height: 32px;
+            left: 20.25rem;
+            top: 2.75rem;
+            width: 12.5rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
-            font-size: 16px;
-            line-height: 28px;
+            font-size: 1rem;
+            line-height: 1.75rem;
 
             color: rgba($color: #000000, $alpha: 0.65);
         }
 
         &-votes {
             position: absolute;
-            left: 32px;
-            top: 94px;
-            width: 200px;
-            height: 32px;
+            left: 2rem;
+            top: 5.875rem;
+            width: 12.5rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
-            font-size: 16px;
-            line-height: 28px;
+            font-size: 1rem;
+            line-height: 1.75rem;
 
             color: rgba($color: #000000, $alpha: 0.65);
         }
 
         &-females {
             position: absolute;
-            left: 324px;
-            top: 94px;
-            width: 300px;
-            height: 32px;
+            left: 20.25rem;
+            top: 5.875rem;
+            width: 18.75rem;
+            height: 2rem;
 
             font-family: Orienta;
             font-style: normal;
-            font-size: 16px;
-            line-height: 28px;
+            font-size: 1rem;
+            line-height: 1.75rem;
 
             color: rgba($color: #000000, $alpha: 0.65);
         }
@@ -121,9 +121,9 @@
 
     &panel2 {
         position: absolute;
-        left: 98px;
-        top: 375px;
+        left: 6.125rem;
+        top: 23.4375rem;
         width: 80%;
-        height: 390px;
+        height: 24.375rem;
     }
 }

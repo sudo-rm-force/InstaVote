@@ -1,88 +1,88 @@
 .constituency {
     position: absolute;
-    width: calc(100% - 475px);
-    height: calc(100% - 80px);
-    top: 80px;
-    left: 475px;
+    width: calc(100% - 29.6875rem);
+    height: calc(100% - 5rem);
+    top: 5rem;
+    left: 29.6875rem;
     cursor: default;
 }
 
 .constituency-- {
     &heading {
         position: absolute;
-        left: 98px;
-        top: 92px;
+        left: 6.125rem;
+        top: 5.75rem;
 
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
 
         &-name {
             position: absolute;
-            width: 193px;
-            height: 32px;
-            top: 82px;
-            left: 55px;
+            width: 12.0625rem;
+            height: 2rem;
+            top: 5.125rem;
+            left: 3.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
 
             color: #000000;
         }
 
         &-id {
             position: absolute;
-            width: 184px;
-            height: 32px;
-            top: 114px;
-            left: 55px;
+            width: 11.5rem;
+            height: 2rem;
+            top: 7.125rem;
+            left: 3.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
 
             color: #000000;
         }
 
         &-start {
             position: absolute;
-            width: 184px;
-            height: 32px;
-            top: 164px;
-            left: 55px;
+            width: 11.5rem;
+            height: 2rem;
+            top: 10.25rem;
+            left: 3.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
 
             color: #000000;
         }
 
         &-duration {
             position: absolute;
-            width: 184px;
-            height: 32px;
-            top: 251px;
-            left: 55px;
+            width: 11.5rem;
+            height: 2rem;
+            top: 15.6875rem;
+            left: 3.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
 
             color: #000000;
         }
@@ -90,35 +90,35 @@
 
     &search {
         position: absolute;
-        right: 175px;
-        top: 68px;
-        width: 250px;
-        height: 48px;
+        right: 10.9375rem;
+        top: 4.25rem;
+        width: 15.625rem;
+        height: 3rem;
 
         &-input {
             position: absolute;
-            width: 250px;
-            height: 48px;
+            width: 15.625rem;
+            height: 3rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
-            text-indent: 12px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
+            text-indent: 0.75rem;
         }
 
         &-icon {
             position: absolute;
-            width: 44px;
-            height: 44px;
-            top: 2px;
-            right: 2px;
+            width: 2.75rem;
+            height: 2.75rem;
+            top: 0.125rem;
+            right: 0.125rem;
         }
 
         &-icon:hover {
@@ -130,8 +130,8 @@
         position: absolute;
         width: 85%;
         height: 70%;
-        top: 200px;
-        left: 98px;
+        top: 12.5rem;
+        left: 6.125rem;
         overflow-y: auto;
     }
 
@@ -145,26 +145,26 @@
 
     &start {
         position: absolute;
-        width: 400px;
-        height: 450px;
-        top: calc(50% - 225px);
-        left: calc(50% - 200px);
+        width: 25rem;
+        height: 28.125rem;
+        top: calc(50% - 14.0625rem);
+        left: calc(50% - 12.5rem);
 
         background: #FFFFFF;
-        border-radius: 4px;
+        border-radius: 0.25rem;
 
         &-heading {
             position: absolute;
-            width: 204px;
-            height: 32px;
-            top: 30px;
-            left: calc(50% - 102px);
+            width: 12.75rem;
+            height: 2rem;
+            top: 1.875rem;
+            left: calc(50% - 6.375rem);
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             text-align: center;
 
             color: #000000;
@@ -174,54 +174,54 @@
     &input {
         &-start {
             position: absolute;
-            width: 184px;
-            height: 32px;
-            top: 202px;
-            left: 55px;
+            width: 11.5rem;
+            height: 2rem;
+            top: 12.625rem;
+            left: 3.4375rem;
 
             background: #FFFFFF;
-            border: 1px solid #08BBF4;
+            border: 0.0625rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 16px;
-            line-height: 19px;
+            font-size: 1rem;
+            line-height: 1.1875rem;
             display: flex;
             align-items: center;
-            text-indent: 12px;
+            text-indent: 0.75rem;
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-duration {
             position: absolute;
-            width: 184px;
-            height: 32px;
-            top: 293px;
-            left: 55px;
+            width: 11.5rem;
+            height: 2rem;
+            top: 18.3125rem;
+            left: 3.4375rem;
 
             background: #FFFFFF;
-            border: 1px solid #08BBF4;
+            border: 0.0625rem solid #08BBF4;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 0.125rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 16px;
-            line-height: 19px;
+            font-size: 1rem;
+            line-height: 1.1875rem;
             display: flex;
             align-items: center;
-            text-indent: 12px;
+            text-indent: 0.75rem;
         }
     }
 
     &close {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 1.5rem;
+        right: 1.5rem;
     }
 
     &close:hover {
@@ -230,20 +230,20 @@
 
     &button {
         position: absolute;
-        width: 144px;
-        height: 36px;
-        top: 366px;
-        left: calc(50% - 72px);
+        width: 9rem;
+        height: 2.25rem;
+        top: 22.875rem;
+        left: calc(50% - 4.5rem);
 
         background: #000000;
-        border: 2px solid #000000;
-        border-radius: 2px;
+        border: 0.125rem solid #000000;
+        border-radius: 0.125rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1rem;
+        line-height: 1.1875rem;
         text-align: center;
 
         color: #FFFFFF;

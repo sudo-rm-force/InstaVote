@@ -1,68 +1,68 @@
 .results {
     position: absolute;
-    width: calc(100% - 475px);
-    height: calc(100% - 80px);
-    top: 80px;
-    left: 475px;
+    width: calc(100% - 29.6875rem);
+    height: calc(100% - 5rem);
+    top: 5rem;
+    left: 29.6875rem;
 }
 
 .results-- {
     &heading {
         position: absolute;
-        left: 98px;
-        top: 81px;
+        left: 6.125rem;
+        top: 5.0625rem;
 
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
     }
 
     &description {
         position: absolute;
-        width: 678px;
-        height: 409px;
-        top: 180px;
-        left: 110px;
+        width: 42.375rem;
+        height: 25.5625rem;
+        top: 11.25rem;
+        left: 6.875rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
-        line-height: 29px;
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
 
         color: #000000;
     }
 
     &image {
         position: absolute;
-        width: 280px;
-        height: 271.48px;
-        top: 190px;
-        right: 205px;
+        width: 17.5rem;
+        height: 16.9675rem;
+        top: 11.875rem;
+        right: 12.8125rem;
     }
 
     &button {
         position: absolute;
-        width: 832px;
-        height: 108px;
-        top: 683px;
-        left: 242px;
+        width: 52rem;
+        height: 6.75rem;
+        top: 42.6875rem;
+        left: 15.125rem;
 
         background: #000000;
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
         text-align: center;
-        border: 2px solid #000000;
-        border-radius: 4px; 
+        border: 0.125rem solid #000000;
+        border-radius: 0.25rem; 
 
         color: #FFFFFF;
     }

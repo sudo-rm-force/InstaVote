@@ -1,9 +1,9 @@
 .voters {
     position: absolute;
-    width: calc(100% - 475px);
-    height: calc(100% - 80px);
-    top: 80px;
-    left: 475px;
+    width: calc(100% - 29.6875rem);
+    height: calc(100% - 5rem);
+    top: 5rem;
+    left: 29.6875rem;
 
     cursor: default;
 }
@@ -11,31 +11,31 @@
 .voters-- {
     &heading {
         position: absolute;
-        left: 98px;
-        top: 68px;
+        left: 6.125rem;
+        top: 4.25rem;
 
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
 
         &-name {
             position: absolute;
-            width: 296px;
-            height: 48px;
-            top: 181px;
-            left: 172px;
+            width: 18.5rem;
+            height: 3rem;
+            top: 11.3125rem;
+            left: 10.75rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
@@ -44,16 +44,16 @@
 
         &-id {
             position: absolute;
-            width: 254px;
-            height: 48px;
-            top: 311px;
-            left: 172px;
+            width: 15.875rem;
+            height: 3rem;
+            top: 19.4375rem;
+            left: 10.75rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
@@ -62,16 +62,16 @@
 
         &-constituency {
             position: absolute;
-            width: 254px;
-            height: 48px;
-            top: 455px;
-            left: 172px;
+            width: 15.875rem;
+            height: 3rem;
+            top: 28.4375rem;
+            left: 10.75rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
@@ -80,16 +80,16 @@
 
         &-age {
             position: absolute;
-            width: 254px;
-            height: 48px;
-            top: 311px;
-            left: 600px;
+            width: 15.875rem;
+            height: 3rem;
+            top: 19.4375rem;
+            left: 37.5rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             display: flex;
             align-items: center;
 
@@ -100,81 +100,81 @@
     &input {
         &-name {
             position: absolute;
-            width: 600px;
-            height: 48px;
-            top: 230px;
-            left: 172px;
-            padding-left: 12px;
+            width: 37.5rem;
+            height: 3rem;
+            top: 14.375rem;
+            left: 10.75rem;
+            padding-left: 0.75rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-family: Orienta;
         }
 
         &-id {
             position: absolute;
-            width: 350px;
-            height: 48px;
-            top: 360px;
-            left: 172px;
-            padding-left: 12px;
+            width: 21.875rem;
+            height: 3rem;
+            top: 22.5rem;
+            left: 10.75rem;
+            padding-left: 0.75rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-family: Orienta;
         }
 
         &-constituency {
             position: absolute;
-            width: 350px;
-            height: 48px;
-            top: 510px;
-            left: 172px;
-            padding-left: 12px;
+            width: 21.875rem;
+            height: 3rem;
+            top: 31.875rem;
+            left: 10.75rem;
+            padding-left: 0.75rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-family: Orienta;
         }
 
         &-age {
             position: absolute;
-            width: 167px;
-            height: 48px;
-            top: 360px;
-            left: 600px;
-            padding-left: 12px;
+            width: 10.4375rem;
+            height: 3rem;
+            top: 22.5rem;
+            left: 37.5rem;
+            padding-left: 0.75rem;
 
             background: #FFFFFF;
-            border: 2px solid #08BBF4;
+            border: 0.125rem solid #08BBF4;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-family: Orienta;
         }
     }
 
     &submit {
         position: absolute;
-        width: 200px;
-        height: 48px;
-        top: 615px;
-        left: 172px;
+        width: 12.5rem;
+        height: 3rem;
+        top: 38.4375rem;
+        left: 10.75rem;
 
         background: #08BBF4;
-        border-radius: 2px;
-        border: 2px solid #08BBF4;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #08BBF4;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
 
         color: #FFFFFF;

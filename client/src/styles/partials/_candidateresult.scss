@@ -1,10 +1,10 @@
 .candidateresult {
     position: relative;
     width: 100%;
-    height: 74px;
+    height: 4.625rem;
 
-    border-top: 1px solid #C4C4C4;
-    border-bottom: 1px solid #C4C4C4;
+    border-top: 0.0625rem solid #C4C4C4;
+    border-bottom: 0.0625rem solid #C4C4C4;
 
     cursor: default;
 }
@@ -12,51 +12,51 @@
 .candidateresult-- {
     &name {
         position: absolute;
-        width: 200px;
-        height: 48px;
-        top: 23px;
-        left: 12px;
+        width: 12.5rem;
+        height: 3rem;
+        top: 1.4375rem;
+        left: 0.75rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
     }
 
     &votes {
         position: absolute;
-        width: 248px;
-        height: 48px;
-        top: 13px;
-        left: calc(35% - 24px);
+        width: 15.5rem;
+        height: 3rem;
+        top: 0.8125rem;
+        left: calc(35% - 1.5rem);
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 48px;
-        text-indent: 12px;
+        font-size: 1.125rem;
+        line-height: 3rem;
+        text-indent: 0.75rem;
 
         color: #000000;
     }
 
     &voteper {
         position: absolute;
-        width: 232px;
-        height: 32px;
-        top: 21px;
-        right: 48px;
+        width: 14.5rem;
+        height: 2rem;
+        top: 1.3125rem;
+        right: 3rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
 
         color: #000000;
     }

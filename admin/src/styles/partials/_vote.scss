@@ -1,9 +1,9 @@
 .vote {
     position: absolute;
-    width: calc(100% - 475px);
-    height: calc(100% - 80px);
-    top: 80px;
-    left: 475px;
+    width: calc(100% - 29.6875rem);
+    height: calc(100% - 5rem);
+    top: 5rem;
+    left: 29.6875rem;
 
     cursor: default;
 }
@@ -11,16 +11,16 @@
 .vote-- {
     &heading {
         position: absolute;
-        left: 98px;
-        top: 68px;
+        left: 6.125rem;
+        top: 4.25rem;
 
         font-family: Droid Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
         letter-spacing: 0.02em;
-        text-indent: 12px;
+        text-indent: 0.75rem;
 
         color: #000000;
     }
@@ -28,27 +28,27 @@
     &ballot {
         position: absolute;
         width: 90%;
-        height: 600px;
-        left: 108px;
-        top: 152px;
+        height: 37.5rem;
+        left: 6.75rem;
+        top: 9.5rem;
     }
 
     &clearall {
         position: absolute;
-        width: 175px;
-        height: 48px;
-        bottom: 72px;
-        left: 98px;
+        width: 10.9375rem;
+        height: 3rem;
+        bottom: 4.5rem;
+        left: 6.125rem;
 
         background: #000000;
-        border-radius: 2px;
-        border: 2px solid #000000;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #000000;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
 
         color: #FFFFFF;
@@ -56,20 +56,20 @@
 
     &submit {
         position: absolute;
-        width: 175px;
-        height: 48px;
-        bottom: 72px;
-        left: calc(90% - 175px);
+        width: 10.9375rem;
+        height: 3rem;
+        bottom: 4.5rem;
+        left: calc(90% - 10.9375rem);
 
         background: #08BBF4;
-        border-radius: 2px;
-        border: 2px solid #08BBF4;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #08BBF4;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
         text-align: center;
 
         color: #FFFFFF;
@@ -77,57 +77,57 @@
 
     &transaction {
         position: absolute;
-        left: 98px;
-        top: 155px;
-        width: 840px;
-        height: 190px;
+        left: 6.125rem;
+        top: 9.6875rem;
+        width: 52.5rem;
+        height: 11.875rem;
 
         background: #FBFBFB;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 
         &-time {
             position: absolute;
-            left: 24px;
-            top: 48px;
+            left: 1.5rem;
+            top: 3rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-candidate {
             position: absolute;
-            left: 24px;
-            top: 80px;
+            left: 1.5rem;
+            top: 5rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
 
             &_party {
                 position: absolute;
-                left: 109px;
-                top: 103px;
+                left: 6.8125rem;
+                top: 6.4375rem;
 
                 font-family: Orienta;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 1.125rem;
+                line-height: 1.375rem;
                 letter-spacing: 0.02em;
-                text-indent: 12px;
+                text-indent: 0.75rem;
 
                 color: rgba(0, 0, 0, 0.5);
             }
@@ -135,90 +135,90 @@
 
         &-id {
             position: absolute;
-            left: 24px;
-            top: 132px;
+            left: 1.5rem;
+            top: 8.25rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-date {
             position: absolute;
-            left: 24px;
-            top: 42px;
+            left: 1.5rem;
+            top: 2.625rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-start {
             position: absolute;
-            left: 24px;
-            top: 76px;
+            left: 1.5rem;
+            top: 4.75rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-duration {
             position: absolute;
-            left: 24px;
-            top: 103px;
+            left: 1.5rem;
+            top: 6.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-constituency {
             position: absolute;
-            left: 24px;
-            top: 135px;
+            left: 1.5rem;
+            top: 8.4375rem;
 
             font-family: Orienta;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             letter-spacing: 0.02em;
-            text-indent: 12px;
+            text-indent: 0.75rem;
 
             color: rgba(0, 0, 0, 0.5);
         }
 
         &-image {
             position: absolute;
-            top: 37.5px;
-            right: 72px;
-            width: 105px;
-            height: 115px;
+            top: 2.3438rem;
+            right: 4.5rem;
+            width: 6.5625rem;
+            height: 7.1875rem;
         }
     }
 }

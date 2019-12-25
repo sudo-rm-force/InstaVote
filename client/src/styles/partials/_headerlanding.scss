@@ -1,9 +1,9 @@
 .headerlanding {
     position: absolute;
     width: 100%;
-    height: 80px;
-    top: 0px;
-    left: 0px;
+    height: 5rem;
+    top: 0rem;
+    left: 0rem;
 
     background-color: #08BBF4;
     cursor: default;
@@ -12,27 +12,27 @@
 .headerlanding-- {
     &logo {
         position: absolute;
-        width: 48px;
-        height: 48px;
-        top: 16px;
-        left: 24px;
+        width: 3rem;
+        height: 3rem;
+        top: 1rem;
+        left: 1.5rem;
 
         background: #000000;
-        border-radius: 48px;
+        border-radius: 3rem;
     }
 
     &heading {
         position: absolute;
-        width: 548px;
-        height: 48px;
-        left: calc(50% - 274px);
-        top: 18px;
+        width: 34.25rem;
+        height: 3rem;
+        left: calc(50% - 17.125rem);
+        top: 1.125rem;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 30px;
-        line-height: 43px;
+        font-size: 1.875rem;
+        line-height: 2.6875rem;
         text-align: center;
 
         color: #FFFFFF;
@@ -40,20 +40,20 @@
 
     &register {
         position: absolute;
-        width: 125px;
-        height: 42px;
-        top: 19px;
-        right: 48px;
+        width: 7.8125rem;
+        height: 2.625rem;
+        top: 1.1875rem;
+        right: 3rem;
 
         background: #000000;
-        border-radius: 2px;
-        border: 2px solid #000000;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #000000;
 
         font-family: Orienta;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 30px;
+        font-size: 1rem;
+        line-height: 1.875rem;
         text-align: center;
 
         color: #FFFFFF;
