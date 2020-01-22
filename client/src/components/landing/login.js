@@ -59,7 +59,8 @@ class Login extends Component {
       }
 
     async onButtonPress(event) {
-        event.preventDefault()
+        event.preventDefault();
+        this.props.loading();
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
             if(res.success) {
                 // election.methods.login(this.state.voterId).call((res,err) => {
@@ -71,7 +72,7 @@ class Login extends Component {
                 localStorage.setItem('voterid',voter.voter_id)
                 localStorage.setItem('constituencyid',voter.constituency_id)
                 localStorage.setItem('image',`${CONFIG.baseURL}/images/${voter.face_name}`)
-                window.location = '/'+voter.voterId+'/Profile'
+                window.location = '/'+this.state.voterId+'/Profile'
                 
             }
             else {

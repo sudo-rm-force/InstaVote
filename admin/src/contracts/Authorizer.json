@@ -2312,10 +2312,40 @@
       "links": {},
       "address": "0x2a1115f3E1dD8c2E0349b2FD8801ceaFec05471F",
       "transactionHash": "0x893e11e282d0b0aa71e76ee39a17399ff489e9013da4db73ab02cb4ed9c9d8d7"
+    },
+    "1577969615728": {
+      "events": {},
+      "links": {},
+      "address": "0x19c83f598aDAC57bC16510989DAbe783859BEFC4",
+      "transactionHash": "0x48fc26dbe5787317f6f9efd028426c175b7826814aefecf2ffffb788b401cbcf"
+    },
+    "1578065191211": {
+      "events": {},
+      "links": {},
+      "address": "0xCe84c8F3a65B35989a7875d1b356a2dF01dC12AE",
+      "transactionHash": "0x8a4bc923c6993db3ae8eec76d6a3a4d6d8f9d6c760b8dd5384909882932d808a"
+    },
+    "1578065506083": {
+      "events": {},
+      "links": {},
+      "address": "0xe81C980E866Cf8A61fbeA2D1d5E7De239f450Ff5",
+      "transactionHash": "0x5cf4d9b3689c3f9378f5b1f360dac23d0fcfe0d7a2f883752c34ad6f1637defe"
+    },
+    "1579109097962": {
+      "events": {},
+      "links": {},
+      "address": "0xa3a8058Ae1533d3b7601bd9d67D052a62102689D",
+      "transactionHash": "0xeaf64013794555611ee713e5eaf86d4a125d3734932d9eb57543bed1b53b0738"
+    },
+    "1579192872325": {
+      "events": {},
+      "links": {},
+      "address": "0x447fb974E7D22792E6A524A580658491264264Af",
+      "transactionHash": "0x2067b6ba173a33b7684e5a1e595db7bc73ada91ba2d909c978c944a78e57e796"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-12-24T14:11:07.098Z",
+  "updatedAt": "2020-01-16T16:42:31.725Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

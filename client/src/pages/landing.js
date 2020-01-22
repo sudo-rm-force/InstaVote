@@ -9,7 +9,7 @@ class Landing extends Component {
             <div>
                 <HeaderLanding />
                 <Carousel />
-                <Login />
+                <Login loading = { this.props.loading } />
             </div>
         )
     }

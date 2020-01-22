@@ -13,6 +13,7 @@ class App extends Component {
       this.state = {
           loading:true
       }
+      this.toggleLoading = this.toggleLoading.bind(this);
   }
 
   async componentDidMount() {
@@ -20,6 +21,10 @@ class App extends Component {
     await loadWeb3();
     await loadBlockChain()
     this.setState({ loading:false })
+  }
+
+  toggleLoading() {
+    this.setState({ loading:!this.state.loading });
   }
   
   render() {
@@ -29,7 +34,7 @@ class App extends Component {
       return(
           <BrowserRouter>
             <Switch>
-              <Route exact path='/'  component={ Landing }/>
+              <Route exact path='/' render={(props) => <Landing {...props} loading= { this.toggleLoading }/>} />
               <Route exact path='/register' component={ Registration }/>
               <Route exact path='/:id/:route?' component={ VoterPage }/>
             </Switch>
