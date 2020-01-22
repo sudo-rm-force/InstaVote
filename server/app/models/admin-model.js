@@ -1,7 +1,22 @@
 var conn = require('../../config/database');
 
 var adminModel = {
-   loginAdmin:loginAdmin
+    addAdmin:addAdmin,
+    loginAdmin:loginAdmin
+}
+
+function addAdmin(candidate) {
+    return new Promise((resolve,reject) => {
+        const params = [candidate.name, candidate.candidate_id, candidate.constituency_id];
+         conn.query("INSERT INTO admin (admin_id,password) VALUES (?,?);", params, (error,rows,fields)=>{
+            if(error) {
+                console.log(error);
+                reject(error);
+            } else {
+                resolve(rows);
+            }
+          });
+        });
 }
 
 function loginAdmin(admin) {

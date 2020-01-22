@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
 const { addCandidate } = require('../app/routes/candidate.route')
-const { loginAdmin } = require('../app/routes/admin.route')
+const { addAdmin, loginAdmin } = require('../app/routes/admin.route')
 const { createDatabase } = require('../app/models/creatServerAndTable')
 
 dbfunc.connectionCheck.then((data) =>{
@@ -36,7 +36,7 @@ app.get(`/images/*`, (req,res) => {
   });
 })
 app.get('/', (req,res) => {
-    res.send('hello world');
+    res.send('Welcome to InstaVote Backend');
 });
 
 app.post('/user', addUser);
@@ -44,7 +44,8 @@ app.post('/userUpdate', updateUserById);
 app.get('/userId', getUserById)
 app.post('/login', authentic);
 app.post('/candidate', addCandidate);
-app.get('/admin', loginAdmin)
+app.get('/admin', loginAdmin);
+app.post('/admin', addAdmin);
 
 
 var ApiConfig = {

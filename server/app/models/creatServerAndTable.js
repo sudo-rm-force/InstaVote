@@ -11,7 +11,7 @@ function createDatabase() {
 
         conn.query("CREATE DATABASE IF NOT EXISTS instavote", function (err, result) {
           if (err) throw err;
-          console.log("Database created ", result);
+        //   console.log("Database created ", result);
         });
 
         let createvoters = "CREATE TABLE IF NOT EXISTS `instavote`.`voters` ( `voter_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `age` INT(10) NOT NULL DEFAULT '18' , `constituency_id` VARCHAR(100) NULL DEFAULT NULL , `gender` VARCHAR(12) NULL DEFAULT NULL, `face_id` VARCHAR(1000) NULL DEFAULT NULL , `face_name` VARCHAR(2000) NULL DEFAULT NULL , `mobile_no` BIGINT(20) NULL DEFAULT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP );";
@@ -20,7 +20,7 @@ function createDatabase() {
             if (err) {
             console.log(err.message);
             } else {
-                console.log(results);
+                // console.log(results);
             }
         });
 
@@ -30,7 +30,7 @@ function createDatabase() {
             if (err) {
             console.log(err.message);
             } else {
-                console.log(results);
+                // console.log(results);
             }
         });
 
@@ -40,7 +40,7 @@ function createDatabase() {
             if (err) {
             console.log(err.message);
             } else {
-                console.log(results);
+                // console.log(results);
             }
         });
 
@@ -50,7 +50,7 @@ function createDatabase() {
             if (err) {
             console.log(err.message);
             } else {
-                console.log(results);
+                // console.log(results);
             }
         });
 
@@ -63,7 +63,7 @@ function createDatabase() {
             if (err) {
             console.log(err.message);
             } else {
-                console.log(results);
+                // console.log(results);
             }
         });
 
