@@ -2342,10 +2342,16 @@
       "links": {},
       "address": "0x447fb974E7D22792E6A524A580658491264264Af",
       "transactionHash": "0x2067b6ba173a33b7684e5a1e595db7bc73ada91ba2d909c978c944a78e57e796"
+    },
+    "1579895474608": {
+      "events": {},
+      "links": {},
+      "address": "0x8c7e6a9832dDAaFe8eF4bFB5860501C5379c45fA",
+      "transactionHash": "0x9f84fd64124dc556aaa5bc67f5ad1b14d3d81c8f037cbda730c36af676a83e1a"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2020-01-16T16:42:31.725Z",
+  "updatedAt": "2020-01-24T19:51:35.370Z",
   "devdoc": {
     "methods": {
       "isOwner()": {

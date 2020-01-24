@@ -1,10 +1,5 @@
 const adminService = require('../services/admin.service');
 
-var adminRoute = {
-  addAdmin: addAdmin,
-  loginAdmin: loginAdmin
-}
-
 function addAdmin(req,res) {
   var adminData=req.body;
   adminService.addAdmin(adminData).then((data) => {
@@ -25,4 +20,5 @@ function loginAdmin(req,res) {
 
 }
 
-module.exports.adminRoute = adminRoute;
+module.exports.addAdmin = addAdmin;
+module.exports.loginAdmin = loginAdmin;

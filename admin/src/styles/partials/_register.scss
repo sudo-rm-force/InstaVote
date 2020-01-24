@@ -1,0 +1,39 @@
+.register {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(50vh - 7rem);
+
+    input {
+        height: 1.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        width: 40rem;
+        border: 0.1875rem solid #08BBF4;
+        padding: 1rem;
+    }
+
+    button {
+        height: 1.5rem;
+        width: 20rem;
+        color: #FFFFFF;
+        font-family: Droid Sans;
+        font-size: 1.25rem;
+        background: #000000;
+        border: 0.125rem solid #000000;
+        padding: 1rem;
+        box-sizing: content-box;
+    }
+}
+
+.register-- {
+    &id {
+        align-self: center;
+    }
+    &button {
+        width: 20rem;
+        margin: auto;
+        justify-self: center;
+    }
+}

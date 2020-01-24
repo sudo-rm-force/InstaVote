@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AdminPage from './pages/adminpage'
 import Landing from './pages/landing'
+import Register from './pages/register'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
 import { Provider } from 'react-redux';
@@ -37,6 +38,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={ Landing } />
               <Route exact path='/:id/:route/' component={ AdminPage } />
+              <Route exact path='/admin' component={ Register }/>
             </Switch>
           </BrowserRouter>
         </Provider>

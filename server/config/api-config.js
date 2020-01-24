@@ -44,8 +44,8 @@ app.post('/userUpdate', updateUserById);
 app.get('/userId', getUserById)
 app.post('/login', authentic);
 app.post('/candidate', addCandidate);
-app.get('/admin', loginAdmin);
-app.post('/admin', addAdmin);
+app.post('/admin', loginAdmin);
+app.post('/addAdmin', addAdmin);
 
 
 var ApiConfig = {

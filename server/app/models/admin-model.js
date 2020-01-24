@@ -5,9 +5,9 @@ var adminModel = {
     loginAdmin:loginAdmin
 }
 
-function addAdmin(candidate) {
+function addAdmin(admin) {
     return new Promise((resolve,reject) => {
-        const params = [candidate.name, candidate.candidate_id, candidate.constituency_id];
+        const params = [admin.admin_id, admin.password];
          conn.query("INSERT INTO admin (admin_id,password) VALUES (?,?);", params, (error,rows,fields)=>{
             if(error) {
                 console.log(error);

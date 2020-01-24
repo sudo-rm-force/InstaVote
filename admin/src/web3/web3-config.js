@@ -21,8 +21,8 @@ const loadBlockChain = async () => {
     const networkId = await web3.eth.net.getId()
     const networkData = Election.networks[networkId];
     if(networkData) {
-        const socialNetwork = new web3.eth.Contract(Election.abi, networkData.address);
-        return({ 'accounts':accounts, 'socialNetwork':socialNetwork })
+        const election = new web3.eth.Contract(Election.abi, networkData.address);
+        return({ 'accounts':accounts, 'election':election })
     }
 }
 
