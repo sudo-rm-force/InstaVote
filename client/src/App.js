@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props){
       super(props);
       this.state = {
-          loading:true
+          loading:true,
+          election:''
       }
       this.toggleLoading = this.toggleLoading.bind(this);
   }
@@ -19,8 +20,10 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading:true })
     await loadWeb3();
-    await loadBlockChain()
-    this.setState({ loading:false })
+    const blockchain = await loadBlockChain()
+    localStorage.setItem('account',blockchain['accounts'])
+    const election = blockchain['election']
+    this.setState({ loading:false, election })
   }
 
   toggleLoading() {
@@ -34,9 +37,9 @@ class App extends Component {
       return(
           <BrowserRouter>
             <Switch>
-              <Route exact path='/' render={(props) => <Landing {...props} loading= { this.toggleLoading }/>} />
+              <Route exact path='/' render={(props) => <Landing {...props} loading={ this.toggleLoading } election={this.state.election}/>} />
               <Route exact path='/register' component={ Registration }/>
-              <Route exact path='/:id/:route?' component={ VoterPage }/>
+              <Route exact path='/:id/:route?' render={(props) => <VoterPage {...props} election={this.state.election}/>}/>
             </Switch>
           </BrowserRouter>
       )

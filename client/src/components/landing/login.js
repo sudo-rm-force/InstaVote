@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import '../../styles/main.scss'
-// import { voterIdChanged, faceDataChanged, loginUser } from '../../actions'
 import Camera from 'react-html5-camera-photo';
 import loginApi from '../../api/loginApi';
 import { CONFIG } from '../../config/config'
-import { loadBlockChain } from '../../web3/web3-config'
 import 'react-html5-camera-photo/build/css/index.css';
 
 class Login extends Component {
@@ -17,16 +15,11 @@ class Login extends Component {
             voterId: '',
             faceID: '',
             faceName: '',
-            election:''
+            election: props.election
         }
 
         this.onTakePhoto = this.onTakePhoto.bind(this)
-    }
-
-    async componentDidMount() {
-        const blockchain = await loadBlockChain()
-        localStorage.setItem('account',blockchain['accounts'])
-        this.setState({ election:blockchain['election'] })
+        this.onButtonPress = this.onButtonPress.bind(this)
     }
 
     onTakePhoto (dataUri) {
@@ -61,18 +54,18 @@ class Login extends Component {
     async onButtonPress(event) {
         event.preventDefault();
         this.props.loading();
-        loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then((res) => {
+        const { history,context } = this.props;
+        loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then(async (res) => {
             if(res.success) {
-                // election.methods.login(this.state.voterId).call((res,err) => {
-                //     console.log(res)
-                //     //Map user data to global variables
-                // })
+                const loginEvent = await this.state.election.methods.loginVoter(this.state.voterId).send({ from:localStorage.getItem('account') })
+                const data = loginEvent['events'].loginVoterInfo['returnValues'][0]
                 const voter = res.data[0]
                 localStorage.setItem('name',voter.name)
                 localStorage.setItem('voterid',voter.voter_id)
                 localStorage.setItem('constituencyid',voter.constituency_id)
                 localStorage.setItem('image',`${CONFIG.baseURL}/images/${voter.face_name}`)
-                window.location = '/'+this.state.voterId+'/Profile'
+                localStorage.setItem('hasVoted', data['_hasVoted'])
+                window.location = '/'+this.state.voterId+'/profile'
                 
             }
             else {

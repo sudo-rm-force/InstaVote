@@ -11,7 +11,8 @@ class VoterPage extends Component {
         super(props);
         this.state = {
             route: 'profile',
-            signout: false
+            signout: false,
+            election: props.election
         }
 
         this.panel = this.panel.bind(this)
