@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import web3 from 'web3'
 import registerVoterApi from '../../api/registerVoterApi'
 import '../../styles/main.scss'
 

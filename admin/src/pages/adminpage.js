@@ -49,7 +49,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Candidates hidesignout={this.hidesignout}/>
+                    <Candidates hidesignout={this.hidesignout} onLoading={this.props.onLoading} offLoading={this.props.offLoading}/>
                 </div>
             )
         }
@@ -59,7 +59,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Voters hidesignout={this.hidesignout} election={this.state.election}/>
+                    <Voters hidesignout={this.hidesignout} election={this.state.election} onLoading={this.props.onLoading} offLoading={this.props.offLoading}/>
                 </div>
             )
         }
@@ -69,7 +69,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Constituency hidesignout={this.hidesignout}/>
+                    <Constituency hidesignout={this.hidesignout} onLoading={this.props.onLoading} offLoading={this.props.offLoading}/>
                 </div>
             )
         }
@@ -79,7 +79,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Results hidesignout={this.hidesignout} election={this.state.election}/>
+                    <Results hidesignout={this.hidesignout} election={this.state.election} onLoading={this.props.onLoading} offLoading={this.props.offLoading}/>
                 </div>
             )
         }

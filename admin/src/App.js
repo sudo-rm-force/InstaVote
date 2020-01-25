@@ -19,6 +19,8 @@ class App extends Component {
       loading:true,
       election: ''
     }
+    this.onLoading = this.onLoading.bind(this)
+    this.offLoading = this.offLoading.bind(this)
   }
   
   async componentDidMount() {
@@ -26,6 +28,14 @@ class App extends Component {
     const blockchain = await loadBlockChain()
     localStorage.setItem('admin-account',blockchain['accounts'])
     this.setState({ election:blockchain['election'] })
+    this.setState({ loading:false })
+  }
+
+  onLoading() {
+    this.setState({ loading:true })
+  }
+
+  offLoading() {
     this.setState({ loading:false })
   }
 
@@ -40,7 +50,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path='/' component={ Landing } />
-              <Route exact path='/:id/:route/' render = {(props) => <AdminPage {...props} election={ this.state.election } />} />
+              <Route exact path='/:id/:route/' render = {(props) => <AdminPage {...props} election={ this.state.election } onLoading={ this.onLoading } offLoading={ this.offLoading }/>} />
               <Route exact path='/admin' render = {(props) => <Register {...props} election={ this.state.election } />} />
             </Switch>
           </BrowserRouter>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import web3 from 'web3'
 import vote from '../../assets/vote.svg'
 import party from '../../assets/party.jpg'
 import '../../styles/main.scss'
@@ -13,6 +12,13 @@ class Results extends Component {
         }
 
         this.click = this.click.bind(this)
+    }
+
+    async componentDidMount() {
+        // this.props.onLoading()
+        const declared = await this.state.election.methods.ResultsDeclared().call()
+        this.setState({ declared })
+        // this.props.offLoading()
     }
 
     click() {

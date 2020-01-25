@@ -3,7 +3,7 @@ pragma experimental ABIEncoderV2;
 import './Ownable.sol';
 
 contract Election is Ownable{
-  bool ResultsDeclared;
+  bool public ResultsDeclared = false;
 
   event VoterCreated(uint256 _id, uint256 _constituencyId);
   event CandidateRegistered(uint256 _id);
