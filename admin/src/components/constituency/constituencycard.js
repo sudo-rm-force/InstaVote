@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import close from '../../assets/close.svg'
 import '../../styles/main.scss'
+import contents from '../../constituency.json'
 
 class ConstituencyCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:''
+            name:'',
+            Id:''
         }
 
         this.close = this.close.bind(this)
@@ -26,7 +28,10 @@ class ConstituencyCard extends Component {
         // election.methods.generateElectionforConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
         //     console.log(res)
         // })
-        this.setState({name:this.props.name})
+        this.setState({
+            name:this.props.name,
+            Id:this.props.Id
+        })
     }
 
     componentWillReceiveProps(props) {
@@ -40,7 +45,7 @@ class ConstituencyCard extends Component {
                     <div className='constituency--start-heading'>Start Election</div>
                     <img className='constituency--close' src={close} alt='close' onClick={this.close} />
                     <div className='constituency--heading-name'>{this.state.name}</div>
-                    <div className='constituency--heading-id'>1221212156</div>
+                    <div className='constituency--heading-id'>{this.state.Id}</div>
                     <div className='constituency--heading-start'>Start Time</div>
                     <input className='constituency--input-start' value={Date.now()} name='start' />
                     <div className='constituency--heading-duration'>Duration</div>
