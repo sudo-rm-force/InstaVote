@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 class SignOut extends Component {
 
     onButtonPress() {
+        localStorage.removeItem('admin_id')
         window.location = '/'
     }
 
