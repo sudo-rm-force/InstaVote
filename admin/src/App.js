@@ -16,13 +16,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading:true
+      loading:true,
+      election: ''
     }
   }
   
   async componentDidMount() {
     await loadWeb3();
-    await loadBlockChain()
+    const blockchain = await loadBlockChain()
+    localStorage.setItem('admin-account',blockchain['accounts'])
+    this.setState({ election:blockchain['election'] })
     this.setState({ loading:false })
   }
 
@@ -37,8 +40,8 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path='/' component={ Landing } />
-              <Route exact path='/:id/:route/' component={ AdminPage } />
-              <Route exact path='/admin' component={ Register }/>
+              <Route exact path='/:id/:route/' render = {(props) => <AdminPage {...props} election={ this.state.election } />} />
+              <Route exact path='/admin' render = {(props) => <Register {...props} election={ this.state.election } />} />
             </Switch>
           </BrowserRouter>
         </Provider>

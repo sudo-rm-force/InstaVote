@@ -19,11 +19,16 @@
         width: 20rem;
         color: #FFFFFF;
         font-family: Droid Sans;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
         background: #000000;
         border: 0.125rem solid #000000;
         padding: 1rem;
         box-sizing: content-box;
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 }
 

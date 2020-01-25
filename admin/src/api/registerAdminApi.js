@@ -7,10 +7,10 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8080',
   });
 
-export default function registerAdminApi(admin_id,password) {
+export default function registerAdminApi(admin_id,mail) {
     return axiosInstance.post('/addAdmin', {
         admin_id: admin_id,
-        password: password
+        mail: mail
     }).then((response) => {
         const res = JSON.parse(response.request.response)
         return res

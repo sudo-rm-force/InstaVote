@@ -15,12 +15,6 @@ class Landing extends Component {
         }
     }
 
-    async componentWillMount() {
-        const blockchain = await loadBlockChain()
-        localStorage.setItem('admin-account',blockchain['accounts'])
-        this.setState({ election:blockchain['election'] })
-    }
-
     onChangeId(event) {
         this.setState({id:event.target.value})
     }
