@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import web3 from 'web3'
 import vote from '../../assets/vote.svg'
-import election from '../../web3/web3-config'
 import party from '../../assets/party.jpg'
 import '../../styles/main.scss'
 
@@ -8,7 +8,8 @@ class Results extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            declared:false
+            declared:false,
+            election: props.election
         }
 
         this.click = this.click.bind(this)
@@ -18,10 +19,9 @@ class Results extends Component {
         this.props.hidesignout()
     }
 
-    onButtonPress() {
-        election.methods.declareResults(this.state.adminId).send((res) => {
-            this.setState({ declared:true })
-        })
+    async onButtonPress() {
+        await this.state.election.methods.declareResults(localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
+        this.setState({ declared:true })
     }
 
     render() {

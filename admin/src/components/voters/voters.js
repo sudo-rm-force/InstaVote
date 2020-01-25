@@ -39,9 +39,8 @@ class Voters extends Component {
 
     async onSubmit(event) {
         event.preventDefault();
-        const adminId = new web3.utils.BN(localStorage.getItem('admin-id'))
         await registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId)
-        await this.state.election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, adminId).send({ from:localStorage.getItem('admin-account') })
+        await this.state.election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
         window.alert('Registration successful of '+this.state.Name)
         document.location.reload()
 

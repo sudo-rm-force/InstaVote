@@ -79,7 +79,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Results hidesignout={this.hidesignout}/>
+                    <Results hidesignout={this.hidesignout} election={this.state.election}/>
                 </div>
             )
         }
