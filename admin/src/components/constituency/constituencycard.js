@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import close from '../../assets/close.svg'
 import '../../styles/main.scss'
-import contents from '../../constituency.json'
 
 class ConstituencyCard extends Component {
     constructor(props) {

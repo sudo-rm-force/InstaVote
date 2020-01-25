@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import ConstituencyPanel from './constituencypanel'
 import ConstituencyCard from './constituencycard'
 import search from '../../assets/search.svg'
-// import close from '../../assets/close.svg'
 import '../../styles/main.scss'
 import contents from '../../constituency.json'
 
@@ -43,7 +42,11 @@ class Constituency extends Component {
     }
 
     search(event) {
-        this.items = this.list.filter(x => x === event.target.value)
+        this.items = []
+        this.list.forEach(place => {
+            if (place[0].toLowerCase() == event.target.value.toLowerCase())
+            this.items.push(place)
+        }) 
         this.forceUpdate()
     }
 
@@ -73,7 +76,6 @@ class Constituency extends Component {
                 <div className='constituency--list'>
                     {this.items.map((place) => (<ConstituencyPanel name={place} handleClick={this.start}/>))}
                 </div>
-                {console.log(this.items)}
                 { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} splice={this.splice} items={this.items}/>) : (<Fragment />) } 
             </div>
         )
