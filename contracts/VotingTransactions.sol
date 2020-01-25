@@ -3,18 +3,11 @@ pragma experimental ABIEncoderV2;
 import "./ElectionHelper.sol";
 
 contract VotingTransactions is ElectionHelper {
-    event Transfer(uint256 indexed _from, uint256 indexed _to, bytes32 indexed _tokenId);
+    event Transfer(uint256 indexed _from, uint256 indexed _to, uint256 indexed _tokenId);
 
-    // function ownerOf(uint256 tokenId) public view returns (address) {
-    //     address owner = _tokenOwner[tokenId];
-    //     require(owner != address(0), "ERC721: owner query for nonexistent token");
-
-    //     return owner;
-    // }
-
-    function transferFrom(uint256 from, uint256 to, bytes32 tokenId) public onlyUser(from) {
+    function transferFrom(uint256 from, uint256 to, uint256 tokenId) public onlyUser(from) {
         require(idToVoter[from]._constituencyId == candidateToConstituency[to]);
-        Voter memory voter = idToVoter[from];
+        Voter storage voter = idToVoter[from];
         voter._hasVoted = true;
         voteToCandidate[voter._vote._voteId] = to;
         candidateVoteCount[to]++;

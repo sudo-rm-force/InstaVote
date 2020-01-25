@@ -59,7 +59,7 @@ class VoterPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel}/>
-                    <Vote hidesignout={this.hidesignout} id={this.props.match.params.id}/>
+                    <Vote hidesignout={this.hidesignout} id={this.props.match.params.id} election={this.state.election}/>
                 </div>
             )
         }

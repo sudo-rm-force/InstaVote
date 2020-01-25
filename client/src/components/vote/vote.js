@@ -19,14 +19,12 @@ class Vote extends Component {
         super(props);
         this.state = {
             voted: false,
-            votingStarted: true
+            votingStarted: true,
+            election: props.election
         }
 
         this.hidesignout = this.hidesignout.bind(this)
-    }
-
-    hidesignout() {
-        this.props.hidesignout()
+        this.onVote = this.onVote.bind(this)
     }
 
     componentWillMount() {
@@ -42,15 +40,27 @@ class Vote extends Component {
     }
 
     componentDidMount() {
+        this.setState({ voted: localStorage.getItem('hasVoted') })
         // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
         //     console.log(res)
         // })
     }
 
+    async onVote(event) {
+        event.preventDefault();
+        const yo = await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),'1234',localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
+        console.log(yo)
+        const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
+        console.log(voter)
+    }
+
+    hidesignout() {
+        this.props.hidesignout()
+    }
 
     render() {
         if(this.state.votingStarted) {
-            if(!this.state.voted) {
+            if(this.state.voted) {
                 return(
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
@@ -67,7 +77,7 @@ class Vote extends Component {
                             <Candidate name='Leshna Balara' image={phone}/>
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
-                        <button className='vote--submit' type='submit'>Vote</button>
+                        <button className='vote--submit' type='submit' onClick={this.onVote}>Vote</button>
                     </div>
                 )
             }
