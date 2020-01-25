@@ -7,14 +7,14 @@ class ConstituencyPanel extends Component {
     }
 
     handleClick() {
-        this.props.handleClick(this.props.name)
+        this.props.handleClick(this.props.name[0], this.props.name[1].constituencyId)
     }
 
     render() {
         return(
             <div className='constituencypanel'>
-                <div className='constituencypanel--heading'>{this.props.name}</div>
-                <div className='constituencypanel--id'>1136451132156</div>
+                <div className='constituencypanel--heading'>{this.props.name[0]}</div>
+                <div className='constituencypanel--id'>{this.props.name[1].constituencyId}</div>
                 <button className='constituencypanel--start' type='button' onClick={this.handleClick}>Start</button>
             </div>
         )

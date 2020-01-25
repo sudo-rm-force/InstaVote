@@ -4,16 +4,18 @@ import ConstituencyCard from './constituencycard'
 import search from '../../assets/search.svg'
 // import close from '../../assets/close.svg'
 import '../../styles/main.scss'
+import contents from '../../constituency.json'
 
 class Constituency extends Component {
     constructor(props) {
         super(props);
         this.state = {
             start: false,
-            active: ''
+            active: '',
+            activeId: ''
         }
 
-        this.list = ['Roorkee', 'Delhi West', 'Aligarh', 'Hyderabad East', 'Srinagar', 'Jamshedpur', 'Mumbai South', 'Chennai Central', 'Surat', 'Mysore']
+        this.list = []
         this.items = []
 
         this.close = this.close.bind(this)
@@ -26,9 +28,12 @@ class Constituency extends Component {
         this.setState({ start:false })
     }
 
-    start(active) {
+    start(active, activeId) {
         this.setState({ start:true })
-        this.setState({active:active})
+        this.setState({
+            active:active,
+            activeId:activeId
+        })
     }
 
     click() {
@@ -51,7 +56,10 @@ class Constituency extends Component {
         // election.methods.getConstituencies(this.state.AdminId).call((res) => {
         //     console.log(res)
         // })
-        this.items = this.list
+        // JSON.stringify(contents);
+        for(var i in contents)
+            this.list.push([i, contents[i]])
+        this.items = this.list;
     }
 
     render() {
@@ -65,7 +73,8 @@ class Constituency extends Component {
                 <div className='constituency--list'>
                     {this.items.map((place) => (<ConstituencyPanel name={place} handleClick={this.start}/>))}
                 </div>
-                { this.state.start ? (<ConstituencyCard name={this.state.active} close={this.close} splice={this.splice}/>) : (<Fragment />) } 
+                {console.log(this.items)}
+                { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} splice={this.splice} items={this.items}/>) : (<Fragment />) } 
             </div>
         )
     }
