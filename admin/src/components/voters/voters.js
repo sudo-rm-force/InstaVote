@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import web3 from 'web3'
 import registerVoterApi from '../../api/registerVoterApi'
 import '../../styles/main.scss'
 
@@ -9,7 +10,8 @@ class Voters extends Component {
             Name:'',
             VoterId:'',
             Age:'',
-            ConstituencyId:''
+            ConstituencyId:'',
+            election: props.election
         }
         
         this.handleClick = this.handleClick.bind(this)
@@ -35,17 +37,11 @@ class Voters extends Component {
         this.setState({ConstituencyId:event.target.value})
     }
 
-    onSubmit(event) {
+    async onSubmit(event) {
         event.preventDefault();
-        registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId).then((res) => {
-            console.log(res)
-            // election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, this.state.AdminId).send((res) => {
-            //     console.log(res)
-            //     election.methods.registerConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
-            //         console.log(res)
-            //     })
-            // })
-        })
+        const adminId = new web3.utils.BN(localStorage.getItem('admin-id'))
+        await registerVoterApi(this.state.VoterId,this.state.Name,this.state.Age,this.state.ConstituencyId)
+        await this.state.election.methods.registerVoter(this.state.VoterId,this.state.ConstituencyId, adminId).send({ from:localStorage.getItem('admin-account') })
         window.alert('Registration successful of '+this.state.Name)
         document.location.reload()
 

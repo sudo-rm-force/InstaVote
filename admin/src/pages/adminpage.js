@@ -10,6 +10,7 @@ class AdminPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            election: props.election,
             route: 'Candidates',
             signout: false
         }
@@ -58,7 +59,7 @@ class AdminPage extends Component {
                 <div>
                     <Header signout={this.state.signout} showsignout={this.signout} handleChange={this.panel}/>
                     <Sidebar hidesignout={this.hidesignout} handleChange={this.panel} active={this.props.match.params.route}/>
-                    <Voters hidesignout={this.hidesignout}/>
+                    <Voters hidesignout={this.hidesignout} election={this.state.election}/>
                 </div>
             )
         }

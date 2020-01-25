@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import loginAdminApi from '../api/loginAdminApi'
 import logo from '../assets/logo.png'
 import cover from '../assets/cover.jpg'
-import { loadBlockChain } from '../web3/web3-config'
 import '../styles/main.scss'
 
 class Landing extends Component {
@@ -26,7 +25,6 @@ class Landing extends Component {
     onButtonPress(event) {
         event.preventDefault()
         loginAdminApi(this.state.id, this.state.password).then((res) => {
-            // console.log(res)
             localStorage.setItem("admin_id", this.state.id);
             window.location = '/' + this.state.id + '/Candidates'
         })
