@@ -42,7 +42,7 @@ So our product will result in a user friendly DApp that allows the voter to vote
 1. Run `cp server/.env.sample server/.env`
 2. Make a database named `instavote`
 3. Update the credentials in `.env` file
-4. Install dependencies using `cd server && npm install`
+4. Install dependencies using `cd server && mkdir images && npm install`
 5. Start sql server using `node app.js`
 
 ### Setup client portal
