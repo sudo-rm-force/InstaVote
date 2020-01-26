@@ -6,9 +6,10 @@ class ConstituencyCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            Id: '',
-            duration: ''
+            name: props.name,
+            Id: props.Id,
+            duration: '',
+            election: props.election
         }
 
         this.close = this.close.bind(this)
@@ -18,26 +19,14 @@ class ConstituencyCard extends Component {
         this.props.close()
     }
 
-    onButtonPress() {
+    async onButtonPress() {
         const a = this.state.duration.split(':'); // split it at the colons
-        const dur = (a[0] * 24 * 60 * 60 + a[1] * 60 * 60 + (+a[2]) * 60 + (+a[3])) * 1000
+        const dur = (a[0] * 24 * 60 * 60 + a[1] * 60 * 60 + (+a[2]) * 60 + (+a[3]))
+        await this.state.election.methods.registerConstituency(this.state.Id, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
+        await this.state.election.methods.generateElectionforConstituency(this.state.Id, dur, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
         window.alert('Election started for ' + this.state.name)
         this.props.close()
         this.props.splice(this.state.name)
-    }
-
-    componentDidMount() {
-        // election.methods.generateElectionforConstituency(this.state.ConstituencyId, this.state.AdminId).send((res) => {
-        //     console.log(res)
-        // })
-        this.setState({
-            name: this.props.name,
-            Id: this.props.Id
-        })
-    }
-
-    componentWillReceiveProps(props) {
-        this.setState({ name: props.name })
     }
 
     handleChange = (e) => {

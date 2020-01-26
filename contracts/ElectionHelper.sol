@@ -15,7 +15,7 @@ contract ElectionHelper is Election {
     }
 
     function generateElectionforConstituency(uint256 _id, uint256 _duration, uint256 _adminId) external onlyAdmin(_adminId) {
-        Constituency memory _constituency = idToConstituency[_id];
+        Constituency storage _constituency = idToConstituency[_id];
         _constituency._startTime = block.timestamp;
         _constituency._duration = _duration;
     }
@@ -39,7 +39,6 @@ contract ElectionHelper is Election {
             counter++;
         }
     }
-
         return _candidates;
     }
 }

@@ -12,7 +12,8 @@ class Constituency extends Component {
             start: false,
             active: '',
             activeId: '',
-            search: ''
+            search: '',
+            election: props.election
         }
 
         this.list = []
@@ -79,9 +80,9 @@ class Constituency extends Component {
                     <img className='constituency--search-icon' src={search} alt='search' />
                 </div>
                 <div className='constituency--list'>
-                    {this.items.map((place) => (<ConstituencyPanel name={place} handleClick={this.start}/>))}
+                    {this.items.map((place) => (<ConstituencyPanel key={place} name={place} handleClick={this.start}/>))}
                 </div>
-                { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} splice={this.splice} items={this.items}/>) : (<Fragment />) } 
+                { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} splice={this.splice} items={this.items} election={this.state.election}/>) : (<Fragment />) } 
             </div>
         )
     }
