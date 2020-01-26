@@ -63,6 +63,9 @@ class Vote extends Component {
         const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
         localStorage.setItem('hasVoted',voter['_hasVoted'])
         this.setState({ voted:true })
+        const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
+        const candidate = await candidateApi(vote)
+        this.setState({ candidate: candidate[0], voter })
     }
 
     hidesignout() {
@@ -98,7 +101,7 @@ class Vote extends Component {
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Congratulations!! Your all important vote has been recorded</div>
                         <div className='vote--transaction'>
-                            <div className='vote--transaction-time'>Voted On: 15 October 2019 05:00</div>
+                            <div className='vote--transaction-time'>Voted On: {new Date(this.state.voter['_voteTime']*1000).toString()}</div>
                             <div className='vote--transaction-candidate'>Voted To: {this.state.candidate['name']}</div>
                             <div className='vote--transaction-candidate_party'>BJP</div>
                             <div className='vote--transaction-id'>CandidateID: {this.state.candidate['candidate_id']}</div>

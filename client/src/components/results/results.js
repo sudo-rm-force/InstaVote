@@ -7,10 +7,16 @@ class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            declared:true
+            declared:false,
+            election: props.election
         }
 
         this.hidesignout = this.hidesignout.bind(this)
+    }
+
+    async componentDidMount() {
+        const declared = await this.state.election.methods.ResultsDeclared().call();
+        this.setState({ declared });
     }
 
     hidesignout() {
