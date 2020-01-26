@@ -21,6 +21,8 @@ class AdminPage extends Component {
     }
 
     componentDidMount() {
+        if(!localStorage.getItem('admin_id'))
+            window.location = '/'
         this.setState({ route:this.props.match.params.route })
     }
 
