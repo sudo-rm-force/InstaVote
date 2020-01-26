@@ -45,6 +45,7 @@ app.get('/userId', getUserById)
 app.post('/login', authentic);
 app.post('/getCandidate', getCandidateById);
 app.post('/candidate', addCandidate);
+app.post('/constituency', getCandidateByConstituencyId);
 app.post('/admin', loginAdmin);
 app.post('/addAdmin', addAdmin);
 

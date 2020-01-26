@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CandidateCard from '../candidate/candidatecard'
+import constituencyApi from '../../api/constituencyApi'
 import bjp from '../../assets/bjp.jpg'
 import bsp from '../../assets/bsp.jpg'
 import cpim from '../../assets/cpim.jpg'
@@ -16,8 +17,9 @@ class Candidate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ConstituencyId:15136168186,
-            voterId:18117019
+            ConstituencyId:localStorage.getItem('constituencyid'),
+            voterId:localStorage.getItem('voterid'),
+            candidates: []
         }
         this.hidesignout = this.hidesignout.bind(this)
     }
@@ -26,7 +28,9 @@ class Candidate extends Component {
         this.props.hidesignout()
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const candidates = await constituencyApi(this.state.ConstituencyId);
+        this.setState({ candidates })
         // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
         //     console.log(res)
         // })
@@ -37,16 +41,7 @@ class Candidate extends Component {
             <div className='candidate'onClick={this.hidesignout}>
                 <div className='candidate--heading'>Candidates</div>
                 <div className='candidate--list'>
-                    <CandidateCard name='Subham Sahoo' image={bsp}/>
-                    <CandidateCard name='Karanpreet Singh' image={fan}/>
-                    <CandidateCard name='Ayan Choudhary' image={bjp}/>
-                    <CandidateCard name='Adrij Shikhar' image={aap}/>
-                    <CandidateCard name='Manas Chaudhary' image={pen}/>
-                    <CandidateCard name='Savita Gupta' image={axe}/>
-                    <CandidateCard name='Aniket Kumar' image={cpim}/>
-                    <CandidateCard name='Nupur Agarwal' image={banyan}/>
-                    <CandidateCard name='Ashutosh Bharambe' image={sp}/>
-                    <CandidateCard name='Leshna Balara' image={phone}/>
+                    {this.state.candidates.map((candidate,index) => (<CandidateCard key={index} name={candidate.name} image={bsp}/>))}
                 </div>
             </div>
         )

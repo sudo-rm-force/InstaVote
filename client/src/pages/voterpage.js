@@ -21,6 +21,8 @@ class VoterPage extends Component {
     }
 
     componentDidMount() {
+        if(!localStorage.getItem('voterid'))
+        window.location = '/'
         const route = this.props.match.params.route !== undefined ? this.props.match.params.route.toLowerCase() : this.props.match.params.route
         this.setState({ route })
     }

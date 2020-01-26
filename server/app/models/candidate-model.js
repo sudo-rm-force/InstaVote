@@ -3,7 +3,7 @@ var conn = require('../../config/database');
 var candidateModel = {
    addCandidate:addCandidate,
    getCandidateById:getCandidateById,
-   getCandidateByConstituteId:getCandidateByConstituteId
+   getCandidateByConstituencyId:getCandidateByConstituencyId
 }
 
 function addCandidate(candidate) {
@@ -35,10 +35,10 @@ function getCandidateById(candidate) {
 }
 
 
-function getCandidateByConstituteId(constituency_id) {
+function getCandidateByConstituencyId(candidate) {
     return new Promise((resolve,reject) => {
         // const params = [constituency_id];
-         conn.query("SELECT * FROM candidates WHERE constituency_id='"+constituency_id+"';", (error,rows,fields)=>{
+         conn.query("SELECT * FROM candidates WHERE constituency_id='"+candidate.constituency_id+"';", (error,rows,fields)=>{
             if(error) {
                 console.log(error);
                 reject(error);
