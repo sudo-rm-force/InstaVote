@@ -12,6 +12,7 @@ import pen from '../../assets/pen.png'
 import phone from '../../assets/phone.png'
 import sp from '../../assets/sp.jpg'
 import candidateApi from '../../api/candidateApi'
+import constituencyApi from '../../api/constituencyApi'
 import '../../styles/main.scss'
 
 class Vote extends Component {
@@ -19,9 +20,11 @@ class Vote extends Component {
         super(props);
         this.state = {
             voted: false,
-            votingStarted: true,
+            votingStarted: false,
+            votingEnded: false,
             candidate: {},
             voter: {},
+            candidates: [],
             election: props.election
         }
 
@@ -29,7 +32,13 @@ class Vote extends Component {
         this.onVote = this.onVote.bind(this)
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
+        const constituency = await this.state.election.methods.idToConstituency(localStorage.getItem('constituencyid')).call()
+        if(constituency['_startTime']) {
+            this.setState({ votingStarted:true })
+            const candidates = await constituencyApi(localStorage.getItem('constituencyid'))
+            this.setState({ candidates })
+        }
         this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
         if(JSON.parse(localStorage.getItem('hasVoted'))) {
             this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
@@ -38,23 +47,8 @@ class Vote extends Component {
             const candidate = await candidateApi(vote)
             this.setState({ candidate: candidate[0], voter })
         }
-
-        // if(this.props.voted) {
-        //     this.setState({ voted:true })
-        // }
-        // election.methods.getConstituencyDetails(this.state.ConstituencyId, this.state.voterId).call((res) => {
-        //     console.log(res)
-        //     if(Date.now() < res._startTime+res._duration && Date.now() > res._startTime) {
-        //         this.setState({ votingStarted:true })
-        //     }
-        // })
-    }
-
-    async componentDidMount() {
-        
-        // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
-        //     console.log(res)
-        // })
+        if(Date.now() > (parseInt(constituency['_startTime'])+parseInt(constituency['_duration']))*1000)
+            this.setState({ votingEnded: true })
     }
 
     async onVote(event) {
@@ -73,22 +67,13 @@ class Vote extends Component {
     }
 
     render() {
-        if(this.state.votingStarted) {
+        if(this.state.votingStarted && !this.state.votingEnded) {
             if(!this.state.voted) {
                 return(
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            <Candidate name='Subham Sahoo' image={bsp}/>
-                            <Candidate name='Karanpreet Singh' image={fan}/>
-                            <Candidate name='Ayan Choudhary' image={bjp}/>
-                            <Candidate name='Adrij Shikhar' image={aap}/>
-                            <Candidate name='Manas Chaudhary' image={pen}/>
-                            <Candidate name='Savita Gupta' image={axe}/>
-                            <Candidate name='Aniket Kumar' image={cpim}/>
-                            <Candidate name='Nupur Agarwal' image={banyan}/>
-                            <Candidate name='Ashutosh Bharambe' image={sp}/>
-                            <Candidate name='Leshna Balara' image={phone}/>
+                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} image={bsp}/>))}
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit' onClick={this.onVote}>Vote</button>
