@@ -11,7 +11,8 @@ class Constituency extends Component {
         this.state = {
             start: false,
             active: '',
-            activeId: ''
+            activeId: '',
+            search: ''
         }
 
         this.list = []
@@ -37,16 +38,20 @@ class Constituency extends Component {
 
     click() {
         this.props.hidesignout()
+        if(!this.state.search)
         this.items = this.list
         this.forceUpdate()
     }
 
     search(event) {
+        this.setState({ search:event.target.value })
         this.items = []
         this.list.forEach(place => {
             if (place[0].toLowerCase() == event.target.value.toLowerCase())
             this.items.push(place)
-        }) 
+        })
+        if(!event.target.value)
+        this.items = this.list
         this.forceUpdate()
     }
 

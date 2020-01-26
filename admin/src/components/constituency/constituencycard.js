@@ -19,7 +19,6 @@ class ConstituencyCard extends Component {
     }
 
     onButtonPress() {
-        console.log()
         const a = this.state.duration.split(':'); // split it at the colons
         const dur = (a[0] * 24 * 60 * 60 + a[1] * 60 * 60 + (+a[2]) * 60 + (+a[3])) * 1000
         window.alert('Election started for ' + this.state.name)
@@ -56,7 +55,7 @@ class ConstituencyCard extends Component {
                     <div className='constituency--heading-start'>Start Time</div>
                     <input className='constituency--input-start' value={new Date()} name='start' />
                     <div className='constituency--heading-duration'>Duration</div>
-                    <input className='constituency--input-duration' name='duration' value={this.state.duration} onChange={this.handleChange} />
+                    <input className='constituency--input-duration' name='duration' placeholder="dd:hh:mm:ss" value={this.state.duration} onChange={this.handleChange} />
                     <button className='constituency--button' onClick={this.onButtonPress.bind(this)}>Start</button>
                 </div>
             </div>
