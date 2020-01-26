@@ -16,8 +16,8 @@ class Register extends Component {
         const deployer = localStorage.getItem('admin-account')
         const id = event.target['id'].value;
         const email = event.target['mail'].value;
-        await this.state.election.methods.registerAdmin(id).send({ from:deployer })
         await registerAdminApi(id, email)
+        await this.state.election.methods.registerAdmin(id).send({ from:deployer })
     }
 
     render() {
