@@ -61,14 +61,14 @@ class Constituency extends Component {
         this.forceUpdate()
     }
 
-    componentDidMount() {
-        // election.methods.getConstituencies(this.state.AdminId).call((res) => {
-        //     console.log(res)
-        // })
-        // JSON.stringify(contents);
-        for(var i in contents)
-            this.list.push([i, contents[i]])
+    async componentDidMount() {
+        for(var i in contents) {
+            var constituency = await this.state.election.methods.idToConstituency(contents[i].constituencyId).call()
+            if(constituency['_duration'] == 0)
+                this.list.push([i, contents[i]])
+        }
         this.items = this.list;
+        this.forceUpdate()
     }
 
     render() {
