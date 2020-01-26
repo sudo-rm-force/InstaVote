@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Candidate from './candidatepanel'
-// import election from '../../web3/web3-config'
 import voted from '../../assets/voted.svg'
 import bjp from '../../assets/bjp.jpg'
 import bsp from '../../assets/bsp.jpg'
@@ -12,6 +11,7 @@ import fan from '../../assets/fan.png'
 import pen from '../../assets/pen.png'
 import phone from '../../assets/phone.png'
 import sp from '../../assets/sp.jpg'
+import candidateApi from '../../api/candidateApi'
 import '../../styles/main.scss'
 
 class Vote extends Component {
@@ -20,6 +20,8 @@ class Vote extends Component {
         this.state = {
             voted: false,
             votingStarted: true,
+            candidate: {},
+            voter: {},
             election: props.election
         }
 
@@ -27,7 +29,16 @@ class Vote extends Component {
         this.onVote = this.onVote.bind(this)
     }
 
-    componentWillMount() {
+    async componentWillMount() {
+        this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
+        if(JSON.parse(localStorage.getItem('hasVoted'))) {
+            this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
+            const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
+            const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
+            const candidate = await candidateApi(vote)
+            this.setState({ candidate: candidate[0], voter })
+        }
+
         // if(this.props.voted) {
         //     this.setState({ voted:true })
         // }
@@ -39,8 +50,8 @@ class Vote extends Component {
         // })
     }
 
-    componentDidMount() {
-        this.setState({ voted: localStorage.getItem('hasVoted') })
+    async componentDidMount() {
+        
         // election.methods.getCandidatesByConstituency(this.state.ConstituencyId, this.state.voterId).call((res) => {
         //     console.log(res)
         // })
@@ -48,10 +59,10 @@ class Vote extends Component {
 
     async onVote(event) {
         event.preventDefault();
-        const yo = await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),'1234',localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
-        console.log(yo)
+        await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),'1234',localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
         const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
-        console.log(voter)
+        localStorage.setItem('hasVoted',voter['_hasVoted'])
+        this.setState({ voted:true })
     }
 
     hidesignout() {
@@ -60,7 +71,7 @@ class Vote extends Component {
 
     render() {
         if(this.state.votingStarted) {
-            if(this.state.voted) {
+            if(!this.state.voted) {
                 return(
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
@@ -88,9 +99,9 @@ class Vote extends Component {
                         <div className='vote--heading'>Congratulations!! Your all important vote has been recorded</div>
                         <div className='vote--transaction'>
                             <div className='vote--transaction-time'>Voted On: 15 October 2019 05:00</div>
-                            <div className='vote--transaction-candidate'>Voted To: Karanpreet</div>
+                            <div className='vote--transaction-candidate'>Voted To: {this.state.candidate['name']}</div>
                             <div className='vote--transaction-candidate_party'>BJP</div>
-                            <div className='vote--transaction-id'>TransactionID: 141d1d651dw63f1w6</div>
+                            <div className='vote--transaction-id'>CandidateID: {this.state.candidate['candidate_id']}</div>
                             <img className='vote--transaction-image' src={voted} alt='' />
                         </div>
                     </div>

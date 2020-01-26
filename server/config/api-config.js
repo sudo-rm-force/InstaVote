@@ -5,7 +5,7 @@ var dbfunc = require('./db-function');
 var bodyParser = require('body-parser');
 const { addUser, getUserById, updateUserById } = require('../app/routes/user.route');
 const { authentic } = require('../app/routes/authentic.route');
-const { addCandidate } = require('../app/routes/candidate.route')
+const { addCandidate, getCandidateById, getCandidateByConstituencyId } = require('../app/routes/candidate.route')
 const { addAdmin, loginAdmin } = require('../app/routes/admin.route')
 const { createDatabase } = require('../app/models/creatServerAndTable')
 
@@ -43,6 +43,7 @@ app.post('/user', addUser);
 app.post('/userUpdate', updateUserById);
 app.get('/userId', getUserById)
 app.post('/login', authentic);
+app.post('/getCandidate', getCandidateById);
 app.post('/candidate', addCandidate);
 app.post('/admin', loginAdmin);
 app.post('/addAdmin', addAdmin);

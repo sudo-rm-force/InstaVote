@@ -9,7 +9,8 @@ contract VotingTransactions is ElectionHelper {
         require(idToVoter[from]._constituencyId == candidateToConstituency[to]);
         Voter storage voter = idToVoter[from];
         voter._hasVoted = true;
-        voteToCandidate[voter._vote._voteId] = to;
+        voter._voteTime = block.timestamp;
+        voteToCandidate[from] = to;
         candidateVoteCount[to]++;
         emit Transfer(from, to, tokenId);
     }

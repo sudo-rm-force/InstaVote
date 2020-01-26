@@ -3,20 +3,31 @@ const candidateService = require('../services/candidate.service');
 
 function addCandidate(req,res) {
   var candidateData=req.body;
-  // console.log(userData);
-  
-  // //Validating the input entity
-  //  var json_format = iValidator.json_schema(schema.postSchema, userData, "voters");
-  //  if (json_format.valid == false) {
-  //    return res.status(422).send(json_format.errorMessage);
-  //  }
-
   candidateService.addCandidate(candidateData).then((data) => {
     res.json(data);
   }).catch((err) => {
     res.json(err);
   });
+}
 
+function getCandidateById(req,res) {
+  var candidateData=req.body;
+  candidateService.getCandidateById(candidateData).then((data) => {
+    res.json(data);
+  }).catch((err) => {
+    res.json(err);
+  });
+}
+
+function getCandidateByConstituencyId(req,res) {
+  var candidateData=req.body;
+  candidateService.getCandidateByConstituencyId(candidateData).then((data) => {
+    res.json(data);
+  }).catch((err) => {
+    res.json(err);
+  });
 }
 
 module.exports.addCandidate = addCandidate;
+module.exports.getCandidateById = getCandidateById;
+module.exports.getCandidateByConstituencyId = getCandidateByConstituencyId;

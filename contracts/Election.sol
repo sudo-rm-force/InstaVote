@@ -11,14 +11,13 @@ contract Election is Ownable{
 
   struct Vote {
     uint256 _voteId;
-    uint256 _votedId;
-    uint64 _voteTime;
   }
 
   struct Voter {
     uint256 _id;
     uint256 _constituencyId;
     bool _hasVoted;
+    uint256 _voteTime;
     Vote _vote;
   }
 
@@ -71,13 +70,13 @@ contract Election is Ownable{
   }
 
   function initializeVote(uint256 _id) internal returns(Vote memory) {
-    Vote memory vote = Vote(_id,0,0);
+    Vote memory vote = Vote(_id);
     return vote;
   }
 
   function createVoter(uint256 _id, uint256 _constituencyId) internal {
     Vote memory vote = initializeVote(_id);
-    uint id = voters.push(Voter(_id, _constituencyId, false, vote)) - 1;
+    uint id = voters.push(Voter(_id, _constituencyId, false, 0, vote)) - 1;
     idToVoter[_id] = voters[id];
     emit VoterCreated(_id, _constituencyId);
   }
