@@ -22,10 +22,10 @@ class Constituency extends Component {
         this.close = this.close.bind(this)
         this.start = this.start.bind(this)
         this.click = this.click.bind(this)
-        this.splice = this.splice.bind(this)
     }
 
     close() {
+        window.location.reload()
         this.setState({ start:false })
     }
 
@@ -56,11 +56,6 @@ class Constituency extends Component {
         this.forceUpdate()
     }
 
-    splice(text) {
-        this.items = this.items.splice(this.items.indexOf(text),1)
-        this.forceUpdate()
-    }
-
     async componentDidMount() {
         for(var i in contents) {
             var constituency = await this.state.election.methods.idToConstituency(contents[i].constituencyId).call()
@@ -82,7 +77,7 @@ class Constituency extends Component {
                 <div className='constituency--list'>
                     {this.items.map((place) => (<ConstituencyPanel key={place} name={place} handleClick={this.start}/>))}
                 </div>
-                { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} splice={this.splice} items={this.items} election={this.state.election}/>) : (<Fragment />) } 
+                { this.state.start ? (<ConstituencyCard name={this.state.active} Id={this.state.activeId} close={this.close} items={this.items} election={this.state.election}/>) : (<Fragment />) } 
             </div>
         )
     }

@@ -26,7 +26,6 @@ class ConstituencyCard extends Component {
         await this.state.election.methods.generateElectionforConstituency(this.state.Id, dur, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
         window.alert('Election started for ' + this.state.name)
         this.props.close()
-        this.props.splice(this.state.name)
     }
 
     handleChange = (e) => {
