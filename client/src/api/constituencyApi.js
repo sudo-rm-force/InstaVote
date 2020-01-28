@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
         'Accept': 'application/json',
     },
     baseURL: 'http://localhost:8080',
-  });
+});
 
 export default function constituencyApi(constituency_id) {
     return axiosInstance.post('/constituency', {
