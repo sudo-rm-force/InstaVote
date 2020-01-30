@@ -29,8 +29,8 @@ function authentic(authenticData) {
                         // You must use the same location in your REST call as you used to get your
                         // subscription keys. For example, if you got your subscription keys from
                         // westus, replace "westcentralus" in the URL below with "westus".
-                        const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
-                        const uriBase_verify = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/verify';
+                        const uriBase = 'https://instavote.cognitiveservices.azure.com/face/v1.0/detect';
+                        const uriBase_verify = 'https://instavote.cognitiveservices.azure.com/face/v1.0/verify';
             
                         fs.readFile(`${appDir}/images/${authenticData.face_name}`, async function (err, data) {
             

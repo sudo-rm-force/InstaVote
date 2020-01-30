@@ -50,8 +50,7 @@ async function updateUserById(user) {
             // You must use the same location in your REST call as you used to get your
             // subscription keys. For example, if you got your subscription keys from
             // westus, replace "westcentralus" in the URL below with "westus".
-            const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
-
+            const uriBase = 'https://instavote.cognitiveservices.azure.com/face/v1.0/detect';
             fs.readFile(`${appDir}/images/${user.faceName}`, async function (err, data) {
 
                 // console.log(data);
