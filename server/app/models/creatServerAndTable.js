@@ -34,7 +34,7 @@ function createDatabase() {
             }
         });
 
-        let createCandidates = "CREATE TABLE IF NOT EXISTS `instavote`.`candidates` ( `candidate_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `constituency_id` VARCHAR(100) NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`candidate_id`));";
+        let createCandidates = "CREATE TABLE IF NOT EXISTS `instavote`.`candidates` ( `candidate_id` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `party` VARCHAR(10) NOT NULL, `constituency_id` VARCHAR(100) NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`candidate_id`));";
 
         conn.query(createCandidates, function(err, results, fields) {
             if (err) {

@@ -48,7 +48,7 @@ class Constituency extends Component {
         this.setState({ search:event.target.value })
         this.items = []
         this.list.forEach(place => {
-            if (place[0].toLowerCase() == event.target.value.toLowerCase())
+            if (place[0].toLowerCase() === event.target.value.toLowerCase())
             this.items.push(place)
         })
         if(!event.target.value)
@@ -59,7 +59,7 @@ class Constituency extends Component {
     async componentDidMount() {
         for(var i in contents) {
             var constituency = await this.state.election.methods.idToConstituency(contents[i].constituencyId).call()
-            if(constituency['_duration'] == 0)
+            if(constituency['_duration'] === '0')
                 this.list.push([i, contents[i]])
         }
         this.items = this.list;

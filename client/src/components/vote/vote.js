@@ -53,7 +53,7 @@ class Vote extends Component {
 
     async onVote(event) {
         event.preventDefault();
-        await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),'1234',localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
+        await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),'12345',localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
         const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
         localStorage.setItem('hasVoted',voter['_hasVoted'])
         this.setState({ voted:true })
