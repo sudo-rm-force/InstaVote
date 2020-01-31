@@ -2907,10 +2907,16 @@
       "links": {},
       "address": "0x03B93Ba4cfa7E9F170234d9B61523e54BB46B02d",
       "transactionHash": "0x49cc6b19e945d8f157fdb5282bb7c8af08ee7f44ff7427190bcc1d7c87ce7f6e"
+    },
+    "1580482386420": {
+      "events": {},
+      "links": {},
+      "address": "0xd6Dd75FABeF3B9cA0C6e88adA90275233f5bB7f0",
+      "transactionHash": "0xa263945172edac27de70dc9e96eedc5043791b874af1b8d549b6c776a01d16cb"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2020-01-30T16:34:05.976Z",
+  "updatedAt": "2020-01-31T14:53:20.762Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
