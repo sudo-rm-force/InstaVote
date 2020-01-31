@@ -35,6 +35,29 @@ class Vote extends Component {
         this.onVote = this.onVote.bind(this)
     }
 
+    getParty(party) {
+        if(party === 'bsp')
+            return bsp;
+        else if(party === 'bjp')
+            return bjp;
+        else if(party === 'cpim')
+            return cpim;
+        else if(party === 'banyan')
+            return banyan;
+        else if(party === 'aap')
+            return aap;
+        else if(party === 'axe')
+            return axe;
+        else if(party === 'fan')
+            return fan;
+        else if(party === 'pen')
+            return pen;
+        else if(party === 'phone')
+            return phone;
+        else if(party === 'sp')
+            return sp;
+    }
+
     async componentDidMount() {
         const constituency = await this.state.election.methods.idToConstituency(localStorage.getItem('constituencyid')).call()
         if(constituency['_startTime']) {
@@ -80,7 +103,7 @@ class Vote extends Component {
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} image={bsp} id={candidate.candidate_id}/>))}
+                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} image={this.getParty(candidate.party)} id={candidate.candidate_id}/>))}
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit' onClick={this.onVote}>Vote</button>
