@@ -88,6 +88,27 @@
         }
     }
 
+    &submit {
+        position: absolute;
+        width: 12.5rem;
+        height: 3rem;
+        top: 22rem;
+        left: 7rem;
+
+        background: #08BBF4;
+        border-radius: 0.125rem;
+        border: 0.125rem solid #08BBF4;
+
+        font-family: "Orienta";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
     &search {
         position: absolute;
         right: 10.9375rem;

@@ -457,7 +457,7 @@
   "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\nimport './Ownable.sol';\n\ncontract Election is Ownable{\n  bool public ResultsDeclared = false;\n\n  event VoterCreated(uint256 _id, uint256 _constituencyId);\n  event CandidateRegistered(uint256 _id);\n  event ConstituencyRegistered(uint256 _id);\n\n  struct Vote {\n    uint256 _voteId;\n  }\n\n  struct Voter {\n    uint256 _id;\n    uint256 _constituencyId;\n    bool _hasVoted;\n    uint256 _voteTime;\n    Vote _vote;\n  }\n\n  struct Candidate {\n    uint256 _id;\n  }\n\n  struct Constituency {\n    uint256 _id;\n    uint256 _startTime;\n    uint256 _duration;\n  }\n\n  mapping(uint256 => Voter) public idToVoter;\n  mapping(uint256 => Candidate) public idToCandidate;\n  mapping(uint256 => Constituency) public idToConstituency;\n  mapping(uint256 => uint256) public voteToCandidate;\n  mapping(uint256 => uint256) public candidateToConstituency;\n  mapping(uint256 => uint256) public constituencyCandidateCount;\n  mapping(uint256 => uint256) public candidateVoteCount;\n\n  Voter[] public voters;\n  Candidate[] public candidates;\n  Constituency[] public constituencies;\n  uint256[] public admins;\n\n  modifier onlyUser(uint256 _id) {\n    require(idToVoter[_id]._id != 0);\n    _;\n  }\n\n  modifier onlyAdmin(uint256 _id) {\n    for(uint i = 0; i < admins.length; i++) {\n      if(admins[i] == _id) {\n        _;\n        }\n      else {\n        continue;\n      }\n    }\n  }\n\n  modifier declaredResults() {\n    require(ResultsDeclared == true);\n    _;\n  }\n\n  constructor() public {\n    ResultsDeclared = false;\n  }\n\n  function initializeVote(uint256 _id) internal returns(Vote memory) {\n    Vote memory vote = Vote(_id);\n    return vote;\n  }\n\n  function createVoter(uint256 _id, uint256 _constituencyId) internal {\n    Vote memory vote = initializeVote(_id);\n    uint id = voters.push(Voter(_id, _constituencyId, false, 0, vote)) - 1;\n    idToVoter[_id] = voters[id];\n    emit VoterCreated(_id, _constituencyId);\n  }\n\n  function registerCandidate(uint256 _id, uint256 _adminId) external onlyAdmin(_adminId) {\n    uint id = candidates.push(Candidate(_id)) - 1;\n    idToCandidate[_id] = candidates[id];\n    emit CandidateRegistered(_id);\n  }\n\n  function registerConstituency(uint256 _id, uint256 _adminId) external onlyAdmin(_adminId) {\n    uint id = constituencies.push(Constituency(_id, 0, 0)) - 1;\n    idToConstituency[_id] = constituencies[id];\n    emit ConstituencyRegistered(_id);\n  }\n\n  function registerAdmin(uint256 _id) external onlyOwner {\n    admins.push(_id);\n  }\n\n}",
   "sourcePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Election.sol",
   "ast": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Election.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/Election.sol",
     "exportedSymbols": {
       "Election": [
         342
@@ -487,7 +487,7 @@
         "src": "24:33:1"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Ownable.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/Ownable.sol",
         "file": "./Ownable.sol",
         "id": 55,
         "nodeType": "ImportDirective",
@@ -4098,7 +4098,7 @@
     "src": "0:2499:1"
   },
   "legacyAST": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Election.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/Election.sol",
     "exportedSymbols": {
       "Election": [
         342
@@ -4128,7 +4128,7 @@
         "src": "24:33:1"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Ownable.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/Ownable.sol",
         "file": "./Ownable.sol",
         "id": 55,
         "nodeType": "ImportDirective",
@@ -7740,7 +7740,7 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.0.2",

@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import registerCandidateApi from '../../api/registerCandidateApi'
 import { loadWeb3, loadBlockChain } from '../../web3/web3-config'
 import '../../styles/main.scss'
+import constituencies from '../../constituency.json'
 
 class Candidates extends Component {
     constructor(props) {
         super(props);
+        this.list = []
         this.state = {
             Name: '',
             CandidateId: '',
@@ -19,6 +21,8 @@ class Candidates extends Component {
     }
 
     async componentDidMount() {
+        for(var i in constituencies)
+            this.list.push([i, constituencies[i]])
         this.setState({ "AdminId": localStorage.getItem("admin_id") })
         await loadWeb3();
         const blockchain = await loadBlockChain()
@@ -63,7 +67,12 @@ class Candidates extends Component {
                     <div className='candidates--heading-id'>Candidate ID</div>
                     <input className='candidates--input-id' name='id' onChange={this.onChangeId.bind(this)} required />
                     <div className='candidates--heading-constituency'>Constituency ID</div>
-                    <input className='candidates--input-constituency' name='constituency' onChange={this.onChangeConstituencyId.bind(this)} required />
+                    <input className='candidates--input-constituency' list="constituency" name='constituency' onChange={this.onChangeConstituencyId.bind(this)} required />
+                    <datalist id="constituency">
+                        {this.list.map((places) => {
+                            return <option value={places[1].constituencyId}/>
+                        })}
+                    </datalist>
                     <button className='candidates--submit' type='submit'>Register</button>
                 </form>
             </div>
