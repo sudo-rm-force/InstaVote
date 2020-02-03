@@ -638,7 +638,7 @@
   "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\nimport \"./ElectionHelper.sol\";\n\ncontract VotingTransactions is ElectionHelper {\n    event Transfer(uint256 indexed _from, uint256 indexed _to, uint256 indexed _tokenId);\n\n    function transferFrom(uint256 from, uint256 to, uint256 tokenId) public onlyUser(from) {\n        require(idToVoter[from]._constituencyId == candidateToConstituency[to]);\n        Voter storage voter = idToVoter[from];\n        voter._hasVoted = true;\n        voter._voteTime = block.timestamp;\n        voteToCandidate[from] = to;\n        candidateVoteCount[to]++;\n        emit Transfer(from, to, tokenId);\n    }\n\n    function _transferredTo(uint256 _id, uint256 _userId) private view onlyUser(_userId) returns(Candidate memory) {\n        uint256 candidateId = voteToCandidate[_id];\n        Candidate memory candidate = idToCandidate[candidateId];\n        return candidate;\n    }\n}",
   "sourcePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/VotingTransactions.sol",
   "ast": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/VotingTransactions.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/VotingTransactions.sol",
     "exportedSymbols": {
       "VotingTransactions": [
         887
@@ -668,7 +668,7 @@
         "src": "24:33:6"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ElectionHelper.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/ElectionHelper.sol",
         "file": "./ElectionHelper.sol",
         "id": 789,
         "nodeType": "ImportDirective",
@@ -1893,7 +1893,7 @@
     "src": "0:911:6"
   },
   "legacyAST": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/VotingTransactions.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/VotingTransactions.sol",
     "exportedSymbols": {
       "VotingTransactions": [
         887
@@ -1923,7 +1923,7 @@
         "src": "24:33:6"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ElectionHelper.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/ElectionHelper.sol",
         "file": "./ElectionHelper.sol",
         "id": 789,
         "nodeType": "ImportDirective",
@@ -3149,7 +3149,7 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.0.2",

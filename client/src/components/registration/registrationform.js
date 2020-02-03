@@ -57,7 +57,7 @@ class RegistrationForm extends Component {
         //         })
         //     })
         // }) 
-        // console.log(this.props.faceName)
+        console.log(this.props.faceName)
         registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo, this.state.FaceID, this.props.faceName).then((res) => {
             console.log(res)
             window.alert('Registration complete for '+this.state.Name)

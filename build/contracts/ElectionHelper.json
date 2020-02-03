@@ -594,7 +594,7 @@
   "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\nimport \"./Election.sol\";\n\ncontract ElectionHelper is Election {\n\n    function getConstituencies(uint256 _adminId) external onlyAdmin(_adminId) returns(Constituency[] memory) {\n        Constituency[] memory _constituencies = new Constituency[](constituencies.length);\n        uint counter = 0;\n        for(uint i = 0; i < constituencies.length; i++) {\n            _constituencies[counter] = constituencies[i];\n            counter++;\n        }\n        return _constituencies;\n    }\n\n    function generateElectionforConstituency(uint256 _id, uint256 _duration, uint256 _adminId) external onlyAdmin(_adminId) {\n        Constituency storage _constituency = idToConstituency[_id];\n        _constituency._startTime = block.timestamp;\n        _constituency._duration = _duration;\n    }\n\n    function getConstituencyDetails(uint256 _id, uint256 _userId) external onlyUser(_userId) returns(Constituency memory) {\n        Constituency memory _constituency = idToConstituency[_id];\n        return _constituency;\n    }\n\n    function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId, uint256 _adminId) public onlyAdmin(_adminId) {\n        candidateToConstituency[_id] = _constituencyId;\n        constituencyCandidateCount[_constituencyId]++;\n    }\n\n    function getCandidatesByConstituency(uint256 _constituencyId, uint256 _userId) public view onlyUser(_userId) returns(Candidate[] memory) {\n        Candidate[] memory _candidates = new Candidate[](constituencyCandidateCount[_constituencyId]);\n        uint counter = 0;\n        for(uint i = 0; i < candidates.length; i++) {\n            if(candidateToConstituency[candidates[i]._id] == _constituencyId) {\n            _candidates[counter] = candidates[i];\n            counter++;\n        }\n    }\n        return _candidates;\n    }\n}",
   "sourcePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ElectionHelper.sol",
   "ast": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ElectionHelper.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/ElectionHelper.sol",
     "exportedSymbols": {
       "ElectionHelper": [
         545
@@ -624,7 +624,7 @@
         "src": "24:33:2"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Election.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/Election.sol",
         "file": "./Election.sol",
         "id": 346,
         "nodeType": "ImportDirective",
@@ -3008,7 +3008,7 @@
     "src": "0:1841:2"
   },
   "legacyAST": {
-    "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/ElectionHelper.sol",
+    "absolutePath": "/home/subham/github/InstaVote/contracts/ElectionHelper.sol",
     "exportedSymbols": {
       "ElectionHelper": [
         545
@@ -3038,7 +3038,7 @@
         "src": "24:33:2"
       },
       {
-        "absolutePath": "/home/d3mon/Projects/sudo-rm--rf/contracts/Election.sol",
+        "absolutePath": "/home/subham/github/InstaVote/contracts/Election.sol",
         "file": "./Election.sol",
         "id": 346,
         "nodeType": "ImportDirective",
@@ -5423,7 +5423,7 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.0.2",
