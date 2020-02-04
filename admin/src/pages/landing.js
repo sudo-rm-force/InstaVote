@@ -14,6 +14,12 @@ class Landing extends Component {
         }
     }
 
+    componentDidMount() {
+        if(localStorage.getItem("admin_id")) {
+            window.location = '/' + localStorage.getItem("admin_id") + '/Candidates';
+        }
+    }
+
     onChangeId(event) {
         this.setState({ id: event.target.value })
     }
