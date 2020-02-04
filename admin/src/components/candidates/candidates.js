@@ -66,11 +66,11 @@ class Candidates extends Component {
                     <input className='candidates--input-name' name='name' onChange={this.onChangeName.bind(this)} required />
                     <div className='candidates--heading-id'>Candidate ID</div>
                     <input className='candidates--input-id' name='id' onChange={this.onChangeId.bind(this)} required />
-                    <div className='candidates--heading-constituency'>Constituency ID</div>
+                    <div className='candidates--heading-constituency'>Constituency</div>
                     <input className='candidates--input-constituency' list="constituency" name='constituency' onChange={this.onChangeConstituencyId.bind(this)} required />
                     <datalist id="constituency">
                         {this.list.map((places) => {
-                            return <option value={places[1].constituencyId}/>
+                            return <option key={places[1].constituencyId} value={places[0]}/>
                         })}
                     </datalist>
                     <button className='candidates--submit' type='submit'>Register</button>

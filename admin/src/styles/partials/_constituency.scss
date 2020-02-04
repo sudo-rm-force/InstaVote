@@ -90,10 +90,10 @@
 
     &submit {
         position: absolute;
-        width: 12.5rem;
+        width: 19.5rem;
         height: 3rem;
         top: 22rem;
-        left: 7rem;
+        left: calc(50% - 9.75rem);
 
         background: #08BBF4;
         border-radius: 0.125rem;

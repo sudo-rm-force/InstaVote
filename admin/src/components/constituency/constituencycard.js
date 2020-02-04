@@ -22,7 +22,6 @@ class ConstituencyCard extends Component {
     async onButtonPress() {
         const a = this.state.duration.split(':'); // split it at the colons
         const dur = (a[0] * 24 * 60 * 60 + a[1] * 60 * 60 + (+a[2]) * 60 + (+a[3]))
-        await this.state.election.methods.registerConstituency(this.state.Id, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
         await this.state.election.methods.generateElectionforConstituency(this.state.Id, dur, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') })
         window.alert('Election started for ' + this.state.name)
         this.props.close()

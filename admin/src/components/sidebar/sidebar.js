@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SidePanel from './sidepanel'
 import '../../styles/main.scss'
 import {loadWeb3, loadBlockChain} from './../../web3/web3-config'
+import constituencies from '../../constituency.json'
 
 class Sidebar extends Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class Sidebar extends Component {
         this.state = {
             active: 'Candidates',
             AdminId: '',
-            election: ''
+            election: '',
+            registered: false
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -25,15 +27,26 @@ class Sidebar extends Component {
         this.setState({ "AdminId": localStorage.getItem("admin_id") })
         await loadWeb3();
         const blockchain = await loadBlockChain()
-        this.setState({ election: blockchain['election'] })
+        this.setState({ election: blockchain['election']})
+        for(let i in constituencies) {
+            const constituencyTest = await blockchain['election'].methods.idToConstituency(constituencies[i].constituencyId).call()
+            if(constituencyTest[0] !== '0')
+                this.setState({ registered:true })
+            else
+                this.setState({ registered:false })
+        }
     }
 
     handleClick(activeName) {
         this.props.handleChange(activeName)
     }
 
-    onClick() {
-        console.log(this.state.election.methods)
+    async onClick() {
+        let constituencyIds = [];
+        for(let i in constituencies) {
+            constituencyIds.push(constituencies[i].constituencyId);
+        }
+        await this.state.election.methods.registerConstituencies(constituencyIds, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') });
     }
 
     hidesignout() {
@@ -48,7 +61,7 @@ class Sidebar extends Component {
                     <SidePanel name='Voters' active={this.state.active} handleClick={this.handleClick}/>
                     <SidePanel name='Constituency' active={this.state.active} handleClick={this.handleClick}/>
                     <SidePanel name='Result' active={this.state.active} handleClick={this.handleClick}/>
-                    <button className='constituency--submit' type='submit' onClick={this.onClick}>Add Constituency</button>
+                    <button className='constituency--submit' type='submit' style={{ display: this.state.registered ? 'none' : 'block' }} onClick={this.onClick}>Register Constituencies</button>
                 </div>
             </div>
         )
