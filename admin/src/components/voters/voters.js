@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import registerVoterApi from '../../api/registerVoterApi'
+import constituencies from '../../constituency.json'
 import '../../styles/main.scss'
 
 class Voters extends Component {
     constructor(props) {
         super(props);
+        this.list = [];
         this.state = {
             Name:'',
             VoterId:'',
@@ -14,6 +16,11 @@ class Voters extends Component {
         }
         
         this.handleClick = this.handleClick.bind(this)
+    }
+
+    componentDidMount() {
+        for(var i in constituencies)
+            this.list.push([i, constituencies[i]]);
     }
 
     handleClick() {
@@ -33,7 +40,8 @@ class Voters extends Component {
     }
 
     onChangeConstituencyId(event) {
-        this.setState({ConstituencyId:event.target.value})
+        const id = constituencies[event.target.value].constituencyId
+        this.setState({ConstituencyId:id})
     }
 
     async onSubmit(event) {
@@ -57,7 +65,12 @@ class Voters extends Component {
                     <div className='voters--heading-age'>Age</div>
                     <input className='voters--input-age' name='age' onChange={this.onChangeAge.bind(this)} required/>
                     <div className='voters--heading-constituency'>Constituency ID</div>
-                    <input className='voters--input-constituency' onChange={this.onChangeConstituencyId.bind(this)} name='constituency' required/>
+                    <input className='voters--input-constituency' list='constituency' onChange={this.onChangeConstituencyId.bind(this)} name='constituency' required/>
+                    <datalist id="constituency">
+                        {this.list.map((places) => {
+                            return <option key={places[1].constituencyId} value={places[0]}/>
+                        })}
+                    </datalist>
                     <button className='voters--submit' type='submit'>Register</button>
                 </form>
             </div>
