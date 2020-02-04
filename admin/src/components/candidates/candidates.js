@@ -13,6 +13,7 @@ class Candidates extends Component {
             CandidateId: '',
             ConstituencyId: '',
             AdminId: '',
+            Party: '',
             election: ''
         }
 
@@ -41,13 +42,18 @@ class Candidates extends Component {
         this.setState({ CandidateId: event.target.value })
     }
 
+    onChangeParty(event) {
+        this.setState({ Party: event.target.value })
+    }
+
     onChangeConstituencyId(event) {
-        this.setState({ ConstituencyId: event.target.value })
+        const id = constituencies[event.target.value].constituencyId
+        this.setState({ ConstituencyId: id })
     }
 
     async onSubmit(event) {
         event.preventDefault();
-        await registerCandidateApi(parseInt(this.state.CandidateId), this.state.Name, parseInt(this.state.ConstituencyId)).then((res) => {
+        await registerCandidateApi(parseInt(this.state.CandidateId), this.state.Name, this.state.Party, parseInt(this.state.ConstituencyId)).then((res) => {
             this.state.election.methods.registerCandidate(parseInt(this.state.CandidateId), parseInt(this.state.AdminId)).send({ from: localStorage.getItem("admin-account") }).then((res) => {
                 this.state.election.methods.assignCandidateToConstituency(parseInt(this.state.CandidateId), parseInt(this.state.ConstituencyId), parseInt(this.state.AdminId)).send({ from: localStorage.getItem("admin-account") }).then((res) => {
                     window.alert('Registration successful of ' + this.state.Name)
@@ -65,7 +71,9 @@ class Candidates extends Component {
                     <div className='candidates--heading-name'>Name</div>
                     <input className='candidates--input-name' name='name' onChange={this.onChangeName.bind(this)} required />
                     <div className='candidates--heading-id'>Candidate ID</div>
-                    <input className='candidates--input-id' name='id' onChange={this.onChangeId.bind(this)} required />
+                    <input className='candidates--input-id' type='number' name='id' onChange={this.onChangeId.bind(this)} required />
+                    <div className='candidates--heading-party'>Party</div>
+                    <input className='candidates--input-party' name='party' onChange={this.onChangeParty.bind(this)} required />
                     <div className='candidates--heading-constituency'>Constituency</div>
                     <input className='candidates--input-constituency' list="constituency" name='constituency' onChange={this.onChangeConstituencyId.bind(this)} required />
                     <datalist id="constituency">

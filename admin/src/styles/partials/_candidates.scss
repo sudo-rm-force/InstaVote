@@ -60,6 +60,24 @@
             color: #000000;
         }
 
+        &-party {
+            position: absolute;
+            width: 15.875rem;
+            height: 3rem;
+            top: 19.4375rem;
+            left: 29rem;
+
+            font-family: Orienta;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
+            display: flex;
+            align-items: center;
+
+            color: #000000;
+        }
+
         &-constituency {
             position: absolute;
             width: 15.875rem;
@@ -97,10 +115,25 @@
 
         &-id {
             position: absolute;
-            width: 31.25rem;
+            width: 15.25rem;
             height: 3rem;
             top: 22.5rem;
             left: 10.75rem;
+            padding-left: 0.75rem;
+
+            background: #FFFFFF;
+            border: 0.125rem solid #08BBF4;
+            box-sizing: border-box;
+            font-size: 1.125rem;
+            font-family: Orienta;
+        }
+
+        &-party {
+            position: absolute;
+            width: 13rem;
+            height: 3rem;
+            top: 22.5rem;
+            left: 29rem;
             padding-left: 0.75rem;
 
             background: #FFFFFF;

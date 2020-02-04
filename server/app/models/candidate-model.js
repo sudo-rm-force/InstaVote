@@ -8,8 +8,8 @@ var candidateModel = {
 
 function addCandidate(candidate) {
     return new Promise((resolve,reject) => {
-        const params = [candidate.name, candidate.candidate_id, candidate.constituency_id];
-         conn.query("INSERT INTO candidates (name,candidate_id,constituency_id) VALUES (?,?,?);", params, (error,rows,fields)=>{
+        const params = [candidate.name, candidate.candidate_id, candidate.party, candidate.constituency_id];
+         conn.query("INSERT INTO candidates (name,candidate_id,party,constituency_id) VALUES (?,?,?,?);", params, (error,rows,fields)=>{
             if(error) {
                 console.log(error);
                 reject(error);
