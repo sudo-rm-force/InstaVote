@@ -12,9 +12,9 @@ function addCandidate(candidate) {
          conn.query("INSERT INTO candidates (name,candidate_id,party,constituency_id) VALUES (?,?,?,?);", params, (error,rows,fields)=>{
             if(error) {
                 console.log(error);
-                reject(error);
+                reject({success:false,error});
             } else {
-                resolve(rows);
+                resolve({success:true,rows});
             }
           });
         });
@@ -22,13 +22,12 @@ function addCandidate(candidate) {
 
 function getCandidateById(candidate) {
     return new Promise((resolve,reject) => {
-        // const params = [constituency_id];
          conn.query("SELECT * FROM candidates WHERE candidate_id='"+candidate.candidate_id+"';", (error,rows,fields)=>{
             if(error) {
                 console.log(error);
-                reject(error);
+                reject({success:false,error});
             } else {
-                resolve(rows);
+                resolve({success:true,rows});
             }
           });
         });
@@ -37,13 +36,12 @@ function getCandidateById(candidate) {
 
 function getCandidateByConstituencyId(candidate) {
     return new Promise((resolve,reject) => {
-        // const params = [constituency_id];
          conn.query("SELECT * FROM candidates WHERE constituency_id='"+candidate.constituency_id+"';", (error,rows,fields)=>{
             if(error) {
                 console.log(error);
-                reject(error);
+                reject({success:false,error});
             } else {
-                resolve(rows);
+                resolve({success:true,rows});
             }
           });
         });

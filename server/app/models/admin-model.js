@@ -17,10 +17,10 @@ async function addAdmin(admin) {
          conn.query("INSERT INTO admin (admin_id,password) VALUES (?,?);", params, (error,rows,fields)=>{
             if(error) {
                 console.log(error);
-                reject(error);
+                reject({success:false,error});
             } else {
                 mailer.mail(password, admin.admin_id, admin.mail)
-                resolve(rows);
+                resolve({success:true,rows});
             }
           });
         });
@@ -33,13 +33,13 @@ function loginAdmin(admin) {
             if (match) {
                 if(error) {
                     console.log(error);
-                    reject(error);
+                    reject({success:false,error});
                 } else {
                     resolve({success:true,rows});
                 }
             }
             else
-                resolve({ success:false })
+                resolve({success:false})
           });
         });
 }

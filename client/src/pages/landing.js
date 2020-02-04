@@ -4,6 +4,11 @@ import Login from '../components/landing/login'
 import Carousel from '../components/landing/carousel'
 
 class Landing extends Component {
+    componentDidMount() {
+        if(localStorage.getItem('voterid'))
+            window.location = '/' + localStorage.getItem('voterid') + '/profile'
+    }
+
     render() {
         return(
             <div>
