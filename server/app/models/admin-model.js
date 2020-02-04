@@ -35,7 +35,7 @@ function loginAdmin(admin) {
                     console.log(error);
                     reject(error);
                 } else {
-                    resolve(rows);
+                    resolve({success:true,rows});
                 }
             }
             else
