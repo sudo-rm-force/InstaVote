@@ -59,7 +59,7 @@ class Constituency extends Component {
     async componentDidMount() {
         for(var i in contents) {
             var constituency = await this.state.election.methods.idToConstituency(contents[i].constituencyId).call()
-            if(constituency['_duration'] === '0')
+            if(constituency['_duration'] === '0' && constituency[0] !== '0')
                 this.list.push([i, contents[i]])
         }
         this.items = this.list;

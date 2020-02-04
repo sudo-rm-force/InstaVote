@@ -46,20 +46,7 @@ class RegistrationForm extends Component {
 
     onButtonPress(event) {
         event.preventDefault()
-
-        //this.props.register({ voterId, name, mobile_no, gender, pic })
-        
-        // this.props.register({ voterId, name, mobile_no, gender });
-        // Election.methods.register(this.state.VoterID).call().then((res) => {
-        //     Election.methods.assignCandidateToConstituency(this.state.VoterID, this.state.MobileNo).call().then((res) => {
-        //         Election.methods.getCandidateByConstituency(this.state.MobileNo).call().then((res) => {
-        //             console.log(res)
-        //         })
-        //     })
-        // }) 
-        console.log(this.props.faceName)
         registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo, this.state.FaceID, this.props.faceName).then((res) => {
-            console.log(res)
             window.alert('Registration complete for '+this.state.Name)
             window.location = '/'
         })
@@ -95,7 +82,7 @@ class RegistrationForm extends Component {
                             <div className='registrationform--heading-voterid'>VoterID:</div>
                             <input 
                                 className='registrationform--input-voterid' 
-                                type='text' 
+                                type='number' 
                                 onChange={ this.onVoterIdChange.bind(this) }
                                 required/>
                             <div className='registrationform--heading-gender'>Gender:</div>
@@ -123,7 +110,7 @@ class RegistrationForm extends Component {
                             <div className='registrationform--heading-mobile'>Mobile Number:</div>
                             <input 
                                 className='registrationform--input-mobile' 
-                                type='text' 
+                                type='number'
                                 onChange={ this.onMobileNumChange.bind(this) }
                                 required/>
                             <button 
