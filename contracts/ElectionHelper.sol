@@ -25,11 +25,6 @@ contract ElectionHelper is Election {
         return _constituency;
     }
 
-    function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId, uint256 _adminId) public onlyAdmin(_adminId) {
-        candidateToConstituency[_id] = _constituencyId;
-        constituencyCandidateCount[_constituencyId]++;
-    }
-
     function getCandidatesByConstituency(uint256 _constituencyId, uint256 _userId) public view onlyUser(_userId) returns(Candidate[] memory) {
         Candidate[] memory _candidates = new Candidate[](constituencyCandidateCount[_constituencyId]);
         uint counter = 0;

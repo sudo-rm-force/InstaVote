@@ -57,8 +57,7 @@ class Login extends Component {
         const { history,context } = this.props;
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then(async (res) => {
             if(res.success) {
-                const loginEvent = await this.state.election.methods.loginVoter(this.state.voterId).send({ from:localStorage.getItem('account') })
-                const data = loginEvent['events'].loginVoterInfo['returnValues'][0]
+                const data = await this.state.election.methods.idToVoter(this.state.voterId).call()
                 const voter = res.data[0]
                 localStorage.setItem('name',voter.name)
                 localStorage.setItem('voterid',voter.voter_id)
@@ -66,7 +65,6 @@ class Login extends Component {
                 localStorage.setItem('image',`${CONFIG.baseURL}/images/${voter.face_name}`)
                 localStorage.setItem('hasVoted', data['_hasVoted'])
                 window.location = '/'+this.state.voterId+'/profile'
-                
             }
             else {
                 window.alert('You might not be registered.')

@@ -47,6 +47,7 @@ class Sidebar extends Component {
             constituencyIds.push(constituencies[i].constituencyId);
         }
         await this.state.election.methods.registerConstituencies(constituencyIds, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') });
+        this.setState({ registered:true })
     }
 
     hidesignout() {

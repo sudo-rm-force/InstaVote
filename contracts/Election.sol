@@ -81,13 +81,13 @@ contract Election is Ownable{
     emit VoterCreated(_id, _constituencyId);
   }
 
-  function registerCandidate(uint256 _id, uint256 _adminId) external onlyAdmin(_adminId) {
+  function registerCandidate(uint256 _id, uint256 _adminId) internal onlyAdmin(_adminId) {
     uint id = candidates.push(Candidate(_id)) - 1;
     idToCandidate[_id] = candidates[id];
     emit CandidateRegistered(_id);
   }
 
-  function registerConstituency(uint256 _id, uint256 _adminId) public onlyAdmin(_adminId) {
+  function registerConstituency(uint256 _id, uint256 _adminId) internal onlyAdmin(_adminId) {
     uint id = constituencies.push(Constituency(_id, 0, 0)) - 1;
     idToConstituency[_id] = constituencies[id];
     emit ConstituencyRegistered(_id);
@@ -97,6 +97,12 @@ contract Election is Ownable{
     for(uint i = 0; i < _constituencies.length; i++) {
             registerConstituency(_constituencies[i], _adminId);
         }
+  }
+
+  function assignCandidateToConstituency(uint256 _id, uint256 _constituencyId, uint256 _adminId) external onlyAdmin(_adminId) {
+    registerCandidate(_id,_adminId);
+    candidateToConstituency[_id] = _constituencyId;
+    constituencyCandidateCount[_constituencyId]++;
   }
 
   function registerAdmin(uint256 _id) external onlyOwner {
