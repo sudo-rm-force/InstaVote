@@ -24,9 +24,14 @@ class Landing extends Component {
 
     onButtonPress(event) {
         event.preventDefault()
-        loginAdminApi(this.state.id, this.state.password).then((res) => {
-            localStorage.setItem("admin_id", this.state.id);
-            window.location = '/' + this.state.id + '/Candidates'
+        loginAdminApi(this.state.id, this.state.password).then((res, err) => {
+            if (res.success) {
+                localStorage.setItem("admin_id", this.state.id);
+                window.location = '/' + this.state.id + '/Candidates'
+            }
+            else {
+                window.alert('You are not registered as an admin!')
+            }
         })
     }
 

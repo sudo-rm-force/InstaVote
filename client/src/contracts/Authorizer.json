@@ -2302,10 +2302,16 @@
       "links": {},
       "address": "0x983f73D868eD6f8c0805DD0AF270Ff33880Fb5b3",
       "transactionHash": "0x6552ba014e8de15311e4afdae64bbbea13f6b7cbff202e0ccfc22e35c0a9dcfe"
+    },
+    "1580818189853": {
+      "events": {},
+      "links": {},
+      "address": "0x3DE4896Db3D01b2ef676Fc79FD04aCdcEDdCc9d3",
+      "transactionHash": "0x3e7dc1bb94b2924f7091ebbdcee2a850f3fe4408d134680d661e5c4d5aa65d8d"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2020-02-04T09:47:36.929Z",
+  "updatedAt": "2020-02-04T12:10:05.377Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
