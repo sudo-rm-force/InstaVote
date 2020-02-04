@@ -2300,12 +2300,12 @@
         }
       },
       "links": {},
-      "address": "0x514fEA47b865e51969C7f739723D7b8CfC0e9F71",
-      "transactionHash": "0x27385c179bb9ca2bf6c147a08f581740506b05ccf63c129128ca8e4d0bfb50f4"
+      "address": "0x983f73D868eD6f8c0805DD0AF270Ff33880Fb5b3",
+      "transactionHash": "0x6552ba014e8de15311e4afdae64bbbea13f6b7cbff202e0ccfc22e35c0a9dcfe"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2020-02-04T09:27:58.924Z",
+  "updatedAt": "2020-02-04T09:47:36.929Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
