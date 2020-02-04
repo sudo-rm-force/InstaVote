@@ -48,6 +48,7 @@ class Sidebar extends Component {
         }
         await this.state.election.methods.registerConstituencies(constituencyIds, localStorage.getItem('admin_id')).send({ from:localStorage.getItem('admin-account') });
         this.setState({ registered:true })
+        window.location.reload()
     }
 
     hidesignout() {

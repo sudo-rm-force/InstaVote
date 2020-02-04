@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CandidateResult from './candidateresult'
 import result from '../../assets/no-resultfound.jpg'
+import constituencyApi from '../../api/constituencyApi'
 import '../../styles/main.scss'
 
 class Results extends Component {
@@ -8,15 +9,30 @@ class Results extends Component {
         super(props);
         this.state = {
             declared:false,
-            election: props.election
+            election: props.election,
+            totalVotes: '',
+            numberOfCandidates: ''
         }
-
+        this.candidates = [];
         this.hidesignout = this.hidesignout.bind(this)
     }
 
     async componentDidMount() {
         const declared = await this.state.election.methods.ResultsDeclared().call();
         this.setState({ declared });
+        if (declared) {
+            const totalVotes = await this.state.election.methods.retreiveConstituencyVoteCount(localStorage.getItem('constituencyid'),localStorage.getItem('voterid')).call()
+            const numberOfCandidates = await this.state.election.methods.constituencyCandidateCount(localStorage.getItem('constituencyid')).call()
+            const res = await constituencyApi(localStorage.getItem('constituencyid'))
+            const candidatesInfo = res.rows;
+            let candidates = [];
+            candidatesInfo.forEach(async (candidate) => {
+                const votes = await this.state.election.methods.candidateVoteCount(candidate.candidate_id).call()
+                candidates.push({candidate,votes})
+            });
+            this.candidates = candidates;
+            this.setState({ totalVotes,numberOfCandidates })
+        }
     }
 
     hidesignout() {
@@ -46,14 +62,13 @@ class Results extends Component {
                     <div className='results--panel1'>
                         <div className='results--panel-data'>
                             <div className='results--data-voters'>Number of voters: 20000</div>
-                            <div className='results--data-candidates'>Number of candidates: 10</div>
-                            <div className='results--data-votes'>Total votes cast: 17523</div>
-                            <div className='results--data-females'>Number of female voters: 8563</div>
+                            <div className='results--data-candidates'>Number of candidates: {this.state.numberOfCandidates}</div>
+                            <div className='results--data-votes'>Total votes cast: {this.state.totalVotes}</div>
                         </div>
                     </div>
                     <div className='results--panel2'>
                         <div className='results--candidates-data'>
-                            <CandidateResult name='Subham Sahoo' />
+                            {this.candidates.map((candidate) => (<CandidateResult name="asd"/>))}
                         </div>
                     </div>
                 </div>

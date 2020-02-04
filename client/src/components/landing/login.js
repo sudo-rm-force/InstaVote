@@ -58,7 +58,7 @@ class Login extends Component {
         loginApi(this.state.voterId, this.state.faceID, this.state.faceName).then(async (res) => {
             if(res.success) {
                 const data = await this.state.election.methods.idToVoter(this.state.voterId).call()
-                const voter = res.data[0]
+                const voter = res.data.rows[0]
                 localStorage.setItem('name',voter.name)
                 localStorage.setItem('voterid',voter.voter_id)
                 localStorage.setItem('constituencyid',voter.constituency_id)

@@ -63,14 +63,15 @@ class Vote extends Component {
         if(constituency['_startTime']) {
             this.setState({ votingStarted:true })
             const candidates = await constituencyApi(localStorage.getItem('constituencyid'))
-            this.setState({ candidates })
+            this.setState({ candidates:candidates.rows })
         }
         this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
         if(JSON.parse(localStorage.getItem('hasVoted'))) {
             this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
             const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
             const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
-            const candidate = await candidateApi(vote)
+            const res = await candidateApi(vote)
+            const candidate = res.rows
             this.setState({ candidate: candidate[0], party: candidate[0].party.toUpperCase(), voter })
         }
         if(Date.now() > (parseInt(constituency['_startTime'])+parseInt(constituency['_duration']))*1000)
@@ -85,7 +86,7 @@ class Vote extends Component {
         this.setState({ voted:true })
         const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
         const candidate = await candidateApi(vote)
-        this.setState({ candidate: candidate[0], voter })
+        this.setState({ candidate: candidate.rows[0], voter })
     }
 
     setCandidate(candidate) {
