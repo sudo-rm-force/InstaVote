@@ -25,12 +25,10 @@ class Results extends Component {
             const totalVotes = await this.state.election.methods.retreiveConstituencyVoteCount(localStorage.getItem('constituencyid'), localStorage.getItem('voterid')).call()
             const numberOfCandidates = await this.state.election.methods.constituencyCandidateCount(localStorage.getItem('constituencyid')).call()
             const res = await constituencyApi(localStorage.getItem('constituencyid'))
-            console.log(res)
             const candidatesInfo = res.rows;
             let candidates = []
             let max = 0
             candidatesInfo.forEach(async (candidate) => {
-                console.log(candidate)
                 const votes = await this.state.election.methods.candidateVoteCount(candidate.candidate_id).call()
                 const voteper = votes / totalVotes * 100
                 const obj = {
@@ -42,7 +40,6 @@ class Results extends Component {
                     this.setState({ winner: obj })
                     max = votes;
                 }
-                console.log(obj)
                 candidates.push(obj)
                 this.setState({ candidates: candidates })
             })
