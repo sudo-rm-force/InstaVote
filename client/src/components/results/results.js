@@ -8,12 +8,13 @@ class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            declared:false,
+            declared: false,
             election: props.election,
             totalVotes: '',
-            numberOfCandidates: ''
+            numberOfCandidates: '',
+            candidates: [],
+            winner: {}
         }
-        this.candidates = [];
         this.hidesignout = this.hidesignout.bind(this)
     }
 
@@ -21,17 +22,32 @@ class Results extends Component {
         const declared = await this.state.election.methods.ResultsDeclared().call();
         this.setState({ declared });
         if (declared) {
-            const totalVotes = await this.state.election.methods.retreiveConstituencyVoteCount(localStorage.getItem('constituencyid'),localStorage.getItem('voterid')).call()
+            const totalVotes = await this.state.election.methods.retreiveConstituencyVoteCount(localStorage.getItem('constituencyid'), localStorage.getItem('voterid')).call()
             const numberOfCandidates = await this.state.election.methods.constituencyCandidateCount(localStorage.getItem('constituencyid')).call()
             const res = await constituencyApi(localStorage.getItem('constituencyid'))
+            console.log(res)
             const candidatesInfo = res.rows;
-            let candidates = [];
+            let candidates = []
+            let max = 0
             candidatesInfo.forEach(async (candidate) => {
+                console.log(candidate)
                 const votes = await this.state.election.methods.candidateVoteCount(candidate.candidate_id).call()
-                candidates.push({candidate,votes})
-            });
-            this.candidates = candidates;
-            this.setState({ totalVotes,numberOfCandidates })
+                const voteper = votes / totalVotes * 100
+                const obj = {
+                    ...candidate,
+                    votes: votes,
+                    voteper: voteper
+                }
+                if (votes > max) {
+                    this.setState({ winner: obj })
+                    max = votes;
+                }
+                console.log(obj)
+                candidates.push(obj)
+                this.setState({ candidates: candidates })
+            })
+
+            this.setState({ totalVotes, numberOfCandidates })
         }
     }
 
@@ -40,24 +56,24 @@ class Results extends Component {
     }
 
     render() {
-        if (!this.state.declared) {
-            return(
+        if (!this.state.declared || !this.state.candidates) {
+            return (
                 <div className='results' onClick={this.hidesignout}>
                     <div className='results--heading'>
                         Results
                     </div>
                     <div className='results--description'>
-                        <div className='results--description-data'>The results have not been declared yet.<br/>Wait for the admin to declare the results before you see them.</div>
+                        <div className='results--description-data'>The results have not been declared yet.<br />Wait for the admin to declare the results before you see them.</div>
                         <img className='results--description-image' src={result} alt='no-result' />
                     </div>
                 </div>
             )
         }
         else {
-            return(
+            return (
                 <div className='results' onClick={this.hidesignout}>
                     <div className='results--heading'>
-                        Results: 
+                        Results:
                     </div>
                     <div className='results--panel1'>
                         <div className='results--panel-data'>
@@ -66,9 +82,12 @@ class Results extends Component {
                             <div className='results--data-votes'>Total votes cast: {this.state.totalVotes}</div>
                         </div>
                     </div>
-                    <div className='results--panel2'>
+                    <div className='results--winner'><b>Winner:</b>
+                        <CandidateResult name={this.state.winner.name} votes={this.state.winner.votes} voteper={this.state.winner.voteper} party={this.state.winner.party} />
+                    </div>
+                    <div className='results--panel2'><b>Stats:</b>
                         <div className='results--candidates-data'>
-                            {this.candidates.map((candidate) => (<CandidateResult name="asd"/>))}
+                            {this.state.candidates.map((candidate, index) => (<CandidateResult name={candidate.name} votes={candidate.votes} voteper={candidate.voteper} party={candidate.party} />))}
                         </div>
                     </div>
                 </div>

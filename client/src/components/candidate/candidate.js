@@ -31,8 +31,8 @@ class Candidate extends Component {
     }
 
     async componentDidMount() {
-        const candidates = await constituencyApi(this.state.ConstituencyId);
-        this.setState({ candidates: candidates })
+        const candidates = await constituencyApi(localStorage.getItem('constituencyid'));
+        this.setState({ candidates: candidates.rows })
     }
 
     render() {

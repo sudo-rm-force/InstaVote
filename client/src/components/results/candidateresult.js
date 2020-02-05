@@ -2,16 +2,19 @@ import React, { Component } from 'react'
 
 class CandidateResult extends Component {
     render() {
-        return(
+        return (
             <div className='candidateresult'>
                 <div className='candidateresult--name'>
                     {this.props.name}
                 </div>
                 <div className='candidateresult--votes'>
-                    Votes Earned: 5513
+                    Votes Earned: {this.props.votes}
                 </div>
                 <div className='candidateresult--voteper'>
-                    Vote %: 34.7%
+                    Vote %:  {this.props.voteper} %
+                </div>
+                <div className="candidateresult--party">
+                    {this.props.party}
                 </div>
             </div>
         )
