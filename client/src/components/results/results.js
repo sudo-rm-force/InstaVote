@@ -43,7 +43,7 @@ class Results extends Component {
                 candidates.push(obj)
                 this.setState({ candidates: candidates })
             })
-
+            this.setState({ numberOfCandidates: candidates.length })
             this.setState({ totalVotes, numberOfCandidates })
         }
     }
