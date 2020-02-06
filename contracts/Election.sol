@@ -37,6 +37,7 @@ contract Election is Ownable{
   mapping(uint256 => uint256) public voteToCandidate;
   mapping(uint256 => uint256) public candidateToConstituency;
   mapping(uint256 => uint256) public constituencyCandidateCount;
+  mapping(uint256 => uint256) public constituencyVoterCount;
   mapping(uint256 => uint256) public candidateVoteCount;
 
   Voter[] public voters;
@@ -78,6 +79,7 @@ contract Election is Ownable{
     Vote memory vote = initializeVote(_id);
     uint id = voters.push(Voter(_id, _constituencyId, false, 0, vote)) - 1;
     idToVoter[_id] = voters[id];
+    constituencyVoterCount[_constituencyId]++;
     emit VoterCreated(_id, _constituencyId);
   }
 
