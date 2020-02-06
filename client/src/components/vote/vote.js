@@ -36,37 +36,37 @@ class Vote extends Component {
     }
 
     getParty(party) {
-        if(party === 'bsp')
+        if (party === 'bsp')
             return bsp;
-        else if(party === 'bjp')
+        else if (party === 'bjp')
             return bjp;
-        else if(party === 'cpim')
+        else if (party === 'cpim')
             return cpim;
-        else if(party === 'banyan')
+        else if (party === 'banyan')
             return banyan;
-        else if(party === 'aap')
+        else if (party === 'aap')
             return aap;
-        else if(party === 'axe')
+        else if (party === 'axe')
             return axe;
-        else if(party === 'fan')
+        else if (party === 'fan')
             return fan;
-        else if(party === 'pen')
+        else if (party === 'pen')
             return pen;
-        else if(party === 'phone')
+        else if (party === 'phone')
             return phone;
-        else if(party === 'sp')
+        else if (party === 'sp')
             return sp;
     }
 
     async componentDidMount() {
         const constituency = await this.state.election.methods.idToConstituency(localStorage.getItem('constituencyid')).call()
-        if(constituency['_startTime']) {
-            this.setState({ votingStarted:true })
+        if (constituency['_startTime']) {
+            this.setState({ votingStarted: true })
             const candidates = await constituencyApi(localStorage.getItem('constituencyid'))
-            this.setState({ candidates:candidates.rows })
+            this.setState({ candidates: candidates.rows })
         }
         this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
-        if(JSON.parse(localStorage.getItem('hasVoted'))) {
+        if (JSON.parse(localStorage.getItem('hasVoted'))) {
             this.setState({ voted: JSON.parse(localStorage.getItem('hasVoted')) })
             const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
             const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
@@ -74,23 +74,23 @@ class Vote extends Component {
             const candidate = res.rows
             this.setState({ candidate: candidate[0], party: candidate[0].party.toUpperCase(), voter })
         }
-        if(Date.now() > (parseInt(constituency['_startTime'])+parseInt(constituency['_duration']))*1000)
+        if (Date.now() > (parseInt(constituency['_startTime']) + parseInt(constituency['_duration'])) * 1000)
             this.setState({ votingEnded: true })
     }
 
     async onVote(event) {
         event.preventDefault();
-        await this.state.election.methods.transferFrom(localStorage.getItem('voterid'),this.state.voteTo,localStorage.getItem('voterid')).send({ from:localStorage.getItem('account') })
+        await this.state.election.methods.transferFrom(localStorage.getItem('voterid'), this.state.voteTo, localStorage.getItem('voterid')).send({ from: localStorage.getItem('account') })
         const voter = await this.state.election.methods.idToVoter(localStorage.getItem('voterid')).call()
-        localStorage.setItem('hasVoted',voter['_hasVoted'])
-        this.setState({ voted:true })
+        localStorage.setItem('hasVoted', voter['_hasVoted'])
+        this.setState({ voted: true })
         const vote = await this.state.election.methods.voteToCandidate(localStorage.getItem('voterid')).call()
         const candidate = await candidateApi(vote)
         this.setState({ candidate: candidate.rows[0], voter })
     }
 
     setCandidate(candidate) {
-        this.setState({ voteTo:candidate })
+        this.setState({ voteTo: candidate })
     }
 
     hidesignout() {
@@ -98,26 +98,26 @@ class Vote extends Component {
     }
 
     render() {
-        if(this.state.votingStarted && !this.state.votingEnded) {
-            if(!this.state.voted) {
-                return(
+        if (this.state.votingStarted && !this.state.votingEnded) {
+            if (!this.state.voted) {
+                return (
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} image={this.getParty(candidate.party)} id={candidate.candidate_id}/>))}
+                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} image={this.getParty(candidate.party)} id={candidate.candidate_id} />))}
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit' onClick={this.onVote}>Vote</button>
                     </div>
                 )
             }
-    
+
             else {
-                return(
+                return (
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Congratulations!! Your all important vote has been recorded</div>
                         <div className='vote--transaction'>
-                            <div className='vote--transaction-time'>Voted On: {new Date(this.state.voter['_voteTime']*1000).toString()}</div>
+                            <div className='vote--transaction-time'>Voted On: {new Date(this.state.voter['_voteTime'] * 1000).toString()}</div>
                             <div className='vote--transaction-candidate'>Voted To: {this.state.candidate['name']}</div>
                             <div className='vote--transaction-candidate_party'>{this.state.party}</div>
                             <div className='vote--transaction-id'>CandidateID: {this.state.candidate['candidate_id']}</div>
@@ -127,15 +127,14 @@ class Vote extends Component {
                 )
             }
         }
-        
+
         else {
             return (
                 <div className='vote' onClick={this.hidesignout}>
                     <div className='vote--heading'>Voting yet to start</div>
                     <div className='vote--transaction'>
-                        <div className='vote--transaction-date'>Election Date: 15 October 2019</div>
-                        <div className='vote--transaction-start'>Start Time: 05:00</div>
-                        <div className='vote--transaction-duration'>Duration: 18 Hours</div>
+                        <div className='vote--transaction-date'>Voting Yet to Start!!</div>
+                        <div className='vote--transaction-start'>Stay tuned to official Accouncements!</div>
                         <div className='vote--transaction-constituency'>Constituency: Roorkee</div>
                         <img className='vote--transaction-image' src={voted} alt='' />
                     </div>
