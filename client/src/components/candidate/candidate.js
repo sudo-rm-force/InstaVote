@@ -1,18 +1,7 @@
 import React, { Component } from 'react'
 import CandidateCard from '../candidate/candidatecard'
 import constituencyApi from '../../api/constituencyApi'
-import bjp from '../../assets/bjp.jpg'
-import bsp from '../../assets/bsp.jpg'
-import cpim from '../../assets/cpim.jpg'
-import banyan from '../../assets/banyan.png'
-import aap from '../../assets/aap.jpg'
-import axe from '../../assets/axe.png'
-import fan from '../../assets/fan.png'
-import pen from '../../assets/pen.png'
-import phone from '../../assets/phone.png'
-import sp from '../../assets/sp.jpg'
 import '../../styles/main.scss'
-import { loadWeb3, loadBlockChain } from '../../web3/web3-config'
 
 class Candidate extends Component {
     constructor(props) {

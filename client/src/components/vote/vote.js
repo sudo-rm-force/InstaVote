@@ -1,16 +1,6 @@
 import React, { Component } from 'react'
 import Candidate from './candidatepanel'
 import voted from '../../assets/voted.svg'
-import bjp from '../../assets/bjp.jpg'
-import bsp from '../../assets/bsp.jpg'
-import cpim from '../../assets/cpim.jpg'
-import banyan from '../../assets/banyan.png'
-import aap from '../../assets/aap.jpg'
-import axe from '../../assets/axe.png'
-import fan from '../../assets/fan.png'
-import pen from '../../assets/pen.png'
-import phone from '../../assets/phone.png'
-import sp from '../../assets/sp.jpg'
 import candidateApi from '../../api/candidateApi'
 import constituencyApi from '../../api/constituencyApi'
 import '../../styles/main.scss'
@@ -33,29 +23,6 @@ class Vote extends Component {
         this.hidesignout = this.hidesignout.bind(this)
         this.setCandidate = this.setCandidate.bind(this)
         this.onVote = this.onVote.bind(this)
-    }
-
-    getParty(party) {
-        if (party === 'bsp')
-            return bsp;
-        else if (party === 'bjp')
-            return bjp;
-        else if (party === 'cpim')
-            return cpim;
-        else if (party === 'banyan')
-            return banyan;
-        else if (party === 'aap')
-            return aap;
-        else if (party === 'axe')
-            return axe;
-        else if (party === 'fan')
-            return fan;
-        else if (party === 'pen')
-            return pen;
-        else if (party === 'phone')
-            return phone;
-        else if (party === 'sp')
-            return sp;
     }
 
     async componentDidMount() {
