@@ -13,13 +13,16 @@ class Results extends Component {
             totalVotes: '',
             numberOfCandidates: '',
             candidates: [],
-            winner: {}
+            winner: {},
+            voterCount: ''
         }
         this.hidesignout = this.hidesignout.bind(this)
     }
 
     async componentDidMount() {
         const declared = await this.state.election.methods.ResultsDeclared().call();
+        const voterCount = await this.state.election.methods.constituencyVoterCount(localStorage.getItem('constituencyid')).call()
+        this.setState({ voterCount: voterCount })
         this.setState({ declared });
         if (declared) {
             const totalVotes = await this.state.election.methods.retreiveConstituencyVoteCount(localStorage.getItem('constituencyid'), localStorage.getItem('voterid')).call()
@@ -74,7 +77,7 @@ class Results extends Component {
                     </div>
                     <div className='results--panel1'>
                         <div className='results--panel-data'>
-                            <div className='results--data-voters'>Number of voters: 20000</div>
+                            <div className='results--data-voters'>Number of voters: {this.state.voterCount}</div>
                             <div className='results--data-candidates'>Number of candidates: {this.state.numberOfCandidates}</div>
                             <div className='results--data-votes'>Total votes cast: {this.state.totalVotes}</div>
                         </div>
