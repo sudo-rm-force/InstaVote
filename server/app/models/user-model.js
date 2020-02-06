@@ -69,7 +69,7 @@ async function updateUserById(user) {
                     const jsonResponse = JSON.parse(body);
                     console.log('JSON Response\n');
                     return new Promise((resolve,reject) => {
-                        conn.query("UPDATE voters SET gender='"+user.gender+"',face_id='"+jsonResponse[0].faceId+"',face_name='"+user.faceName+"',mobile_no='"+user.mobile_no+"' WHERE voter_id='"+user.voter_id+"';", (error,rows,fields)=>{
+                        conn.query("UPDATE voters SET name='"+user.name+"',gender='"+user.gender+"',face_id='"+jsonResponse[0].faceId+"',face_name='"+user.faceName+"',mobile_no='"+user.mobile_no+"' WHERE voter_id='"+user.voter_id+"';", (error,rows,fields)=>{
                             if(error) {
                                 console.log(error);
                                 reject({success:false,error});
