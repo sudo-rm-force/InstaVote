@@ -46,7 +46,7 @@ class RegistrationForm extends Component {
 
     onButtonPress(event) {
         event.preventDefault()
-        registerApi(this.state.VoterID, this.state.Gender, this.state.MobileNo, this.state.FaceID, this.props.faceName).then((res) => {
+        registerApi(this.state.VoterID, this.state.Name, this.state.Gender, this.state.MobileNo, this.state.FaceID, this.props.faceName).then((res) => {
             window.alert('Registration complete for '+this.state.Name)
             window.location = '/'
         })
