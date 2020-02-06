@@ -53,12 +53,10 @@ class Candidates extends Component {
 
     async onSubmit(event) {
         event.preventDefault();
-        await registerCandidateApi(parseInt(this.state.CandidateId), this.state.Name, this.state.Party, parseInt(this.state.ConstituencyId)).then((res) => {
-            this.state.election.methods.assignCandidateToConstituency(parseInt(this.state.CandidateId), parseInt(this.state.ConstituencyId), parseInt(this.state.AdminId)).send({ from: localStorage.getItem("admin-account") }).then((res) => {
-                window.alert('Registration successful of ' + this.state.Name)
-                document.location.reload()
-            })
-        })
+        await registerCandidateApi(parseInt(this.state.CandidateId), this.state.Name, this.state.Party, parseInt(this.state.ConstituencyId))
+        await this.state.election.methods.assignCandidateToConstituency(parseInt(this.state.CandidateId), parseInt(this.state.ConstituencyId), parseInt(this.state.AdminId)).send({ from: localStorage.getItem("admin-account") })
+        window.alert('Registration successful of ' + this.state.Name)
+        document.location.reload()
     }
 
     render() {

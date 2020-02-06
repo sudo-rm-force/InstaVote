@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../../global'
 import '../../styles/main.scss'
-import userApi from '../../api/userApi';
 
 class Profile extends Component {
     constructor(props) {
@@ -17,19 +16,6 @@ class Profile extends Component {
 
     hidesignout() {
         this.props.hidesignout()
-    }
-
-    componentDidMount() {
-        userApi(this.props.id).then((res) => {
-            console.log(res)
-            // const voter = res.data[0]
-            // console.log(voter)
-            // this.setState({
-            //     name:voter.name,
-            //     voter_id:voter.voter_id,
-            //     constituency_id:voter.constituency_id
-            // })
-        })
     }
 
     render() {
