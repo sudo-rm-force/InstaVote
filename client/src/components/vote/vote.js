@@ -104,7 +104,7 @@ class Vote extends Component {
                     <div className='vote' onClick={this.hidesignout}>
                         <div className='vote--heading'>Vote Ballot</div>
                         <div className='vote--ballot'>
-                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} image={this.getParty(candidate.party)} id={candidate.candidate_id} />))}
+                            {this.state.candidates.map((candidate) => (<Candidate name={candidate.name} setCandidate={this.setCandidate} party={candidate.party} id={candidate.candidate_id} />))}
                         </div>
                         <button className='vote--clearall' type='button'>Clear All</button>
                         <button className='vote--submit' type='submit' onClick={this.onVote}>Vote</button>

@@ -1,0 +1,30 @@
+{
+    "0": {
+        "name": "BJP",
+        "partyImage": "https://i.imgur.com/qhwvdOp.jpg"
+    },
+    "1": {
+        "name": "BSP",
+        "partyImage": "https://i.imgur.com/HTiEqg8.png"
+    },
+    "2": {
+        "name": "AITC",
+        "partyImage": "https://i.imgur.com/S7FkZ41.png"
+    },
+    "3": {
+        "name": "CPI",
+        "partyImage": "https://i.imgur.com/zAPq8R4.png"
+    },
+    "4": {
+        "name": "INC",
+        "partyImage": "https://i.imgur.com/D2oLSK5.png"
+    },
+    "5": {
+        "name": "NCP",
+        "partyImage": "https://i.imgur.com/mcJhbVF.png"
+    },
+    "6": {
+        "name": "AAP",
+        "partyImage": "https://i.imgur.com/43Tcnic.jpg"
+    }
+}

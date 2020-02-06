@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../styles/main.scss'
+import partyImg from '../candidate/party.json'
 
 class CandidatePanel extends Component {
     constructor(props) {
@@ -17,7 +18,13 @@ class CandidatePanel extends Component {
                 <div className='candidatepanel--name'>
                     {this.props.name}
                 </div>
-                <img className='candidatepanel--icon' src={this.props.image} alt='icon' />
+                {
+                    Object.keys(partyImg).map((ind) => {
+                        if(partyImg[ind].name==this.props.party) {
+                            return <img className='candidatepanel--icon' src={partyImg[ind].partyImage} alt='icon' />
+                        }
+                    })
+                }
                 <input className='candidatepanel--radio' onChange={this.setCandidate} type='radio' name='vote' value={this.props.id} /> 
             </div>
         )

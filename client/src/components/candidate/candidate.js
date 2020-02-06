@@ -40,7 +40,7 @@ class Candidate extends Component {
             <div className='candidate' onClick={this.hidesignout} >
                 <div className='candidate--heading'>Candidates</div>
                 <div className='candidate--list'>
-                    {this.state.candidates.map((candidate, index) => (<CandidateCard key={index} name={candidate.name} image={bsp} />))}
+                    {this.state.candidates.map((candidate, index) => (<CandidateCard key={index} name={candidate.name} image={candidate.party} party={candidate.party}/>))}
                 </div>
             </div>
         )
