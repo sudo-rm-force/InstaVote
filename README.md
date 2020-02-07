@@ -18,6 +18,10 @@ The user will have to simply register as a voter and/or candidate with their cre
 
 The election manager can regulate the election processes such as deciding the election day and outing the results. The candidate can see their personal result on logging in the DApp after the election ends and the results are outed.
 
+The culminated architecture is displayed in the figure below:
+
+![Architecture](https://i.imgur.com/8NTWzec.png)
+
 The technology stack we are using using:
 
 1. Azure decentralized blockchain server
